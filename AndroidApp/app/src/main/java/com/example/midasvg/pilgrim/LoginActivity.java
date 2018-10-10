@@ -40,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
         checkCameraPermission();
     }
 
-
+    //Deze methode gaat een pop-up geven wanneer de app voor de eerste keer wordt
+    //opgestart om te vragen of de Camera mag gebruikt worden.
     private void checkCameraPermission(){
         if(ContextCompat.checkSelfPermission(LoginActivity.this,
                 Manifest.permission.CAMERA)
