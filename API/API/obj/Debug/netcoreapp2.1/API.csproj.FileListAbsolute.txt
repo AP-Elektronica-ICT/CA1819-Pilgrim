@@ -12,3 +12,17 @@ E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\bin\Debug\n
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.dll
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.deps.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.pdb
