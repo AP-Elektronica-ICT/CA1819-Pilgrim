@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_game"
+        android:title="Game"
+        android:icon="@drawable/ic_baseline_flag_24px"/>
+
+    <item
+        android:id="@+id/nav_collections"
+        android:title="Collections"
+        android:icon="@drawable/ic_baseline_library_books_24px"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_outline_24px"/>
+
+    <item
+        android:id="@+id/nav_squad"
+        android:title="Squad"
+        android:icon="@drawable/ic_baseline_people_outline_24px"/>
+
+    <item
+        android:id="@+id/nav_leaderboard"
+        android:title="Leaderboard"
+        android:icon="@drawable/ic_baseline_poll_24px"/>
+
+    <item
+        android:id="@+id/nav_contact"
+        android:title="Contact"
+        android:icon="@drawable/ic_baseline_mail_outline_24px"/>
+</menu>
