@@ -1,10 +1,13 @@
 package com.example.midasvg.pilgrim;
 
+import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +25,18 @@ public class MainActivity extends AppCompatActivity {
         nDrawerLayout.addDrawerListener(nToggle);
         nToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        //Button staat nu aan & kan gebruikt worden.
+        //Het is de bedoeling dat de button disabled wordt, tot de speler bij het startpunt komt.
+        final Button startButton = (Button) findViewById(R.id.bttnStart);
+        startButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
