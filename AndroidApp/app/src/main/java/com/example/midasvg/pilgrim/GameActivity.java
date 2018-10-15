@@ -17,7 +17,7 @@ public class GameActivity extends AppCompatActivity {
         openCamera.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = getPackageManager().getLaunchIntentForPackage("com.issam.Tutorial");
+                Intent intent = getPackageManager().getLaunchIntentForPackage("com.issam.PilgrimAr");
                 startActivity(intent);
             }
         });
