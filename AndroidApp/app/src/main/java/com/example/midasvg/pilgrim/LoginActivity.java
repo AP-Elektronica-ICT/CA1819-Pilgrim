@@ -20,6 +20,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
+    private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +50,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        checkCameraPermission();
+        //checkCameraPermission();
+        checkPositioningPermission();
     }
 
     //Deze methode gaat een pop-up geven wanneer de app voor de eerste keer wordt
@@ -61,11 +63,30 @@ public class LoginActivity extends AppCompatActivity {
             //Permission is not granted
             if(ActivityCompat.shouldShowRequestPermissionRationale(LoginActivity.this,
                     Manifest.permission.CAMERA)){
+                Toast.makeText(this, "Permission already granted", Toast.LENGTH_SHORT).show();
+
 
             }else{
                 ActivityCompat.requestPermissions(LoginActivity.this,
                         new String[]{Manifest.permission.CAMERA},
                         MY_PERMISSIONS_REQUEST_CAMERA);
+            }
+        }
+    }
+
+    private void checkPositioningPermission(){
+        if(ContextCompat.checkSelfPermission(LoginActivity.this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+            //Permission is not granted
+            if(ActivityCompat.shouldShowRequestPermissionRationale(LoginActivity.this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)){
+                Toast.makeText(this, "Permission already granted", Toast.LENGTH_SHORT).show();
+
+            }else{
+                ActivityCompat.requestPermissions(LoginActivity.this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
             }
         }
     }

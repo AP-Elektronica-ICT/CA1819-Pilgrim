@@ -2,4 +2,5 @@
     <string name="app_name">Pilgrim</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="start_now">Start Now</string>
 </resources>

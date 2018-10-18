@@ -42,6 +42,6 @@ import { EditlocationComponent } from './editlocation/editlocation.component';
   ],
   schemas: [ NO_ERRORS_SCHEMA ], 
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
