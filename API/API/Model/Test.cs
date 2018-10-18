@@ -9,6 +9,11 @@ namespace API.Model
     {
         public int ID { get; set; }
         public string Naam { get; set; }
-        public int value { get; set; }
+        public string Description { get; set; }
+        public double Lat { get; set; }
+        public double Long { get; set; }
+        public string Question { get; set; }
+        public string hint1 { get; set; }
+        public string hint2 { get; set; }
     }
 }

@@ -32,12 +32,10 @@ namespace API.Controllers
         [HttpPost]
         public IActionResult CreateTest([FromBody] Test newTest)
         {
-            var newTest1 = new Test();
-            newTest1.Naam = newTest.Naam;
-            newTest1.value = newTest.value;
-            context.Tests.Add(newTest1);
+            
+            context.Tests.Add(newTest);
             context.SaveChanges();
-            return Created("", newTest1);
+            return Created("", newTest);
         }
 
     }

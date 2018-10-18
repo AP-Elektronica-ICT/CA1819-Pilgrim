@@ -1,0 +1,92 @@
+<mdb-card id="Kaart">
+  <mdb-card-body>
+    <mdb-card-title> <h4>New location</h4> </mdb-card-title>
+    <form>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="md-form">
+              <input mdbInputDirective type="text" name="text4" [(ngModel)]="locationName" id="formName" class="form-control" [mdbValidate]="false">
+              <label for="formName" class="">Name of location</label>
+            </div>
+          </div>
+        </div>
+        <!--First row-->
+        <div class="row">
+          <!--First column-->
+          <div class="col-md-6">
+              <div class="md-form">
+                  <i class="fa fa-globe prefix"></i>
+                  <input mdbInputDirective type="text" class="form-control" id="locationLatitude" name="locationLatitude" [(ngModel)]="locationLatitude" [mdbValidate]="false">
+                  <label for="form9">Latitude</label>
+            </div>
+          </div>
+      
+            <!--Second column-->
+          <div class="col-md-6">
+              <div class="md-form">
+                  <i class="fa fa-globe prefix"></i>
+                  <input mdbInputDirective type="text" class="form-control" id="locationLongitude" name="locationLongitude" [(ngModel)]="locationLongitude" [mdbValidate]="false">
+                  <label for="form10">Longitude</label>
+              </div>
+          </div>
+        </div>
+        <!--/.First row-->
+      
+        <!--Second row-->
+        <div class="row">
+            <!--First column-->
+            <div class="col-md-12">
+      
+                <div class="md-form">
+                    <textarea mdbInputDirective type="text" id="locationDesctiption" class="md-textarea form-control" rows="3" name="locationDesctiption" [(ngModel)] ="locationDesctiption" [mdbValidate]="false"></textarea>
+                    <label for="locationDesctiption">Description</label>
+                </div>
+      
+            </div>
+        </div>
+        <!--/.Second row-->
+      
+        <!--Third row-->
+        <div class="row">
+      
+            <!--First column-->
+            <div class="col-md-8">
+                <div class="md-form">
+                    <input mdbInputDirective type="text" id="locationQuestion" class="form-control" name="locationQuestion" [(ngModel)]="locationQuestion" [mdbValidate]="false">
+                    <label for="locationQuestion" class="">Question</label>
+                </div>
+            </div>
+      
+            <!--Third column-->
+            <div class="col-md-4">
+                <div class="md-form">
+                    <input mdbInputDirective type="text" id="locationAnswer" class="form-control" name="locationAnswer" [(ngModel)]="locationAnswer" [mdbValidate]="false">
+                    <label for="locationAnswer" class="">Answer</label>
+                </div>
+            </div>
+      
+        </div>
+        <!--/.Third row-->
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="md-form">
+              <input mdbInputDirective type="text" id="locationHint1" class="form-control" name="locationHint1" [(ngModel)]="locationHint1" [mdbValidate]="false">
+              <label for="locationHint1" class="">Hint 1</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="md-form">
+              <input mdbInputDirective type="text" id="locationHint2" class="form-control" name="locationHint2" [(ngModel)]="locationHint2" [mdbValidate]="false"> 
+              <label for="locationHint2" class="">Hint 2</label>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button mdbBtn type="button" color="primary" class="waves-light" (click)="Klik('Open')" mdbWavesEffect>Open</button>
+      <button mdbBtn type="button" color="primary" class="waves-light" (click)="Klik('Close')" mdbWavesEffect>Close</button>
+  </mdb-card-body>
+
+  
+</mdb-card>
