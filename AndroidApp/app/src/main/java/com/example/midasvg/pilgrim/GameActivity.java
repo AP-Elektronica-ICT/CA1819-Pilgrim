@@ -10,11 +10,16 @@ import android.widget.Button;
 
 public class GameActivity extends AppCompatActivity {
 
+    private double[] currentPlace = {1,2};
+    private double[] nextPlace ={3,4};
+    private double distance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        //Deze knop opent de vuforia app
         final Button openCamera = (Button) findViewById(R.id.bttnCamera);
         openCamera.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -24,6 +29,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+        //Alert message wanneer de gebruiker in game zit en op 'Quit' drukt.
         final Button quitGame = (Button) findViewById(R.id.bttnQuit);
         quitGame.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,5 +57,10 @@ public class GameActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+    }
+
+    //afstand tussen twee coördinaten berekenen
+    private void checkDistance(){
+        distance = Math.sqrt((Math.pow(nextPlace[0]-currentPlace[0],2)+(Math.pow(nextPlace[1]-currentPlace[1],2))));
     }
 }
