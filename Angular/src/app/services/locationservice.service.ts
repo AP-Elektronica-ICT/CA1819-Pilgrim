@@ -13,13 +13,15 @@ export class LocationserviceService {
   add$ = this.addSource.asObservable();
 
   openEdit(){
-    this.editSource.next(true)
+    this.addSource.next(false);
+    this.editSource.next(true);
   }
   closeEdit(){
     this.editSource.next(false)
   }
   openAdd(){
-    this.addSource.next(true)
+    this.editSource.next(false);
+    this.addSource.next(true);
   }
   closeAdd(){
     this.addSource.next(false)

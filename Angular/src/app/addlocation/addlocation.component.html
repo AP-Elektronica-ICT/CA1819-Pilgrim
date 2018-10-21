@@ -44,10 +44,9 @@
         <div class="row">
             <!--First column-->
             <div class="col-md-12">
-      
                 <div class="md-form">
-                    <textarea mdbInputDirective type="text" id="locationDesctiption" class="md-textarea form-control" rows="3" name="locationDesctiption" [(ngModel)] ="locationDesctiption" [mdbValidate]="false"></textarea>
-                    <label for="locationDesctiption">Description</label>
+                    <textarea mdbInputDirective type="text" id="locationInformation" class="md-textarea form-control" rows="3" name="locationInformation" [(ngModel)] ="locationInformation" [mdbValidate]="false"></textarea>
+                    <label for="locationInformation">Information</label>
                 </div>
       
             </div>
@@ -60,9 +59,10 @@
             <!--First column-->
             <div class="col-md-8">
                 <div class="md-form">
-                    <input mdbInputDirective type="text" id="locationQuestion" class="form-control" name="locationQuestion" [(ngModel)]="locationQuestion" [mdbValidate]="false">
-                    <label for="locationQuestion" class="">Question</label>
+                    <textarea mdbInputDirective type="text" id="locationCrypticDesctiption" class="md-textarea form-control" rows="3" name="locationCrypticDesctiption" [(ngModel)] ="locationCrypticDesctiption" [mdbValidate]="false"></textarea>
+                    <label for="locationCrypticDesctiption">Cryptic description</label>
                 </div>
+
             </div>
       
             <!--Third column-->
@@ -93,7 +93,7 @@
         </div>
         <div class="row">
           <div class="col-md-12" id="knopcol">
-            <button mdbBtn type="button" color="success" class="waves-light" (click)="Klik('closeEdit')" id="addKnop" mdbWavesEffect>Add location</button>
+            <button mdbBtn type="button" color="success" class="waves-light" (click)="Klik('closeAdd')" id="addKnop" mdbWavesEffect>Add location</button>
           </div>
         </div>
       </form>

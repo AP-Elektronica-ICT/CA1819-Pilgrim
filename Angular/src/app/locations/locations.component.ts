@@ -23,8 +23,8 @@ export class LocationsComponent implements OnInit {
 
   ngOnInit() {
   }
-  editLocation:boolean = true;
-  addLocation:boolean = true;
+  editLocation:boolean = false;
+  addLocation:boolean = false;
 
   test(){
     this.editLocation = true;

@@ -1,3 +1,96 @@
-<p>
-  locationlist works!
-</p>
+
+<div id="OpperDiv">
+  <div class="card" id="kaart">
+      <div class="card-body">
+          <table class="table table-hover">
+              <thead>
+                  <tr id="SearchBar">
+                      <th colspan="6" style="vertical-align: middle; text-align: center; margin: auto; width: auto; height: auto;"> 
+                          <div style="width: auto; float: left; vertical-align: middle;">
+                            <button type="button" class="btn btn-primary waves-light" (click)="Klik('AddLocation')" mdbRippleRadius>Add new location</button>
+                          </div>
+                          
+                      
+                          <div style="float:right">
+                          <form class="form-inline" id="searchBar" >
+                          <div class="input-group" id="searchDiv">
+                          <div style="width: 20em; float: left; vertical-align: middle; margin-left: 1em; margin-right: 1em;">
+                              <input class="form-control mr-sm-2" [(ngModel)]="SearchGame"  type="text" name="text"  placeholder="Search" mdbWavesEffect style=" color: black; border-color: #00c853; border-width: 2px; float: left; width: 10em;"  >  
+                              <button class="btn btn-outline-success align-middle btn-sm my-0 waves-light" type="submit" (click)="Search()" mdbWavesEffect >Search</button>
+                          </div></div></form>
+                        </div>
+                      </th>
+                      
+                  </tr>
+                  <tr>
+                      <th colspan="1">Name</th>
+                      <th colspan="3">Cryptic description</th>
+                      <th colspan="1">Answer</th>
+                      <th colspan="1"></th>
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td id="row" colspan="1">MAS</td>
+                    <td id="row" colspan="3">Near the water this red bricked building resides. Two different docks, it divides. Find the firts letter of its name,outside,before you get caught up by the tide.</td>
+                    <td id="row" colspan="1">50</td>
+                    <td id="row" colspan="1">
+                        <div style="float:right">
+                            <!-- <i class="fa fa-edit" (click)="update(s.id, 'studio', studios.indexOf(s))"></i> -->
+                            <i class="fa fa-edit" (click)="Klik('Update')"></i>
+                        </div> <div style="clear:both;float:right">
+                            <i class="fa fa-close" (click)="delete(s.id, 'studio')"></i>
+                        </div>
+                    </td>
+                  </tr>
+                  <tr *ngFor="let l of locaties">
+                      <td id="row">{{l.naam}}</td>
+                      <td id="row">{{l.vraag}}</td>
+                      <td id="row">{{l.antwoord}}</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+<!--
+<div id="OpperDiv2">
+    <mdb-card id="Kaart">
+        <mdb-card-body>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary waves-light" (click)="Klik('AddLocation')" mdbRippleRadius>Add new location</button>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <form class="form-inline" id="searchBar" >
+                        <div class="input-group" id="searchDiv">
+                            <div style="width: 20em; float: left; vertical-align: middle; margin-left: 1em; margin-right: 1em;">
+                                <input class="form-control mr-sm-2" [(ngModel)]="SearchGame"  type="text" name="text"  placeholder="Search" mdbWavesEffect style=" color: black; border-color: #00c853; border-width: 2px; float: left; width: 10em;"  >  
+                                <button class="btn btn-outline-success align-middle btn-sm my-0 waves-light" type="submit" (click)="Search()" mdbWavesEffect >Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td>Naam</td>
+                            <td>Vraag</td>
+                            <td>antwoord</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </mdb-card-body>
+    </mdb-card>
+</div>
+
+-->
