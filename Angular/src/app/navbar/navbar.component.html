@@ -1,0 +1,16 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo" id="bar">
+    <logo>
+        <a href="#" class="navbar-brand">PILGRIM</a>
+    </logo>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link waves-light" [routerLink]="['/home']" mdbWavesEffect>Home</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link waves-light" [routerLink]="['/locations']" mdbWavesEffect>Locations</a>
+            </li>
+        </ul>
+    </links>
+</mdb-navbar>
+          

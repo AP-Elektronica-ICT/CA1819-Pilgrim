@@ -18,24 +18,17 @@ namespace API.Model
             {
                 var test1 = new Test()
                 {
-                    Naam = "Test1",
-                    value = 5,
+                    Naam = "AP hogeschool",
+                    Lat= 51.23014,
+                    Long = 4.415865,
+                    Description = "School",
+                    hint1 = "Test",
+                    hint2 = "Test",
+                    Question = "Test"
                 };
 
-                var test2 = new Test()
-                {
-                    Naam = "Test2",
-                    value = 10,
-                };
-
-                var test3 = new Test()
-                {
-                    Naam = "Test3",
-                    value = 80,
-                };
                 context.Tests.Add(test1);
-                context.Tests.Add(test2);
-                context.Tests.Add(test3);
+                
                 context.SaveChanges();
             }
         }
