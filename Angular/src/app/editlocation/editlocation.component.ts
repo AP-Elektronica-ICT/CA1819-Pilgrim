@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationserviceService } from '../services/locationservice.service';
 
 @Component({
   selector: 'app-editlocation',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditlocationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private locationService: LocationserviceService) { }
 
   ngOnInit() {
   }
@@ -20,5 +21,13 @@ export class EditlocationComponent implements OnInit {
   locationAnswer:string;
   locationHint1:string;
   locationHint2:string;
+
+  Klik(input:string){
+    switch(input){
+      case "closeEdit":
+        this.locationService.closeEdit();
+      break;
+    }
+  }
 
 }

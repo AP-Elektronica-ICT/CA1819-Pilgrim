@@ -9,7 +9,7 @@ import { LocationserviceService } from '../services/locationservice.service';
 })
 export class AddlocationComponent implements OnInit {
   
-  constructor(private locationservice: LocationserviceService) { }
+  constructor(private locationService: LocationserviceService) { }
 
   ngOnInit() {
     
@@ -25,11 +25,11 @@ export class AddlocationComponent implements OnInit {
   
   Klik(input:String){
     switch(input){
-      case "Open":
-        this.locationservice.openEdit();
+      case "closeAdd":
+        this.locationService.closeAdd();
       break;
-      case "Close":
-        this.locationservice.closeEdit();
+      case "closeEdit":
+        this.locationService.closeEdit();
       break;
       
     }

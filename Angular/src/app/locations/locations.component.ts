@@ -11,14 +11,19 @@ export class LocationsComponent implements OnInit {
   constructor(private locationsService:LocationserviceService) { 
     this.locationsService.edit$.subscribe(
       t => {
-        this.editLocation = t
+        this.editLocation = t;
+      }
+    )
+    this.locationsService.add$.subscribe(
+      s => {
+        this.addLocation = s;
       }
     )
   }
 
   ngOnInit() {
   }
-  editLocation:boolean = false;
+  editLocation:boolean = true;
   addLocation:boolean = true;
 
   test(){

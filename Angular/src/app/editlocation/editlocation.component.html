@@ -1,6 +1,14 @@
 <mdb-card id="Kaart">
   <mdb-card-body>
-    <mdb-card-title> <h4>Edit location</h4> </mdb-card-title>
+    <div class="row">
+      <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <mdb-card-title> <h4>Edit location</h4> </mdb-card-title>
+        </div>
+        <div class="col-md-1" id="closecol">
+          <i class="fa fa-times" (click)="Klik('closeEdit')" id="closebutton"></i>
+        </div>
+    </div>
     <form>
         <div class="row">
           <div class="col-md-12">
