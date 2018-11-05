@@ -20,7 +20,7 @@ public class GameActivity extends AppCompatActivity {
     private double[] currentPlace = {1,2};
     private double[] nextPlace ={3,4};
     private double distance;
-    int count = 0;
+    int count = 00;
     TextView txtTime;
     Timer T;
     @Override
@@ -30,7 +30,6 @@ public class GameActivity extends AppCompatActivity {
 
         txtTime = (TextView) findViewById(R.id.txtTime);
         //startClock();
-
         T = new Timer();
         T.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -38,8 +37,12 @@ public class GameActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
-                        txtTime.setText(count+"s");
+                        int hour = count%60;
+                        int min = count /60;
+                        int s = min %60;
+                        min = min/60;
+                        String str = String.format("%02d",min, "%02d", s, "%02d", hour);
+                        txtTime.setText(str);
                         count++;
                     }
                 });
@@ -86,7 +89,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     //Test:huidige tijd weergeven
-
+    /*
     private void startClock(){
         Thread t = new Thread() {
             @Override
@@ -113,7 +116,7 @@ public class GameActivity extends AppCompatActivity {
             }
         };
         t.start();
-    }
+    }*/
 
     //afstand tussen twee coördinaten berekenen
     private void checkDistance(){
