@@ -21,6 +21,7 @@ public class GameActivity extends AppCompatActivity {
     private double[] nextPlace ={3,4};
     private double distance;
     int count = 00;
+    int placesVisited = 0;
     TextView txtTime;
     Timer T;
     @Override
@@ -28,63 +29,73 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        txtTime = (TextView) findViewById(R.id.txtTime);
-        //startClock();
-        T = new Timer();
-        T.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        int s = count%60;
-                        int min = count /60;
-                        int hour = min %60;
-                        min = min/60;
-                        txtTime.setText(hour+":"+min+":"+s);
-                        count++;
-                    }
-                });
-            }
-        }, 1000,1000);
+        while (placesVisited < 10){
 
-        //Deze knop opent de vuforia app
-        final Button openCamera = (Button) findViewById(R.id.bttnCamera);
-        openCamera.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = getPackageManager().getLaunchIntentForPackage("com.issam.PilgrimAr");
-                startActivity(intent);
-            }
-        });
+            txtTime = (TextView) findViewById(R.id.txtTime);
+            //startClock();
+            T = new Timer();
+            T.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            int s = count%60;
+                            int min = count /60;
+                            int hour = min %60;
+                            min = min/60;
+                            txtTime.setText(hour+":"+min+":"+s);
+                            count++;
+                        }
+                    });
+                }
+            }, 1000,1000);
 
-        //Alert message wanneer de gebruiker in game zit en op 'Quit' drukt.
-        final Button quitGame = (Button) findViewById(R.id.bttnQuit);
-        quitGame.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-                builder.setCancelable(true);
-                builder.setTitle("Are you sure you want to quit?");
-                builder.setMessage("The progress you've made will be deleted & you will not recieve any points!");
+            //Deze knop opent de vuforia app
+            final Button openCamera = (Button) findViewById(R.id.bttnCamera);
+            openCamera.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    Intent intent = getPackageManager().getLaunchIntentForPackage("com.issam.PilgrimAr");
+                    startActivity(intent);
+                }
+            });
 
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+            //Alert message wanneer de gebruiker in game zit en op 'Quit' drukt.
+            //Timer wordt ook gestopt
+            final Button quitGame = (Button) findViewById(R.id.bttnQuit);
+            quitGame.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                    builder.setCancelable(true);
+                    builder.setTitle("Are you sure you want to quit?");
+                    builder.setMessage("The progress you've made will be deleted & you will not recieve any points!");
 
-                builder.setPositiveButton("Quit", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(GameActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    }
-                });
-                builder.show();
-            }
-        });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+
+                    builder.setPositiveButton("Quit", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            T.cancel();
+                            Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+                    builder.show();
+                }
+            });
+
+        }
+        // Naar eindscherm gaan als bezochte plaatsen gelijk is aan 10
+        Intent intent = new Intent(GameActivity.this, EndActivity.class);
+        startActivity(intent);
+
     }
 
     //Test:huidige tijd weergeven
