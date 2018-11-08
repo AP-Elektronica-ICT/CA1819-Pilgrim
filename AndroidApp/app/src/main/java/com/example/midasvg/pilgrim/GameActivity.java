@@ -37,12 +37,11 @@ public class GameActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        int hour = count%60;
+                        int s = count%60;
                         int min = count /60;
-                        int s = min %60;
+                        int hour = min %60;
                         min = min/60;
-                        String str = String.format("%02d",min, "%02d", s, "%02d", hour);
-                        txtTime.setText(str);
+                        txtTime.setText(hour+":"+min+":"+s);
                         count++;
                     }
                 });
