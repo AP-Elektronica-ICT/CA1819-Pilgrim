@@ -2,6 +2,8 @@ package com.example.midasvg.pilgrim;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -128,8 +130,28 @@ public class GameActivity extends AppCompatActivity {
         if(distance >= nextPlace[0]+10 && distance >= nextPlace[1]+10){
             //notificatie dat gebruiker te ver is
 
+            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
+                    .setDefaults(NotificationCompat.DEFAULT_ALL)
+                    .setSmallIcon(R.mipmap.ic_launcher_round)
+                    .setContentTitle("Warning!")
+                    .setContentText("You are heading in the wrong direction. Review the previous hint, or ask for a another one if you can't find the solution.")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+            notificationManagerCompat.notify(1,notBuilder.build());
+
         }else if(distance <= nextPlace[0]-10 && distance <= nextPlace[1]-10){
             //notificatie dat gebruiker dichterbij komt
+
+            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
+                    .setDefaults(NotificationCompat.DEFAULT_ALL)
+                    .setSmallIcon(R.mipmap.ic_launcher_round)
+                    .setContentTitle("Good job!")
+                    .setContentText("You are getting closer to the next target. Keep following this route!")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+            notificationManagerCompat.notify(2,notBuilder.build());
 
         }
     }
