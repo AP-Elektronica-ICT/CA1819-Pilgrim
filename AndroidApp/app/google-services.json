@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "503653609961",
+    "firebase_url": "https://pilgrim-219508.firebaseio.com",
+    "project_id": "pilgrim-219508",
+    "storage_bucket": "pilgrim-219508.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503653609961:android:898bbd6e97e30dd7",
+        "android_client_info": {
+          "package_name": "com.example.midasvg.pilgrim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503653609961-d3c3hhn81bncpi4calorqm0ek8ooh5d4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.midasvg.pilgrim",
+            "certificate_hash": "9ebdd208f8cc82b6886e1ca0fa24a33b9ab6c6de"
+          }
+        },
+        {
+          "client_id": "503653609961-htle4nebkeihli70d7ejuc3s4eec1g1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGCT5FXZwTwW5Te0-6TSa658yy2cv3X-M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503653609961-htle4nebkeihli70d7ejuc3s4eec1g1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

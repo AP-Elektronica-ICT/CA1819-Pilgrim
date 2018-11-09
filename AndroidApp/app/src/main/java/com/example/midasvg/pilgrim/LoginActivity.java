@@ -11,16 +11,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewDebug;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.common.internal.Objects;
+
+import java.io.Console;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
+
+    CallbackManager callbackManager;
+    LoginButton loginFacebook;
+    private static final String EMAIL = "email";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +50,20 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         getSupportActionBar().hide();
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+
+
+        loginFacebook = (LoginButton) findViewById(R.id.login_button);
+        loginFacebook.setReadPermissions(Arrays.asList(EMAIL));
+
+        facebookLogin();
+
+
+
+
+
 
         //Login knop, voorlopig enkel hardcoded, brengt de gebruiker naar het hoofdscherm.
         final Button loginButton = (Button) this.findViewById(R.id.loginBttn);
@@ -92,7 +126,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    private void facebookLogin(){
+        LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Login succesful", Toast.LENGTH_SHORT).show();
 
+            }
 
+            @Override
+            public void onCancel() {
+                Toast.makeText(getApplicationContext(), "Login with Facebook cancelled", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.w("Error", error);
+                Toast.makeText(getApplicationContext(), "An error occurred, please try again", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
 }

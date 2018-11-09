@@ -3,4 +3,10 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="start_now">Start Now</string>
+
+    <string name="facebook_app_id">281213572521072</string>
+    <string name="fb_login_protocol_scheme">fb281213572521072</string>
+
+
+
 </resources>

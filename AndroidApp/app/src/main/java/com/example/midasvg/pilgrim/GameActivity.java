@@ -29,8 +29,6 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        while (placesVisited < 10){
-
             txtTime = (TextView) findViewById(R.id.txtTime);
             //startClock();
             T = new Timer();
@@ -90,11 +88,6 @@ public class GameActivity extends AppCompatActivity {
                     builder.show();
                 }
             });
-
-        }
-        // Naar eindscherm gaan als bezochte plaatsen gelijk is aan 10
-        Intent intent = new Intent(GameActivity.this, EndActivity.class);
-        startActivity(intent);
 
     }
 
