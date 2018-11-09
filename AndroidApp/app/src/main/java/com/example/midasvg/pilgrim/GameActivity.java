@@ -44,7 +44,7 @@ public class GameActivity extends AppCompatActivity {
                             int min = count /60;
                             int hour = min %60;
                             min = min/60;
-                            txtTime.setText(hour+":"+min+":"+s);
+                            txtTime.setText(hour+"h"+min+"m"+s+"s");
                             count++;
                         }
                     });
@@ -57,6 +57,16 @@ public class GameActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v){
                     Intent intent = getPackageManager().getLaunchIntentForPackage("com.issam.PilgrimAr");
+                    startActivity(intent);
+                }
+            });
+
+            final Button helpButton = (Button) findViewById(R.id.bttnHelp);
+            helpButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(GameActivity.this, EndActivity.class);
+                    intent.putExtra("Time", txtTime.getText());
                     startActivity(intent);
                 }
             });
@@ -91,6 +101,12 @@ public class GameActivity extends AppCompatActivity {
                 }
             });
 
+            //Als alle plaatsen bezocht zijn schakelt de app over naar het eindscherm, tijd wordt meegegeven
+            if (placesVisited == 10){
+                Intent intent = new Intent(GameActivity.this, EndActivity.class);
+                intent.putExtra("Time", txtTime.getText());
+                startActivity(intent);
+            }
     }
 
     //Test:huidige tijd weergeven
