@@ -1,0 +1,9 @@
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.deps.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csprojAssemblyReference.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CoreCompileInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfoInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb

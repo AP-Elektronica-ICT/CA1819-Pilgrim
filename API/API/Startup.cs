@@ -10,9 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using API.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using BusinessLayer;
+using DataLinkLayer;
 
 namespace API
 {
@@ -28,17 +29,18 @@ namespace API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<LibraryContext>(
+            services.AddDbContext<Context>(
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")
                 )
             );
+            services.AddScoped<LocationService>();
             services.AddMvc();
             services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, LibraryContext libContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Context context)
         {
             if (env.IsDevelopment())
             {
@@ -49,10 +51,14 @@ namespace API
                 app.UseHsts();
             }
 
+            
             app.UseHttpsRedirection();
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             app.UseMvc();
-            DBInitializer.Initialize(libContext);
+
+            DbInit.Init(context);
+
         }
     }
 }
