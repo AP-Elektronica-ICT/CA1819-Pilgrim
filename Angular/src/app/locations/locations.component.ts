@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationserviceService } from '../services/locationservice.service';
+import { CommunicationsService } from '../services/communications.service';
 
 @Component({
   selector: 'app-locations',
@@ -8,13 +8,13 @@ import { LocationserviceService } from '../services/locationservice.service';
 })
 export class LocationsComponent implements OnInit {
 
-  constructor(private locationsService:LocationserviceService) { 
-    this.locationsService.edit$.subscribe(
+  constructor(private commService:CommunicationsService) { 
+    this.commService.edit$.subscribe(
       t => {
         this.editLocation = t;
       }
     )
-    this.locationsService.add$.subscribe(
+    this.commService.add$.subscribe(
       s => {
         this.addLocation = s;
       }

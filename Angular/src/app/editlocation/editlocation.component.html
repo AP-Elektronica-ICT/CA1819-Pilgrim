@@ -1,4 +1,4 @@
-<mdb-card id="Kaart">
+<mdb-card id="Kaart" *ngIf="location">
     <mdb-card-body>
       <div class="row">
         <div class="col-md-1"></div>
@@ -6,7 +6,7 @@
           <mdb-card-title> <h4>Edit location</h4> </mdb-card-title>
         </div>
         <div class="col-md-1" id="closecol">
-          <i class="fa fa-times" (click)="Klik('closeEdit')" id="closebutton"></i>
+          <i class="fa fa-times" (click)="closeEditLocation()" id="closebutton"></i>
         </div>
       </div>
       <form>
@@ -24,7 +24,7 @@
             <div class="col-md-6">
                 <div class="md-form">
                     <i class="fa fa-globe prefix"></i>
-                    <input mdbInputDirective type="text" class="form-control" id="locationLatitude" name="locationLatitude" [(ngModel)]="locationLatitude" [mdbValidate]="false">
+                    <input mdbInputDirective type="text" class="form-control" id="locationLatitude" name="locationLatitude" [(ngModel)]="location.lat" [mdbValidate]="false">
                     <label for="form9">Latitude</label>
               </div>
             </div>
@@ -33,7 +33,7 @@
             <div class="col-md-6">
                 <div class="md-form">
                     <i class="fa fa-globe prefix"></i>
-                    <input mdbInputDirective type="text" class="form-control" id="locationLongitude" name="locationLongitude" [(ngModel)]="locationLongitude" [mdbValidate]="false">
+                    <input mdbInputDirective type="text" class="form-control" id="locationLongitude" name="locationLongitude" [(ngModel)]="location.long" [mdbValidate]="false">
                     <label for="form10">Longitude</label>
                 </div>
             </div>
@@ -45,7 +45,7 @@
               <!--First column-->
               <div class="col-md-12">
                   <div class="md-form">
-                      <textarea mdbInputDirective type="text" id="locationInformation" class="md-textarea form-control" rows="3" name="locationInformation" [(ngModel)] ="locationInformation" [mdbValidate]="false"></textarea>
+                      <textarea mdbInputDirective type="text" id="locationInformation" class="md-textarea form-control" rows="3" name="locationInformation" [(ngModel)] ="location.description" [mdbValidate]="false"></textarea>
                       <label for="locationInformation">Information</label>
                   </div>
         
@@ -59,7 +59,7 @@
               <!--First column-->
               <div class="col-md-8">
                   <div class="md-form">
-                      <textarea mdbInputDirective type="text" id="locationCrypticDesctiption" class="md-textarea form-control" rows="3" name="locationCrypticDesctiption" [(ngModel)] ="locationCrypticDesctiption" [mdbValidate]="false"></textarea>
+                      <textarea mdbInputDirective type="text" id="locationCrypticDesctiption" class="md-textarea form-control" rows="3" name="locationCrypticDesctiption" [(ngModel)] ="location.crypticClue" [mdbValidate]="false"></textarea>
                       <label for="locationCrypticDesctiption">Cryptic description</label>
                   </div>
   
@@ -68,7 +68,7 @@
               <!--Third column-->
               <div class="col-md-4">
                   <div class="md-form">
-                      <input mdbInputDirective type="text" id="locationAnswer" class="form-control" name="locationAnswer" [(ngModel)]="locationAnswer" [mdbValidate]="false">
+                      <input mdbInputDirective type="text" id="locationAnswer" class="form-control" name="locationAnswer" [(ngModel)]="location.answer" [mdbValidate]="false">
                       <label for="locationAnswer" class="">Answer</label>
                   </div>
               </div>
@@ -79,21 +79,21 @@
           <div class="row">
             <div class="col-md-6">
               <div class="md-form">
-                <input mdbInputDirective type="text" id="locationHint1" class="form-control" name="locationHint1" [(ngModel)]="locationHint1" [mdbValidate]="false">
+                <input mdbInputDirective type="text" id="locationHint1" class="form-control" name="locationHint1" [(ngModel)]="location.hint1" [mdbValidate]="false">
                 <label for="locationHint1" class="">Hint 1</label>
               </div>
             </div>
   
             <div class="col-md-6">
               <div class="md-form">
-                <input mdbInputDirective type="text" id="locationHint2" class="form-control" name="locationHint2" [(ngModel)]="locationHint2" [mdbValidate]="false"> 
+                <input mdbInputDirective type="text" id="locationHint2" class="form-control" name="locationHint2" [(ngModel)]="location.hint2" [mdbValidate]="false"> 
                 <label for="locationHint2" class="">Hint 2</label>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12" id="knopcol">
-              <button mdbBtn type="button" color="success" class="waves-light" (click)="Klik('closeEdit')" id="addKnop" mdbWavesEffect>Edit location</button>
+              <button mdbBtn type="button" color="success" class="waves-light" (click)="editLocation()" id="addKnop" mdbWavesEffect>Edit location</button>
             </div>
           </div>
         </form>

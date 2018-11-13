@@ -6,7 +6,7 @@
         <mdb-card-title> <h4>New location</h4> </mdb-card-title>
       </div>
       <div class="col-md-1" id="closecol">
-        <i class="fa fa-times" (click)="Klik('closeAdd')" id="closebutton"></i>
+        <i class="fa fa-times" (click)="closeAddLocation()" id="closebutton"></i>
       </div>
     </div>
     <form>
@@ -45,7 +45,7 @@
             <!--First column-->
             <div class="col-md-12">
                 <div class="md-form">
-                    <textarea mdbInputDirective type="text" id="locationInformation" class="md-textarea form-control" rows="3" name="locationInformation" [(ngModel)] ="locationInformation" [mdbValidate]="false"></textarea>
+                    <textarea mdbInputDirective type="text" id="locationInformation" class="md-textarea form-control" rows="3" name="locationInformation" [(ngModel)] ="locationDescription" [mdbValidate]="false"></textarea>
                     <label for="locationInformation">Information</label>
                 </div>
       
@@ -59,7 +59,7 @@
             <!--First column-->
             <div class="col-md-8">
                 <div class="md-form">
-                    <textarea mdbInputDirective type="text" id="locationCrypticDesctiption" class="md-textarea form-control" rows="3" name="locationCrypticDesctiption" [(ngModel)] ="locationCrypticDesctiption" [mdbValidate]="false"></textarea>
+                    <textarea mdbInputDirective type="text" id="locationCrypticDesctiption" class="md-textarea form-control" rows="3" name="locationCrypticDesctiption" [(ngModel)] ="locationCryptic" [mdbValidate]="false"></textarea>
                     <label for="locationCrypticDesctiption">Cryptic description</label>
                 </div>
 
@@ -93,7 +93,7 @@
         </div>
         <div class="row">
           <div class="col-md-12" id="knopcol">
-            <button mdbBtn type="button" color="success" class="waves-light" (click)="Klik('closeAdd')" id="addKnop" mdbWavesEffect>Add location</button>
+            <button mdbBtn type="button" color="success" class="waves-light" (click)="addLocation()" id="addKnop" mdbWavesEffect>Add location</button>
           </div>
         </div>
       </form>

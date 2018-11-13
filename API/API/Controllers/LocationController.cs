@@ -49,5 +49,12 @@ namespace API.Controllers
                 return NotFound();
             return Ok();
         }
+
+        [HttpPut]
+        public IActionResult UpdateLocation([FromBody] Location updatedLocation) {
+            if (this.locationService.UpdateLocation(updatedLocation) == false)
+                return NotFound();
+            return Ok(updatedLocation);
+        }
     }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationsComponent } from '../locations/locations.component';
-import { LocationserviceService } from '../services/locationservice.service';
+import { CommunicationsService } from '../services/communications.service';
+import { LocationsService, INewLocation } from '../services/locations.service';
+
 
 @Component({
   selector: 'app-addlocation',
@@ -9,30 +11,45 @@ import { LocationserviceService } from '../services/locationservice.service';
 })
 export class AddlocationComponent implements OnInit {
   
-  constructor(private locationService: LocationserviceService) { }
+  constructor(private commService: CommunicationsService, private locService: LocationsService) { }
 
   ngOnInit() {
     
   }
   locationName:string;
-  locationLatitude:string;
-  locationLongitude:string;
+  locationLatitude:number;
+  locationLongitude:number;
   locationDescription:string;
-  locationQuestion:string;
+  locationCryptic:string;
   locationAnswer:string;
   locationHint1:string;
   locationHint2:string;
   
-  Klik(input:String){
-    switch(input){
-      case "closeAdd":
-        this.locationService.closeAdd();
-      break;
-      case "closeEdit":
-        this.locationService.closeEdit();
-      break;
-      
+  
+  
+
+  addLocation(){
+    var location : INewLocation = {
+      naam: this.locationName,
+      lat: this.locationLatitude,
+      long: this.locationLongitude,
+      description: this.locationDescription,
+      crypticClue: this.locationCryptic,
+      answer: this.locationAnswer,
+      hint1: this.locationHint1,
+      hint2: this.locationHint2 
     }
-    
+    this.locService.addLocation(location).subscribe(data => {
+      this.commService.addLocation(data);
+    },
+    error => {
+      if ( error.status == 400){
+        
+      }
+    })
+  }
+
+  closeAddLocation(){
+    this.commService.closeAdd();
   }
 }

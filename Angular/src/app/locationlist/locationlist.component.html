@@ -44,10 +44,18 @@
                         </div>
                     </td>
                   </tr>
-                  <tr *ngFor="let l of locaties">
-                      <td id="row">{{l.naam}}</td>
-                      <td id="row">{{l.vraag}}</td>
-                      <td id="row">{{l.antwoord}}</td>
+                  <tr *ngFor="let l of Locaties">
+                      <td id="row" colspan="1">{{l.naam}}</td>
+                      <td id="row" colspan="3">{{l.crypticClue}}</td>
+                      <td id="row" colspan="1">{{l.answer}}</td>
+                      <td id="row" colspan="1">
+                        <div style="float:right">
+                            <!-- <i class="fa fa-edit" (click)="update(s.id, 'studio', studios.indexOf(s))"></i> -->
+                            <i class="fa fa-edit" (click)="editLocation(Locaties.indexOf(l))"></i>
+                        </div> <div style="clear:both;float:right">
+                            <i class="fa fa-close" (click)="deleteLocation(l.id)"></i>
+                        </div>
+                    </td>
                   </tr>
               </tbody>
           </table>

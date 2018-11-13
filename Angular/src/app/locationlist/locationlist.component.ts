@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationserviceService } from '../services/locationservice.service';
+import { CommunicationsService } from '../services/communications.service';
+import { LocationsService, ILocation } from '../services/locations.service';
 
 @Component({
   selector: 'app-locationlist',
@@ -8,7 +9,15 @@ import { LocationserviceService } from '../services/locationservice.service';
 })
 export class LocationlistComponent implements OnInit {
 
-  constructor(private locationservice:LocationserviceService) { }
+  Locaties : ILocation[] = [];
+  constructor(private commService:CommunicationsService, private locService: LocationsService) { 
+    this.Load();
+    this.commService.addLocation$.subscribe(s =>{
+      this.addLocation(s);
+    })
+
+  }
+
 
   ngOnInit() {
   }
@@ -16,12 +25,37 @@ export class LocationlistComponent implements OnInit {
   Klik(input:string){
     switch(input){
       case "AddLocation":
-        this.locationservice.openAdd();
+        this.commService.openAdd();
       break;
       case "Update":
-        this.locationservice.openEdit();
+        this.commService.openEdit();
       break;
     }
   }
 
+  addLocation(newLocation: ILocation){
+    this.Locaties.push(newLocation);
+  }
+
+  deleteLocation(id: number){
+    this.locService.deleteLocation(id).subscribe(s =>{
+      this.Locaties.forEach(r => {
+        if (r.id == id)
+          this.Locaties.splice(this.Locaties.indexOf(r), 1);
+      })
+    })
+  }
+
+  Load(){
+    this.locService.getLocations().subscribe(s => {
+      s.forEach(r => {
+        this.Locaties.push(r);
+      });
+    })
+  }
+
+  editLocation(index: number){
+    this.commService.editLocation(this.Locaties[index]);
+    this.commService.openEdit();
+  }
 }

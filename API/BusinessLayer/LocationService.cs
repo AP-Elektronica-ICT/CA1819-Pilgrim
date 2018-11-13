@@ -33,7 +33,7 @@ namespace BusinessLayer
             if (newLocation.Description == "" || newLocation.Hint1 == "" || newLocation.Hint2 == "" || newLocation.Naam == "" || newLocation.CrypticClue == "" || newLocation.Answer == "" || newLocation.Lat == null || newLocation.Long == null)
                 return null;
 
-
+            //check if location already exists
             var exists = context.Locations.Any(m => m.Naam.ToLower().Equals(newLocation.Naam.ToLower()) || m.Long.Equals(newLocation.Long) || m.Lat.Equals(newLocation.Lat) || m.Hint1.ToLower().Equals(newLocation.Hint1.ToLower()) || m.Hint2.ToLower().Equals(newLocation.Hint2.ToLower()) || m.CrypticClue.ToLower().Equals(newLocation.CrypticClue.ToLower()) || m.Description.ToLower().Equals(newLocation.Description.ToLower()) || m.Answer.ToLower().Equals(newLocation.Answer.ToLower()));
             if (!exists)
             {
@@ -54,7 +54,22 @@ namespace BusinessLayer
             context.Locations.Remove(location);
             context.SaveChanges();
             return true;
+            // returns false if there is no location with that id, returns true if the location is deleted
+        }
 
+        public bool UpdateLocation(Location updatedlocation)
+        {
+            if (updatedlocation.Description == "" || updatedlocation.Hint1 == "" || updatedlocation.Hint2 == "" || updatedlocation.Naam == "" || updatedlocation.CrypticClue == "" || updatedlocation.Answer == "" || updatedlocation.Lat == null || updatedlocation.Long == null)
+                return false;
+            var location = context.Locations.Find(updatedlocation.ID);
+            if (location == null)
+                return false;
+            else
+            {
+                location.Naam = updatedlocation.Naam;
+                context.SaveChanges();
+                return true;
+            }
         }
     }
 }

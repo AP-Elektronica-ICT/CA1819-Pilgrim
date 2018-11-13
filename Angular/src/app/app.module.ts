@@ -13,6 +13,9 @@ import { AddlocationComponent } from './addlocation/addlocation.component';
 import { FormsModule } from '@angular/forms';
 import { LocationlistComponent } from './locationlist/locationlist.component';
 import { EditlocationComponent } from './editlocation/editlocation.component';
+import { LocationsService } from './services/locations.service';
+import { CommunicationsService } from './services/communications.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,11 +40,12 @@ import { EditlocationComponent } from './editlocation/editlocation.component';
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent},
     ], {useHash: true}), 
-    FormsModule
+    FormsModule,
+    HttpClientModule
     
   ],
   schemas: [ NO_ERRORS_SCHEMA ], 
-  providers: [],
+  providers: [LocationsService, CommunicationsService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
