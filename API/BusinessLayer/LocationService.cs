@@ -67,6 +67,13 @@ namespace BusinessLayer
             else
             {
                 location.Naam = updatedlocation.Naam;
+                location.Lat = updatedlocation.Lat;
+                location.Long = updatedlocation.Long;
+                location.CrypticClue = updatedlocation.CrypticClue;
+                location.Description = updatedlocation.Description;
+                location.Answer = updatedlocation.Answer;
+                location.Hint1 = updatedlocation.Hint1;
+                location.Hint2 = updatedlocation.Hint2;
                 context.SaveChanges();
                 return true;
             }
