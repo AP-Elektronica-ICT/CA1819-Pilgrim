@@ -1,19 +1,25 @@
 package com.example.midasvg.pilgrim;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,13 +32,72 @@ public class GameActivity extends AppCompatActivity {
     int placesVisited = 0;
     TextView txtTime;
     Timer T;
+    //coordinaten
+    private LocationManager locationManager;
+    private LocationListener locationListener;
+    double tempDistance=0;
+   public float dist = 0;
+    ArrayList<Double> arrayLat = new ArrayList<Double>();
+    ArrayList<Double> arrayLng = new ArrayList<Double>();
+    ArrayList<Double> distances = new ArrayList<>();
+    Location prevLocation = new Location("A");
+    Location currLocation = new Location("B");
+
+    //end coordinaten
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
             txtTime = (TextView) findViewById(R.id.txtTime);
+
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                //aangeroepen telkens de locatie wordt geupdate.
+
+                arrayLat.add(location.getLatitude());
+                arrayLng.add(location.getLongitude());
+
+
+               // textView.append("\n"+location.getLatitude() + "" + location.getLongitude());
+                //Log.d("locA", "locA: "+prevLocation.getLatitude());
+                Log.d("test", "onLocationChanged: "+location.getLatitude() + "" + location.getLongitude());
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+                //checkt of gps uitstaat
+
+            }
+        };
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.INTERNET
+            },10);
+            return;
+        }
+        else{
+            locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+
+        }
             //startClock();
+
             T = new Timer();
             T.scheduleAtFixedRate(new TimerTask() {
                 @Override
@@ -65,8 +130,10 @@ public class GameActivity extends AppCompatActivity {
             helpButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    getTravelledDist();
                     Intent intent = new Intent(GameActivity.this, EndActivity.class);
                     intent.putExtra("Time", txtTime.getText());
+                    intent.putExtra("distance",dist);
                     startActivity(intent);
                 }
             });
@@ -170,5 +237,39 @@ public class GameActivity extends AppCompatActivity {
             notificationManagerCompat.notify(2,notBuilder.build());
 
         }
+    }
+
+    public void getTravelledDist(){
+
+        for (int i = 0; i < arrayLat.size()-1; i++) {
+
+            //textView.append("\n"+location.getLatitude()+location.getLongitude());
+
+            prevLocation.setLatitude(arrayLat.get(i));
+            prevLocation.setLongitude(arrayLng.get(i));
+
+            if (i > arrayLat.size()){
+                currLocation.setLatitude(arrayLat.get(i));
+                currLocation.setLongitude(arrayLng.get(i));
+            }else {
+                currLocation.setLatitude(arrayLat.get(i + 1));
+                currLocation.setLongitude(arrayLng.get(i + 1));
+            }
+            tempDistance = prevLocation.distanceTo(currLocation);
+            distances.add(tempDistance);
+            dist += distances.get(i);
+
+            // prevDistance = tempDistance;
+            //  dist = dist + tempDistance;
+           // Log.d("distance", "tempdistance: "+tempDistance);
+            // Log.d("distance", "distance: "+dist);
+            //Log.d("test", "onLocationChanged: " + distances);
+
+
+           // txtDistance.setText(""+dist +"m");
+
+
+        }
+
     }
 }
