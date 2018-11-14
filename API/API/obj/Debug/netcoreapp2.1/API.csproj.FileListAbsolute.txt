@@ -45,3 +45,8 @@ E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netco
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CopyComplete
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CopyComplete

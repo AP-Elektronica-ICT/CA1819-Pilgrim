@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using DataLinkLayer;
 using DataLinkLayer.Models;
@@ -59,8 +61,37 @@ namespace BusinessLayer
 
         public bool UpdateLocation(Location updatedlocation)
         {
-            if (updatedlocation.Description == "" || updatedlocation.Hint1 == "" || updatedlocation.Hint2 == "" || updatedlocation.Naam == "" || updatedlocation.CrypticClue == "" || updatedlocation.Answer == "" || updatedlocation.Lat == null || updatedlocation.Long == null)
+
+            ArrayList properties = new ArrayList();
+            properties.Add(updatedlocation.CrypticClue);
+            properties.Add(updatedlocation.Description);
+            properties.Add(updatedlocation.Hint1);
+            properties.Add(updatedlocation.Hint2);
+            properties.Add(updatedlocation.Answer);
+            properties.Add(updatedlocation.Naam);
+
+
+            foreach (var item in properties)
+            {
+
+                if (item is string)
+                {
+                    System.Diagnostics.Debug.WriteLine("Item: " + item);
+                    if (this.isEmpty(item.ToString()))
+                        return false;
+                    
+                }
+              
+
+            }
+
+            if (isNull(updatedlocation.Lat))
                 return false;
+            if (isNull(updatedlocation.Long))
+                return false;
+
+            /*if (updatedlocation.Description == "" || updatedlocation.Hint1 == "" || updatedlocation.Hint2 == "" || updatedlocation.Naam == "" || updatedlocation.CrypticClue == "" || updatedlocation.Answer == "" || updatedlocation.Lat == null || updatedlocation.Long == null)
+                return false;*/
             var location = context.Locations.Find(updatedlocation.ID);
             if (location == null)
                 return false;
@@ -77,6 +108,20 @@ namespace BusinessLayer
                 context.SaveChanges();
                 return true;
             }
+        }
+
+
+        public bool isEmpty(string input) {
+            if (input == "")
+                return true;
+            return false;
+        }
+
+        public bool isNull(double? input)
+        {
+            if (input == null)
+                return true;
+            return false;
         }
     }
 }

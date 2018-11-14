@@ -40,6 +40,7 @@ export class EditlocationComponent implements OnInit {
   
 
   editLocation(){
+    console.log(this.locationLatitude);
     var location1: ILocation = {
       id : this.location.id,
       naam : this.locationName,

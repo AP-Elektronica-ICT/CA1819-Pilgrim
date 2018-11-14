@@ -31,19 +31,6 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                    <td id="row" colspan="1">MAS</td>
-                    <td id="row" colspan="3">Near the water this red bricked building resides. Two different docks, it divides. Find the firts letter of its name,outside,before you get caught up by the tide.</td>
-                    <td id="row" colspan="1">50</td>
-                    <td id="row" colspan="1">
-                        <div style="float:right">
-                            <!-- <i class="fa fa-edit" (click)="update(s.id, 'studio', studios.indexOf(s))"></i> -->
-                            <i class="fa fa-edit" (click)="Klik('Update')"></i>
-                        </div> <div style="clear:both;float:right">
-                            <i class="fa fa-close" (click)="delete(s.id, 'studio')"></i>
-                        </div>
-                    </td>
-                  </tr>
                   <tr *ngFor="let l of Locaties">
                       <td id="row" colspan="1">{{l.naam}}</td>
                       <td id="row" colspan="3">{{l.crypticClue}}</td>
