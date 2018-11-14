@@ -187,7 +187,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         this.doubleBackToExit = true;
-        Toast.makeText(this, "Press again to leave", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Press again to quit tour", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
             @Override

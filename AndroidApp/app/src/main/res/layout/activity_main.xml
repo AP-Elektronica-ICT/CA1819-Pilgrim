@@ -31,7 +31,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Antwerp"
+            android:text="@string/antwerp"
             android:textColor="@color/black"
             android:textSize="40sp"
             android:textStyle="normal"
@@ -50,7 +50,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Starting Point"
+            android:text="@string/starting_point"
             android:textColor="@color/charcoal"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
@@ -69,7 +69,6 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="Pilgrim"
-
             android:textColor="@color/charcoal"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
@@ -111,7 +110,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/viewofantwerp"
-            android:contentDescription="TODO" />
+             />
 
         <Button
             android:id="@+id/bttnStart"
@@ -140,7 +139,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="Go to the starting point before beginning the pilgrimage"
+            android:text="@string/go_to_the_starting_point_before_beginning_the_pilgrimage"
             android:background="@drawable/rounded_corner"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -164,7 +163,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.984"
-            app:srcCompat="@drawable/ic_baseline_flag_24px" />
+            app:srcCompat="@drawable/ic_baseline_flag_24px"
+             />
 
 
     </android.support.constraint.ConstraintLayout>
