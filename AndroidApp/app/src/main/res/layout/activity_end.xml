@@ -95,7 +95,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/bttnMain"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/rounded_corner"

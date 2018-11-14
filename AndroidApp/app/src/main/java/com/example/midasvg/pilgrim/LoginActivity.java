@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.nfc.Tag;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final int MY_PERMISSIONS_REQUEST_CAMERA = 1;
     private static final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
-
+    boolean doubleBackToExit = false;
     CallbackManager callbackManager;
     LoginButton loginFacebook;
     private static final String EMAIL = "email";
@@ -86,6 +87,24 @@ public class LoginActivity extends AppCompatActivity {
 
         //checkCameraPermission();
         checkPositioningPermission();
+    }
+
+    @Override
+    public  void onBackPressed(){
+        if (doubleBackToExit){
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExit = true;
+        Toast.makeText(this, "Press again to leave", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExit = false;
+            }
+        },2000);
     }
 
     //Deze methode gaat een pop-up geven wanneer de app voor de eerste keer wordt

@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
@@ -18,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -32,6 +34,7 @@ public class GameActivity extends AppCompatActivity {
     int placesVisited = 0;
     TextView txtTime;
     Timer T;
+    boolean doubleBackToExit = false;
     //coordinaten
     private LocationManager locationManager;
     private LocationListener locationListener;
@@ -176,35 +179,23 @@ public class GameActivity extends AppCompatActivity {
             }
     }
 
-    //Test:huidige tijd weergeven
-    /*
-    private void startClock(){
-        Thread t = new Thread() {
+    @Override
+    public  void onBackPressed(){
+        if (doubleBackToExit){
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExit = true;
+        Toast.makeText(this, "Press again to leave", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                try {
-                    while (!isInterrupted()) {
-                        Thread.sleep(1000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Calendar c = Calendar.getInstance();
-
-                                int hours = c.get(Calendar.HOUR_OF_DAY);
-                                int minutes = c.get(Calendar.MINUTE);
-                                int seconds = c.get(Calendar.SECOND);
-
-                                String curTime = String.format("%02d  %02d  %02d", hours, minutes, seconds);
-                                txtTime.setText(curTime);
-                            }
-                        });
-                    }
-                } catch (InterruptedException e) {
-                }
+                doubleBackToExit = false;
             }
-        };
-        t.start();
-    }*/
+        },2000);
+    }
 
     //afstand tussen twee coördinaten berekenen
     private void checkDistance(){
@@ -235,7 +226,6 @@ public class GameActivity extends AppCompatActivity {
 
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
             notificationManagerCompat.notify(2,notBuilder.build());
-
         }
     }
 
@@ -265,11 +255,39 @@ public class GameActivity extends AppCompatActivity {
             // Log.d("distance", "distance: "+dist);
             //Log.d("test", "onLocationChanged: " + distances);
 
-
            // txtDistance.setText(""+dist +"m");
-
-
         }
 
     }
+
+
+    //Test:huidige tijd weergeven
+    /*
+    private void startClock(){
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Calendar c = Calendar.getInstance();
+
+                                int hours = c.get(Calendar.HOUR_OF_DAY);
+                                int minutes = c.get(Calendar.MINUTE);
+                                int seconds = c.get(Calendar.SECOND);
+
+                                String curTime = String.format("%02d  %02d  %02d", hours, minutes, seconds);
+                                txtTime.setText(curTime);
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+        t.start();
+    }*/
 }
