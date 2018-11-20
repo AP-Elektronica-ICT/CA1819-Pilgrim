@@ -211,7 +211,7 @@
         app:layout_constraintVertical_bias="0.569" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtForgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

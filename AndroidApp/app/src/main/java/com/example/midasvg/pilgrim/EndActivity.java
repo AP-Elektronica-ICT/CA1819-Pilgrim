@@ -41,6 +41,5 @@ public class EndActivity extends AppCompatActivity {
             }
         });
 
-
     }
 }

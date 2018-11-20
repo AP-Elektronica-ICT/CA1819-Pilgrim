@@ -182,12 +182,31 @@ public class GameActivity extends AppCompatActivity {
     @Override
     public  void onBackPressed(){
         if (doubleBackToExit){
-            super.onBackPressed();
-            return;
+            AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+            builder.setCancelable(true);
+            builder.setTitle("Are you sure you want to quit?");
+            builder.setMessage("The progress you've made will be deleted & you will not recieve any points!");
+
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.setPositiveButton("Quit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    T.cancel();
+                    Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+            builder.show();
         }
 
         this.doubleBackToExit = true;
-        Toast.makeText(this, "Press again to quit tour", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Press again to quit.", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
             @Override
