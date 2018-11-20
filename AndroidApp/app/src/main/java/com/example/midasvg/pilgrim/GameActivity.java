@@ -1,6 +1,7 @@
 package com.example.midasvg.pilgrim;
 
 import android.Manifest;
+import android.app.VoiceInteractor;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,14 +22,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
 
-    private double[] currentPlace = {1,2};
-    private double[] nextPlace ={3,4};
+    private double[] currentPlace = {1, 2};
+    private double[] nextPlace = {3, 4};
     private double distance;
     int count = 00;
     int placesVisited = 0;
@@ -38,8 +44,8 @@ public class GameActivity extends AppCompatActivity {
     //coordinaten
     private LocationManager locationManager;
     private LocationListener locationListener;
-    double tempDistance=0;
-   public float dist = 0;
+    double tempDistance = 0;
+    public float dist = 0;
     ArrayList<Double> arrayLat = new ArrayList<Double>();
     ArrayList<Double> arrayLng = new ArrayList<Double>();
     ArrayList<Double> distances = new ArrayList<>();
@@ -53,7 +59,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-            txtTime = (TextView) findViewById(R.id.txtTime);
+        txtTime = (TextView) findViewById(R.id.txtTime);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -65,9 +71,9 @@ public class GameActivity extends AppCompatActivity {
                 arrayLng.add(location.getLongitude());
 
 
-               // textView.append("\n"+location.getLatitude() + "" + location.getLongitude());
+                // textView.append("\n"+location.getLatitude() + "" + location.getLongitude());
                 //Log.d("locA", "locA: "+prevLocation.getLatitude());
-                Log.d("test", "onLocationChanged: "+location.getLatitude() + "" + location.getLongitude());
+                Log.d("test", "onLocationChanged: " + location.getLatitude() + "" + location.getLongitude());
             }
 
             @Override
@@ -92,96 +98,104 @@ public class GameActivity extends AppCompatActivity {
             requestPermissions(new String[]{
                     android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.INTERNET
-            },10);
+            }, 10);
             return;
-        }
-        else{
+        } else {
             locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
 
         }
-            //startClock();
+        //startClock();
 
-            T = new Timer();
-            T.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            int s = count%60;
-                            int min = count /60;
-                            int hour = min %60;
-                            min = min/60;
-                            txtTime.setText(hour+"h"+min+"m"+s+"s");
-                            count++;
-                        }
-                    });
-                }
-            }, 1000,1000);
+        T = new Timer();
+        T.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        int s = count % 60;
+                        int min = count / 60;
+                        int hour = min % 60;
+                        min = min / 60;
+                        txtTime.setText(hour + "h" + min + "m" + s + "s");
+                        count++;
+                    }
+                });
+            }
+        }, 1000, 1000);
 
-            //Deze knop opent de vuforia app
-            final Button openCamera = (Button) findViewById(R.id.bttnCamera);
-            openCamera.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    Intent intent = getPackageManager().getLaunchIntentForPackage("com.issam.PilgrimAr");
-                    startActivity(intent);
-                }
-            });
-
-            final Button helpButton = (Button) findViewById(R.id.bttnHelp);
-            helpButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getTravelledDist();
-                    Intent intent = new Intent(GameActivity.this, EndActivity.class);
-                    intent.putExtra("Time", txtTime.getText());
-                    intent.putExtra("distance",dist);
-                    startActivity(intent);
-                }
-            });
-
-            //Alert message wanneer de gebruiker in game zit en op 'Quit' drukt.
-            //Timer wordt ook gestopt
-            final Button quitGame = (Button) findViewById(R.id.bttnQuit);
-            quitGame.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
-                    builder.setCancelable(true);
-                    builder.setTitle("Are you sure you want to quit?");
-                    builder.setMessage("The progress you've made will be deleted & you will not recieve any points!");
-
-                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                        }
-                    });
-
-                    builder.setPositiveButton("Quit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            T.cancel();
-                            Intent intent = new Intent(GameActivity.this, MainActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-                    builder.show();
-                }
-            });
-
-            //Als alle plaatsen bezocht zijn schakelt de app over naar het eindscherm, tijd wordt meegegeven
-            if (placesVisited == 10){
-                Intent intent = new Intent(GameActivity.this, EndActivity.class);
-                intent.putExtra("Time", txtTime.getText());
+        //Deze knop opent de vuforia app
+        final Button openCamera = (Button) findViewById(R.id.bttnCamera);
+        openCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = getPackageManager().getLaunchIntentForPackage("com.issam.PilgrimAr");
                 startActivity(intent);
             }
+        });
+
+        final Button helpButton = (Button) findViewById(R.id.bttnHelp);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getTravelledDist();
+                Intent intent = new Intent(GameActivity.this, EndActivity.class);
+                intent.putExtra("Time", txtTime.getText());
+                intent.putExtra("distance", dist);
+                startActivity(intent);
+            }
+        });
+
+        //Alert message wanneer de gebruiker in game zit en op 'Quit' drukt.
+        //Timer wordt ook gestopt
+        final Button quitGame = (Button) findViewById(R.id.bttnQuit);
+        quitGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Are you sure you want to quit?");
+                builder.setMessage("The progress you've made will be deleted & you will not recieve any points!");
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.setPositiveButton("Quit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        T.cancel();
+                        Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.show();
+            }
+        });
+
+        //Als alle plaatsen bezocht zijn schakelt de app over naar het eindscherm, tijd wordt meegegeven
+        if (placesVisited == 10) {
+            Intent intent = new Intent(GameActivity.this, EndActivity.class);
+            intent.putExtra("Time", txtTime.getText());
+            startActivity(intent);
+        }
+
+        //API aanspreken
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest objectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+        );
+
+
     }
 
     @Override
-    public  void onBackPressed(){
-        if (doubleBackToExit){
+    public void onBackPressed() {
+        if (doubleBackToExit) {
             AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
             builder.setCancelable(true);
             builder.setTitle("Are you sure you want to quit?");
@@ -213,14 +227,14 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 doubleBackToExit = false;
             }
-        },2000);
+        }, 2000);
     }
 
     //afstand tussen twee coördinaten berekenen
-    private void checkDistance(){
-        distance = Math.sqrt((Math.pow(nextPlace[0]-currentPlace[0],2)+(Math.pow(nextPlace[1]-currentPlace[1],2))));
+    private void checkDistance() {
+        distance = Math.sqrt((Math.pow(nextPlace[0] - currentPlace[0], 2) + (Math.pow(nextPlace[1] - currentPlace[1], 2))));
 
-        if(distance >= nextPlace[0]+10 && distance >= nextPlace[1]+10){
+        if (distance >= nextPlace[0] + 10 && distance >= nextPlace[1] + 10) {
             //notificatie dat gebruiker te ver is
 
             NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
@@ -231,9 +245,9 @@ public class GameActivity extends AppCompatActivity {
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-            notificationManagerCompat.notify(1,notBuilder.build());
+            notificationManagerCompat.notify(1, notBuilder.build());
 
-        }else if(distance <= nextPlace[0]-10 && distance <= nextPlace[1]-10){
+        } else if (distance <= nextPlace[0] - 10 && distance <= nextPlace[1] - 10) {
             //notificatie dat gebruiker dichterbij komt
 
             NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
@@ -244,23 +258,23 @@ public class GameActivity extends AppCompatActivity {
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
             NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-            notificationManagerCompat.notify(2,notBuilder.build());
+            notificationManagerCompat.notify(2, notBuilder.build());
         }
     }
 
-    public void getTravelledDist(){
+    public void getTravelledDist() {
 
-        for (int i = 0; i < arrayLat.size()-1; i++) {
+        for (int i = 0; i < arrayLat.size() - 1; i++) {
 
             //textView.append("\n"+location.getLatitude()+location.getLongitude());
 
             prevLocation.setLatitude(arrayLat.get(i));
             prevLocation.setLongitude(arrayLng.get(i));
 
-            if (i > arrayLat.size()){
+            if (i > arrayLat.size()) {
                 currLocation.setLatitude(arrayLat.get(i));
                 currLocation.setLongitude(arrayLng.get(i));
-            }else {
+            } else {
                 currLocation.setLatitude(arrayLat.get(i + 1));
                 currLocation.setLongitude(arrayLng.get(i + 1));
             }
@@ -270,11 +284,11 @@ public class GameActivity extends AppCompatActivity {
 
             // prevDistance = tempDistance;
             //  dist = dist + tempDistance;
-           // Log.d("distance", "tempdistance: "+tempDistance);
+            // Log.d("distance", "tempdistance: "+tempDistance);
             // Log.d("distance", "distance: "+dist);
             //Log.d("test", "onLocationChanged: " + distances);
 
-           // txtDistance.setText(""+dist +"m");
+            // txtDistance.setText(""+dist +"m");
         }
 
     }
