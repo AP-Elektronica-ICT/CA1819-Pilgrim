@@ -6,7 +6,27 @@
 
     <string name="facebook_app_id">281213572521072</string>
     <string name="fb_login_protocol_scheme">fb281213572521072</string>
-
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="pilgrim">Pilgrim</string>
+    <string name="antwerp">Antwerp</string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="or">OR</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="e_mail_address">E-mail address</string>
+    <string name="_0h0m0s">0h0m0s</string>
+    <string name="_6_10">6/10</string>
+    <string name="previous_hint">Previous hint:</string>
+    <string name="time">Time</string>
+    <string name="help">Help</string>
+    <string name="quit">Quit</string>
+    <string name="go_to_the_next_target">Go to the next target</string>
+    <string name="places_visited">Places Visited</string>
+    <string name="near_the_water_this_red_bricked_building_resides_two_different_docks_it_divides_find_the_first_letter_of_its_name_outside_before_you_get_caught_up_by_the_tide">Near the water this red bricked building resides. Two different docks, it divides. Find the first letter of its name, outside, before you get caught up by the tide.</string>
+    <string name="starting_point">Starting Point</string>
+    <string name="central_railway_station">Central Railway Station</string>
+    <string name="go_to_the_starting_point_before_beginning_the_pilgrimage">Go to the starting point before beginning the pilgrimage</string>
+    <string name="create_account">Create Account</string>
 
 
 </resources>
