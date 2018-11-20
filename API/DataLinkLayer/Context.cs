@@ -15,5 +15,9 @@ namespace DataLinkLayer
 
         //DbSets
         public DbSet<Location> Locations { get; set; }
+
+        public DbSet<Profile> Profiles { get; set; }
+
+        public DbSet<Pilgrimage> Pilgrimages { get; set; }
     }
 }

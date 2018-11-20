@@ -16,3 +16,12 @@ C:\Users\robin\Desktop\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\
 C:\Users\robin\Desktop\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
 C:\Users\robin\Desktop\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
 C:\Users\robin\Desktop\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.deps.json
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csprojAssemblyReference.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CoreCompileInputs.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfoInputs.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb

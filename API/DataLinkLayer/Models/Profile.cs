@@ -5,7 +5,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace DataLinkLayer.Models
 {
-    class Profile
+    public class Profile
     {
         public int ID { get; set; }
 
@@ -13,7 +13,7 @@ namespace DataLinkLayer.Models
 
         public string LastName { get; set; }
 
-        public string nickName { get; set; }
+        public string NickName { get; set; }
 
         public int Age { get; set; }
 

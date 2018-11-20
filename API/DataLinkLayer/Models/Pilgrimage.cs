@@ -4,9 +4,13 @@ using System.Text;
 
 namespace DataLinkLayer.Models
 {
-    class Pilgrimage
+    public class Pilgrimage
     {
         public int ID { get; set; }
+
+        public DateTime StartTime { get; set; }
+
+        public int Time { get; set; }
 
 
         //10 locations per pilgrimage?
