@@ -19,7 +19,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetLocations()
+        public IActionResult Locations()
         {
             return Ok(locationService.GetLocations());
         }

@@ -6783,7 +6783,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "sa/cztXesLyTgCiYuef0RK2EAImnak0w2wrjCh/YBTvbn4iV2eTy0q3F8CyUkGiaYEyxUKGVTko6+7SMRBL4Gg==",
+      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "files": [
@@ -8180,7 +8180,7 @@
       ]
     },
     "Microsoft.Extensions.PlatformAbstractions/1.1.0": {
-      "sha512": "UMlN++q5qqzQ2HH+uOrKxN5fmBXMQDhrYkSaPJxhmyzfJaFPirrVr1raim/Ocq1psAZoB9+7JSAf0GDAX35wUg==",
+      "sha512": "H6ZsQzxYw/6k2DfEQRXdC+vQ6obd6Uba3uGJrnJ2vG4PRXjQZ7seB13JdCfE72abp8E6Fk3gGgDzfJiLZi5ZpQ==",
       "type": "package",
       "path": "microsoft.extensions.platformabstractions/1.1.0",
       "files": [
@@ -14860,23 +14860,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\robin\\.nuget\\packages\\": {},
+    "C:\\Users\\midas\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\API\\LocationTests\\LocationTests.csproj",
+      "projectUniqueName": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\LocationTests\\LocationTests.csproj",
       "projectName": "LocationTests",
-      "projectPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\API\\LocationTests\\LocationTests.csproj",
-      "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\API\\LocationTests\\obj\\",
+      "projectPath": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\LocationTests\\LocationTests.csproj",
+      "packagesPath": "C:\\Users\\midas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\LocationTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\midas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -14889,11 +14889,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj"
+            "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj"
             },
-            "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
-              "projectPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj"
+            "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
+              "projectPath": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj"
             }
           }
         }
