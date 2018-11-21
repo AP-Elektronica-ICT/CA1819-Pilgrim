@@ -26,9 +26,14 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URL;
@@ -56,6 +61,8 @@ public class GameActivity extends AppCompatActivity {
     ArrayList<Double> distances = new ArrayList<>();
     Location prevLocation = new Location("A");
     Location currLocation = new Location("B");
+    TextView txtPlaces;
+    TextView txtHint;
 
     //end coordinaten
 
@@ -65,6 +72,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         txtTime = (TextView) findViewById(R.id.txtTime);
+        txtPlaces = (TextView) findViewById(R.id.txtPlaces);
+        txtHint = (TextView) findViewById(R.id.txtHint);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -189,18 +198,45 @@ public class GameActivity extends AppCompatActivity {
         }
 
         //API aanspreken
-        String locationURL = "http://localhost:44384/locations";
+       // String locationURL = "http://localhost:44384/locations";
+        String locationURL = "http://10.0.2.2:52521/api/locations";
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        JsonObjectRequest objectRequest = new JsonObjectRequest(
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 locationURL,
                 null,
-                new Response.Listener<JSONObject>() {
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                         //Locaties ophalen
+                        Log.d("Response", response.toString());
+
+
+                        try {
+                            for (int i = 0; i < response.length(); i++) {
+
+                                JSONObject location = response.getJSONObject(i);
+                                String name = location.getString("naam");
+                                String description = location.getString("description");
+                                double Lat = location.getDouble("lat");
+                                double Long = location.getDouble("long");
+                                String crypticClue = location.getString("crypticClue");
+                                String hint1 = location.getString("hint1");
+                                String hint2 = location.getString("hint2");
+                                String answer = location.getString("answer");
+                                Log.d("onresponse", "onResponse: "+ name);
+                                //txtPlaces.setText(name + "\n");
+                                txtHint.setText(crypticClue);
+                                
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -211,7 +247,7 @@ public class GameActivity extends AppCompatActivity {
                 }
 
         );
-        requestQueue.add(objectRequest);
+        requestQueue.add(arrayRequest);
 
 
 }

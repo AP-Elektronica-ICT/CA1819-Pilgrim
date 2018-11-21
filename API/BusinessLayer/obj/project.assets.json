@@ -13592,23 +13592,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\midas\\.nuget\\packages\\": {},
+    "C:\\Users\\Issam\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
-      "packagesPath": "C:\\Users\\midas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\BusinessLayer\\obj\\",
+      "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
+      "packagesPath": "C:\\Users\\Issam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\midas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Issam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13621,8 +13624,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
-              "projectPath": "C:\\Users\\midas\\Documents\\AP\\Cloud Applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj"
+            "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
+              "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj"
             }
           }
         }
@@ -13636,19 +13639,19 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Microsoft.AspNetCore.All": {
-            "target": "Package",
-            "version": "[2.1.6, )"
-          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[2.1.4, )"
+            "version": "2.1.4"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.0, )",
+            "version": "2.1",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "2.1.6"
           }
         },
         "imports": [

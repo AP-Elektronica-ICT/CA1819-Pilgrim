@@ -25,3 +25,12 @@ C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\
 C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
 C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
 C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.deps.json
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csprojResolveAssemblyReference.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CoreCompileInputs.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfoInputs.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb
