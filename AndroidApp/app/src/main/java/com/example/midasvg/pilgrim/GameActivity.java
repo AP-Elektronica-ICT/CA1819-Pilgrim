@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,7 +65,16 @@ public class GameActivity extends AppCompatActivity {
     TextView txtPlaces;
     TextView txtHint;
 
+
     //end coordinaten
+
+    ///distance to location
+    ProgressBar prgBar;
+    Location testLocation = new Location("C");
+    public double totalTestDist;
+    float testDist = 0;
+    int counter=0;
+    //end distance to location
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +84,11 @@ public class GameActivity extends AppCompatActivity {
         txtTime = (TextView) findViewById(R.id.txtTime);
         txtPlaces = (TextView) findViewById(R.id.txtPlaces);
         txtHint = (TextView) findViewById(R.id.txtHint);
+        prgBar = (ProgressBar)findViewById(R.id.prgBar);
+        prgBar.setScaleY(3f);
+
+        // testLocation.setLatitude(51.212977); //hard coded om buiten te testen
+        // testLocation.setLongitude(4.420918); //hard coded om buiten te testen
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -83,7 +98,7 @@ public class GameActivity extends AppCompatActivity {
 
                 arrayLat.add(location.getLatitude());
                 arrayLng.add(location.getLongitude());
-
+                getDistToLoc();
 
                 // textView.append("\n"+location.getLatitude() + "" + location.getLongitude());
                 //Log.d("locA", "locA: "+prevLocation.getLatitude());
@@ -217,7 +232,7 @@ public class GameActivity extends AppCompatActivity {
                         try {
                             for (int i = 0; i < response.length(); i++) {
 
-                                JSONObject location = response.getJSONObject(i);
+                                JSONObject location = response.getJSONObject(1);
                                 String name = location.getString("naam");
                                 String description = location.getString("description");
                                 double Lat = location.getDouble("lat");
@@ -227,7 +242,11 @@ public class GameActivity extends AppCompatActivity {
                                 String hint2 = location.getString("hint2");
                                 String answer = location.getString("answer");
                                 Log.d("onresponse", "onResponse: "+ name);
-                                //txtPlaces.setText(name + "\n");
+
+                                //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
+                                testLocation.setLatitude(Lat);
+                                testLocation.setLongitude(Long);
+
                                 txtHint.setText(crypticClue);
                                 
                             }
@@ -349,6 +368,37 @@ public class GameActivity extends AppCompatActivity {
 
             // txtDistance.setText(""+dist +"m");
         }
+
+    }
+
+    private void getDistToLoc(){
+
+        currLocation.setLatitude(arrayLat.get(0));
+        currLocation.setLongitude(arrayLng.get(0));
+        totalTestDist = currLocation.distanceTo(testLocation);
+
+        for (int i = 1; i < arrayLat.size(); i++) {
+
+            currLocation.setLatitude(arrayLat.get(i));
+            currLocation.setLongitude(arrayLng.get(i));
+
+
+            testDist=testLocation.distanceTo(currLocation);
+            counter++;
+
+        }
+
+        // textView.setText("you have travelled: "+dist +"m");
+        double tempAfstand = totalTestDist - testDist;
+        double afstand = (tempAfstand/totalTestDist) *100;
+        Log.d("testdist", "testdist: "+testDist);
+        Log.d("tempafstand", "tempafstand: "+tempAfstand);
+        Log.d("afstand", "afstand: "+afstand);
+
+        // prgBar.setMax((int)totalTestDist);
+        if (counter > 1)
+            prgBar.setProgress((int)afstand);
+
 
     }
 
