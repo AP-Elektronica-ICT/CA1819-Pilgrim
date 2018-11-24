@@ -1,0 +1,89 @@
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\bin\Debug\netcoreapp2.1\API.deps.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\bin\Debug\netcoreapp2.1\API.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\bin\Debug\netcoreapp2.1\API.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\API\obj\Debug\netcoreapp2.1\API.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.deps.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.deps.json
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CopyComplete
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CopyComplete
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.deps.json
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.dll
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.pdb
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csprojAssemblyReference.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CopyComplete
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.dll
+C:\Users\midas\Documents\AP\Cloud Applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.pdb
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.deps.json
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.json
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.runtimeconfig.dev.json
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.dll
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\API.pdb
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csprojResolveAssemblyReference.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.csproj.CoreCompileInputs.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorAssemblyInfo.cs
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfoInputs.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.AssemblyInfo.cs
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.RazorTargetAssemblyInfo.cache
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.dll
+C:\Users\Issam\Documents\school\3de-jaar\cloud-applications\CA1819-Pilgrim\API\API\obj\Debug\netcoreapp2.1\API.pdb
