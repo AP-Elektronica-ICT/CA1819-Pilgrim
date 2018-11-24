@@ -2925,11 +2925,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj",
       "projectName": "DataLinkLayer",
-      "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj",
+      "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj",
       "packagesPath": "C:\\Users\\Issam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\obj\\",
+      "outputPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

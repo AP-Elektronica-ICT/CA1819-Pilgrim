@@ -13601,11 +13601,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
+      "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj",
       "packagesPath": "C:\\Users\\Issam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\obj\\",
+      "outputPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -13624,8 +13624,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
-              "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj"
+            "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
+              "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj"
             }
           }
         }

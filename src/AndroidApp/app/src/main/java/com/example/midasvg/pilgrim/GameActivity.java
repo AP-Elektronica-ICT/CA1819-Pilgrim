@@ -19,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,7 +75,23 @@ public class GameActivity extends AppCompatActivity {
     public double totalTestDist;
     float testDist = 0;
     int counter=0;
+    public int index = 0;
+    public boolean found = false;
+    RequestQueue requestQueue;
+    JsonArrayRequest arrayRequest;
+    double afstand = 0;
+    double tempAfstand = 0;
+    Button answerBtn;
+    EditText answerTxt;
+    String answer;
+
     //end distance to location
+
+    //hints
+    String hint1;
+    String hint2;
+    int hintCount = 0;
+    //end hints
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +103,8 @@ public class GameActivity extends AppCompatActivity {
         txtHint = (TextView) findViewById(R.id.txtHint);
         prgBar = (ProgressBar)findViewById(R.id.prgBar);
         prgBar.setScaleY(3f);
+        answerBtn = (Button)findViewById(R.id.answerBtn);
+        answerTxt = (EditText)findViewById(R.id.answerTxt);
 
         // testLocation.setLatitude(51.212977); //hard coded om buiten te testen
         // testLocation.setLongitude(4.420918); //hard coded om buiten te testen
@@ -167,11 +186,33 @@ public class GameActivity extends AppCompatActivity {
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getTravelledDist();
+               /* getTravelledDist();
                 Intent intent = new Intent(GameActivity.this, EndActivity.class);
                 intent.putExtra("Time", txtTime.getText());
                 intent.putExtra("distance", dist);
-                startActivity(intent);
+                startActivity(intent);*/
+
+               hintCount ++;
+                AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                builder.setCancelable(false);
+                builder.setTitle("hint");
+                if (hintCount <= 1)
+                    builder.setMessage(hint1+" \n \n \n (you have 1 more hint remaining for this location, use it wiseley!)");
+                else if (hintCount == 2){
+                    builder.setMessage(hint2);
+                }
+                else
+                    builder.setMessage("oeps, you are out of hints");
+
+
+                builder.setNegativeButton("Got it!!", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+
             }
         });
 
@@ -206,19 +247,38 @@ public class GameActivity extends AppCompatActivity {
         });
 
         //Als alle plaatsen bezocht zijn schakelt de app over naar het eindscherm, tijd wordt meegegeven
-        if (placesVisited == 10) {
+        if (placesVisited == 2) {
             Intent intent = new Intent(GameActivity.this, EndActivity.class);
             intent.putExtra("Time", txtTime.getText());
             startActivity(intent);
         }
 
+        answerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (answerTxt.getText().toString().equals(answer)){
+                    Log.d("text", "onClick: werkt ");
+                    if (index < 1)
+                        index ++;
+
+                    hintCount = 0;
+                    requestQueue.add(arrayRequest);
+                    prgBar.setProgress(0);
+                    placesVisited++;
+                    Log.d("places visited", "places visited: " + placesVisited);
+                }
+                else
+                    Log.d("text", "onClick: werkt niet ");
+            }
+        });
+
         //API aanspreken
        // String locationURL = "http://localhost:44384/locations";
         String locationURL = "http://10.0.2.2:52521/api/locations";
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+         requestQueue = Volley.newRequestQueue(this);
 
-        JsonArrayRequest arrayRequest = new JsonArrayRequest(
+         arrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 locationURL,
                 null,
@@ -229,18 +289,20 @@ public class GameActivity extends AppCompatActivity {
                         Log.d("Response", response.toString());
 
 
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
 
-                                JSONObject location = response.getJSONObject(1);
+                        try {
+
+                          //  for (int i = 0; i < response.length(); i++) {
+                                Log.d("index", "index: " + index);
+                                JSONObject location = response.getJSONObject(index);
                                 String name = location.getString("naam");
                                 String description = location.getString("description");
                                 double Lat = location.getDouble("lat");
                                 double Long = location.getDouble("long");
                                 String crypticClue = location.getString("crypticClue");
-                                String hint1 = location.getString("hint1");
-                                String hint2 = location.getString("hint2");
-                                String answer = location.getString("answer");
+                                 hint1 = location.getString("hint1");
+                                 hint2 = location.getString("hint2");
+                                 answer = location.getString("answer");
                                 Log.d("onresponse", "onResponse: "+ name);
 
                                 //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
@@ -248,8 +310,10 @@ public class GameActivity extends AppCompatActivity {
                                 testLocation.setLongitude(Long);
 
                                 txtHint.setText(crypticClue);
+
+
                                 
-                            }
+                           // }
 
 
                         } catch (JSONException e) {
@@ -389,11 +453,13 @@ public class GameActivity extends AppCompatActivity {
         }
 
         // textView.setText("you have travelled: "+dist +"m");
-        double tempAfstand = totalTestDist - testDist;
-        double afstand = (tempAfstand/totalTestDist) *100;
-        Log.d("testdist", "testdist: "+testDist);
-        Log.d("tempafstand", "tempafstand: "+tempAfstand);
-        Log.d("afstand", "afstand: "+afstand);
+         tempAfstand = totalTestDist - testDist;
+         afstand = (tempAfstand/totalTestDist) *100;
+       // Log.d("testdist", "testdist: "+testDist);
+       // Log.d("tempafstand", "tempafstand: "+tempAfstand);
+       // Log.d("afstand", "afstand: "+afstand);
+
+
 
         // prgBar.setMax((int)totalTestDist);
         if (counter > 1)
