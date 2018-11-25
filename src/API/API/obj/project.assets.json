@@ -6730,7 +6730,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
+      "sha512": "sa/cztXesLyTgCiYuef0RK2EAImnak0w2wrjCh/YBTvbn4iV2eTy0q3F8CyUkGiaYEyxUKGVTko6+7SMRBL4Gg==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "files": [
@@ -7179,7 +7179,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
-      "sha512": "hpSNX6kgb13ABbOmxAD2sj/7J7IN3HWz1AWcmEuouTZM+OeWLSHDmPGlN4eaUDPMCoe1DY7v16D3V0BY+q7BTw==",
+      "sha512": "4JcQJNDSyGXtz9ccBzSBmcPmKg7GiL4LYvtv+YG8C9waNP/xhwuvIycSQOF4a0V+J73JwUopA503O7vb8p5ZUQ==",
       "type": "package",
       "path": "microsoft.codeanalysis.csharp.workspaces/2.8.0",
       "files": [
@@ -7206,7 +7206,7 @@
       ]
     },
     "Microsoft.CodeAnalysis.Workspaces.Common/2.8.0": {
-      "sha512": "xt6VmGncJW14z3O0/k7+0cO8w9tB3O6CUL6sM6LesgGmD6zZPbWKY9KpRgV7RewA1flLuXBaUknRjwj0kLA6/g==",
+      "sha512": "AqCiNju6UZy9Sd8HKzxGbpbZf+P8gWpojfvs9hIRfwstqFMZ6OJXf69EUvqJ5C4rWrcf08F7G8WII74KBEFImQ==",
       "type": "package",
       "path": "microsoft.codeanalysis.workspaces.common/2.8.0",
       "files": [
@@ -9185,7 +9185,7 @@
       ]
     },
     "NuGet.Frameworks/4.7.0": {
-      "sha512": "/VaEPsEgj3p5YPLLxbYc6rB8gYIPf+8wCWOAlAe3l/SP0DXcefZ58uJer1ToBKIpwbPN5LkgTXtvilze5UJoYQ==",
+      "sha512": "KuqDbPzjOWbUM6gPMbkvdhlQ10roQAoMM7mNZ8hcY/fH+9J4Zc+qT8dLWoNzGyr0OrxQVdZdbSjy/fxwoICgGg==",
       "type": "package",
       "path": "nuget.frameworks/4.7.0",
       "files": [
@@ -14507,26 +14507,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Issam\\.nuget\\packages\\": {},
+    "E:\\Users\\robin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\API\\API.csproj",
+      "projectUniqueName": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Issam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\API\\obj\\",
+      "projectPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\API\\API.csproj",
+      "packagesPath": "E:\\Users\\robin\\.nuget\\packages\\",
+      "outputPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Issam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "E:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -14539,8 +14536,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj"
+            "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj"
             }
           }
         }
@@ -14554,20 +14551,20 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-            "target": "Package",
-            "version": "2.1.6"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.1",
-            "autoReferenced": true
-          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1.1",
+            "version": "[2.1.1, )",
             "autoReferenced": true
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[2.1.0, )",
+            "autoReferenced": true
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "target": "Package",
+            "version": "[2.1.6, )"
           }
         },
         "imports": [

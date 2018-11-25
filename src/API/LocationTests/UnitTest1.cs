@@ -40,7 +40,20 @@ namespace LocationTests
             Assert.Equal(result, expected);
         }
 
-        
+
+        [Theory]
+        [InlineData("Robin", true)]
+        [InlineData("robin", true)]
+        [InlineData("Issam", true)]
+        [InlineData("Midas", false)]
+        public void UserNameAlreadyTakenTest(string input, bool expected)
+        {
+            var profiles = _context.Profiles;
+            ProfileService profileService = new ProfileService(_context);
+            bool result = profileService.UserNameAlreadyTaken(input);
+            Assert.Equal(result, expected);
+        }
+
 
 
     }

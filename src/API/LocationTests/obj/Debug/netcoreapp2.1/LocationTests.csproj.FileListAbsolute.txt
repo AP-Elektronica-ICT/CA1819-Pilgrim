@@ -17,3 +17,22 @@ C:\Users\robin\Desktop\CA1819-Pilgrim\API\LocationTests\bin\Debug\netcoreapp2.1\
 C:\Users\robin\Desktop\CA1819-Pilgrim\API\LocationTests\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
 C:\Users\robin\Desktop\CA1819-Pilgrim\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.dll
 C:\Users\robin\Desktop\CA1819-Pilgrim\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\LocationTests.deps.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\LocationTests.runtimeconfig.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\LocationTests.runtimeconfig.dev.json
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\LocationTests.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\LocationTests.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.csprojAssemblyReference.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.csproj.CoreCompileInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.AssemblyInfoInputs.cache
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.AssemblyInfo.cs
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.csproj.CopyComplete
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.dll
+E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\LocationTests\obj\Debug\netcoreapp2.1\LocationTests.pdb

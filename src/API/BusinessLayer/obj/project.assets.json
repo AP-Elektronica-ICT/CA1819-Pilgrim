@@ -6262,7 +6262,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
+      "sha512": "sa/cztXesLyTgCiYuef0RK2EAImnak0w2wrjCh/YBTvbn4iV2eTy0q3F8CyUkGiaYEyxUKGVTko6+7SMRBL4Gg==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "files": [
@@ -13592,26 +13592,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Issam\\.nuget\\packages\\": {},
+    "E:\\Users\\robin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\BusinessLayer.csproj",
-      "packagesPath": "C:\\Users\\Issam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\BusinessLayer\\obj\\",
+      "projectPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj",
+      "packagesPath": "E:\\Users\\robin\\.nuget\\packages\\",
+      "outputPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Issam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "E:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13624,8 +13621,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
-              "projectPath": "C:\\Users\\Issam\\Documents\\school\\3de-jaar\\cloud-applications\\CA1819-Pilgrim\\API\\DataLinkLayer\\DataLinkLayer.csproj"
+            "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
+              "projectPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj"
             }
           }
         }
@@ -13639,19 +13636,19 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "[2.1.6, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
-            "version": "2.1.4"
+            "version": "[2.1.4, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1",
+            "version": "[2.1.0, )",
             "autoReferenced": true
-          },
-          "Microsoft.AspNetCore.All": {
-            "target": "Package",
-            "version": "2.1.6"
           }
         },
         "imports": [
