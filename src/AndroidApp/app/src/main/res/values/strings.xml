@@ -27,6 +27,7 @@
     <string name="central_railway_station">Central Railway Station</string>
     <string name="go_to_the_starting_point_before_beginning_the_pilgrimage">Go to the starting point before beginning the pilgrimage</string>
     <string name="create_account">Create Account</string>
+    <string name="datum">Date of birth</string>
 
 
 </resources>
