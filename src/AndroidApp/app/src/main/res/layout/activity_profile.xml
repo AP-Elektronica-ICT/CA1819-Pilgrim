@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginbackground"
-    tools:context=".ProfileActivity"
-    android:screenOrientation="portrait">
+    tools:context=".ProfileActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,86 +20,75 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/profile_picture"
-            android:layout_width="match_parent"
-            android:layout_height="274dp"
+            android:id="@+id/profilePic"
+            android:layout_width="364dp"
+            android:layout_height="238dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="30dp"
             app:srcCompat="@drawable/blank_profile_picture" />
 
-        <EditText
-            android:id="@+id/txb_NickName"
+        <TextView
+            android:id="@+id/txtAcc"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/rounded_corner"
+            android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Nickname"
-            android:inputType="textPersonName"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp" />
+            android:paddingEnd="10dp"
+            android:text="Acount info      >"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/txb_FirstName"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_corner"
-                android:ems="10"
-                android:hint="Firstname"
-                android:inputType="textPersonName"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp" />
-
-            <EditText
-                android:id="@+id/txb_LastName"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/rounded_corner"
-                android:ems="10"
-                android:hint="Lastname"
-                android:inputType="textPersonName"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp" />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/txb_DoB"
+        <TextView
+            android:id="@+id/txtPilgrimages"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:autofillHints=""
-            android:background="@drawable/rounded_corner"
+            android:layout_marginBottom="15dp"
             android:ems="10"
-            android:hint="Date of birth"
-            android:inputType="date"
             android:paddingStart="5dp"
-            android:paddingEnd="5dp" />
+            android:paddingEnd="5dp"
+            android:textColor="@color/black"
+            android:text="Pilgrimages      >"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txtCollection"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+
+            android:text="Collection         >"
+            android:textAlignment="center"
+            android:textSize="30sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn_saveProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/btn_EditProfile"
+                android:layout_width="357dp"
+                android:layout_height="50dp"
                 android:layout_centerInParent="true"
-                android:onClick="Save"
-                android:text="Button" />
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/charcoal"
+                android:text="Edit Profile"
+                android:textColor="@color/white"/>
         </RelativeLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

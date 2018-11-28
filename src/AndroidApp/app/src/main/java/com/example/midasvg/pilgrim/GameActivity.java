@@ -98,6 +98,8 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        getSupportActionBar().setTitle("Pilgrimage");
+
         txtTime = (TextView) findViewById(R.id.txtTime);
         txtPlaces = (TextView) findViewById(R.id.txtPlaces);
         txtHint = (TextView) findViewById(R.id.txtHint);
@@ -165,7 +167,7 @@ public class GameActivity extends AppCompatActivity {
                         int min = count / 60;
                         int hour = min % 60;
                         min = min / 60;
-                        txtTime.setText(hour + "h" + min + "m" + s + "s");
+                        txtTime.setText(min + "h" + hour + "m" + s + "s");
                         count++;
                     }
                 });
