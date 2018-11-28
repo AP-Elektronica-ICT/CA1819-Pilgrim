@@ -74,7 +74,7 @@ public class GameActivity extends AppCompatActivity {
     Location testLocation = new Location("C");
     public double totalTestDist;
     float testDist = 0;
-    int counter=0;
+    int counter = 0;
     public int index = 0;
     public boolean found = false;
     RequestQueue requestQueue;
@@ -103,10 +103,10 @@ public class GameActivity extends AppCompatActivity {
         txtTime = (TextView) findViewById(R.id.txtTime);
         txtPlaces = (TextView) findViewById(R.id.txtPlaces);
         txtHint = (TextView) findViewById(R.id.txtHint);
-        prgBar = (ProgressBar)findViewById(R.id.prgBar);
+        prgBar = (ProgressBar) findViewById(R.id.prgBar);
         prgBar.setScaleY(3f);
-        answerBtn = (Button)findViewById(R.id.answerBtn);
-        answerTxt = (EditText)findViewById(R.id.answerTxt);
+        answerBtn = (Button) findViewById(R.id.answerBtn);
+        answerTxt = (EditText) findViewById(R.id.answerTxt);
 
         // testLocation.setLatitude(51.212977); //hard coded om buiten te testen
         // testLocation.setLongitude(4.420918); //hard coded om buiten te testen
@@ -194,16 +194,15 @@ public class GameActivity extends AppCompatActivity {
                 intent.putExtra("distance", dist);
                 startActivity(intent);*/
 
-               hintCount ++;
+                hintCount++;
                 AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
                 builder.setCancelable(false);
                 builder.setTitle("hint");
                 if (hintCount <= 1)
-                    builder.setMessage(hint1+" \n \n \n (you have 1 more hint remaining for this location, use it wiseley!)");
-                else if (hintCount == 2){
+                    builder.setMessage(hint1 + " \n \n \n (you have 1 more hint remaining for this location, use it wiseley!)");
+                else if (hintCount == 2) {
                     builder.setMessage(hint2);
-                }
-                else
+                } else
                     builder.setMessage("oeps, you are out of hints");
 
 
@@ -258,29 +257,28 @@ public class GameActivity extends AppCompatActivity {
         answerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (answerTxt.getText().toString().equals(answer)){
+                if (answerTxt.getText().toString().equals(answer)) {
                     Log.d("text", "onClick: werkt ");
                     if (index < 1)
-                        index ++;
+                        index++;
 
                     hintCount = 0;
                     requestQueue.add(arrayRequest);
                     prgBar.setProgress(0);
                     placesVisited++;
                     Log.d("places visited", "places visited: " + placesVisited);
-                }
-                else
+                } else
                     Log.d("text", "onClick: werkt niet ");
             }
         });
 
         //API aanspreken
-       // String locationURL = "http://localhost:44384/locations";
-        String locationURL = "http://10.0.2.2:52521/api/locations";
+        // String locationURL = "http://localhost:44384/locations";
+        String locationURL = "https://api20181128095534.azurewebsites.net/api/locations";
 
-         requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
 
-         arrayRequest = new JsonArrayRequest(
+        arrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 locationURL,
                 null,
@@ -291,31 +289,29 @@ public class GameActivity extends AppCompatActivity {
                         Log.d("Response", response.toString());
 
 
-
                         try {
 
-                          //  for (int i = 0; i < response.length(); i++) {
-                                Log.d("index", "index: " + index);
-                                JSONObject location = response.getJSONObject(index);
-                                String name = location.getString("naam");
-                                String description = location.getString("description");
-                                double Lat = location.getDouble("lat");
-                                double Long = location.getDouble("long");
-                                String crypticClue = location.getString("crypticClue");
-                                 hint1 = location.getString("hint1");
-                                 hint2 = location.getString("hint2");
-                                 answer = location.getString("answer");
-                                Log.d("onresponse", "onResponse: "+ name);
+                            //  for (int i = 0; i < response.length(); i++) {
+                            Log.d("index", "index: " + index);
+                            JSONObject location = response.getJSONObject(index);
+                            String name = location.getString("naam");
+                            String description = location.getString("description");
+                            double Lat = location.getDouble("lat");
+                            double Long = location.getDouble("long");
+                            String crypticClue = location.getString("crypticClue");
+                            hint1 = location.getString("hint1");
+                            hint2 = location.getString("hint2");
+                            answer = location.getString("answer");
+                            Log.d("onresponse", "onResponse: " + name);
 
-                                //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
-                                testLocation.setLatitude(Lat);
-                                testLocation.setLongitude(Long);
+                            //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
+                            testLocation.setLatitude(Lat);
+                            testLocation.setLongitude(Long);
 
-                                txtHint.setText(crypticClue);
+                            txtHint.setText(crypticClue);
 
 
-                                
-                           // }
+                            // }
 
 
                         } catch (JSONException e) {
@@ -335,7 +331,7 @@ public class GameActivity extends AppCompatActivity {
         requestQueue.add(arrayRequest);
 
 
-}
+    }
 
     @Override
     public void onBackPressed() {
@@ -437,7 +433,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    private void getDistToLoc(){
+    private void getDistToLoc() {
 
         currLocation.setLatitude(arrayLat.get(0));
         currLocation.setLongitude(arrayLng.get(0));
@@ -449,23 +445,22 @@ public class GameActivity extends AppCompatActivity {
             currLocation.setLongitude(arrayLng.get(i));
 
 
-            testDist=testLocation.distanceTo(currLocation);
+            testDist = testLocation.distanceTo(currLocation);
             counter++;
 
         }
 
         // textView.setText("you have travelled: "+dist +"m");
-         tempAfstand = totalTestDist - testDist;
-         afstand = (tempAfstand/totalTestDist) *100;
-       // Log.d("testdist", "testdist: "+testDist);
-       // Log.d("tempafstand", "tempafstand: "+tempAfstand);
-       // Log.d("afstand", "afstand: "+afstand);
-
+        tempAfstand = totalTestDist - testDist;
+        afstand = (tempAfstand / totalTestDist) * 100;
+        // Log.d("testdist", "testdist: "+testDist);
+        // Log.d("tempafstand", "tempafstand: "+tempAfstand);
+        // Log.d("afstand", "afstand: "+afstand);
 
 
         // prgBar.setMax((int)totalTestDist);
         if (counter > 1)
-            prgBar.setProgress((int)afstand);
+            prgBar.setProgress((int) afstand);
 
 
     }
