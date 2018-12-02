@@ -1,6 +1,8 @@
 package com.example.midasvg.pilgrim;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout nDrawerLayout;
+    private NavigationView navigationView;
     private ActionBarDrawerToggle nToggle;
 
     @Override
@@ -21,10 +24,18 @@ public class MainActivity extends AppCompatActivity {
 
         //De button wordt ge-enabled op de Action Bar
         nDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        navigationView = (NavigationView) findViewById(R.id.navView);
         nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
         nDrawerLayout.addDrawerListener(nToggle);
         nToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                UserMenuSelector(item);
+                return false;
+            }
+        });
 
 
         //Button staat nu aan & kan gebruikt worden.
@@ -57,5 +68,17 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void UserMenuSelector(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.nav_collections:
+                break;
+            case R.id.nav_contact:
+                break;
+            case R.id.nav_game:
+                break;
+
+        }
     }
 }

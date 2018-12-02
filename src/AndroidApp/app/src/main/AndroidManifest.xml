@@ -52,8 +52,10 @@
         </activity>
         <activity android:name=".CollectionActivity" />
         <activity android:name=".CollectableActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".ResetPassActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".ResetPassActivity"></activity>
+        <activity android:name=".CompletedPilgrimagesActivity"></activity>
     </application>
 
 </manifest>

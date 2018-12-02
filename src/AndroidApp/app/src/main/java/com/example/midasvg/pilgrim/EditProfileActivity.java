@@ -1,81 +1,159 @@
 package com.example.midasvg.pilgrim;
 
 import android.content.Intent;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
+import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-public class ProfileActivity extends AppCompatActivity {
+import org.json.JSONObject;
 
-    private DrawerLayout nDrawerLayout;
-    private ActionBarDrawerToggle nToggle;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class EditProfileActivity extends AppCompatActivity {
+
+
+    private TextView nickName;
+    private TextView firstName;
+    private TextView lastName;
+    private TextView date;
+    private Button saveBtn;
+
+
+
+    private ImageView profilePicture;
+    public static final int PICK_IMAGE = 100;
+    Uri imageURI;
+    private String base64Image;
+    String UID;
+    String UIDToken;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setContentView(R.layout.activity_editprofile);
 
-        //De button wordt ge-enabled op de Action Bar
-        nDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
-        nDrawerLayout.addDrawerListener(nToggle);
-        nToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("My Profile");
 
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        UID = user.getUid();
+        nickName = (TextView)findViewById(R.id.txb_NickName);
+        firstName = (TextView) findViewById(R.id.txb_FirstName);
+        lastName = (TextView) findViewById(R.id.txb_LastName);
+        date = (TextView) findViewById(R.id.txb_DoB);
+        profilePicture = (ImageView) findViewById(R.id.profile_picture);
+        saveBtn = (Button) findViewById(R.id.btn_saveProfile);
 
-        final TextView accInfo = (TextView) findViewById(R.id.txtAcc);
-        accInfo.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        profilePicture.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                openGallery();
+            }
+        });
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                try{Save();}
+                catch (IOException ie){
+                    ie.printStackTrace();
+                }
             }
         });
 
-        final TextView history = (TextView) findViewById(R.id.txtPilgrimages);
-        history.setOnClickListener(new View.OnClickListener() {
+
+/*
+        final Button signOut = (Button) findViewById(R.id.logoutButton);
+        signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, CompletedPilgrimagesActivity.class);
+                FirebaseAuth.getInstance().signOut();
+
+                Intent intent = new Intent(EditProfileActivity.this, LoginActivity.class);
                 startActivity(intent);
+
+                Toast.makeText(EditProfileActivity.this, "You are now signed out.",
+                        Toast.LENGTH_LONG).show();
             }
         });
+*/
 
-        final TextView viewCollection = (TextView) findViewById(R.id.txtCollection);
-        viewCollection.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, CollectionActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        final Button editProfile = (Button) findViewById(R.id.btn_EditProfile);
-        editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                startActivity(intent);
-            }
-        });
+        //API aanspreken
+        String locationURL = "http://localhost:44384/locations";
 
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest objectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                locationURL,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        //profile picture ophalen
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("REST response", error.toString());
+                    }
+                }
+
+        );
+        requestQueue.add(objectRequest);
 
     }
 
+    private void openGallery(){
+        Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(gallery,PICK_IMAGE);
+    }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        if (nToggle.onOptionsItemSelected(item)){
-            return true;
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            imageURI = data.getData();
+            profilePicture.setImageURI(imageURI);
+
+            try{
+            InputStream inputStream = getContentResolver().openInputStream(imageURI);
+            byte[] imageArray = getBytes(inputStream);
+            /*
+            Bitmap decodeByte = BitmapFactory.decodeByteArray(backtoImage, 0 , backtoImage.length);
+            profilePicture.setImageBitmap(decodeByte);*/
+            }catch(IOException ie){
+
+            }
         }
-        return super.onOptionsItemSelected(item);
     }
     public byte[] getBytes(InputStream inputStream) throws IOException{
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
@@ -144,7 +222,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try{
-                    URL url = new URL("https://api20181128095534.azurewebsites.net/api/profiles");
+                    URL url = new URL("https://cloud.requestcatcher.com");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
