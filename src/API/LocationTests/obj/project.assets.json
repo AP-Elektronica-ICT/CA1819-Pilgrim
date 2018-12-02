@@ -10932,10 +10932,11 @@
       ]
     },
     "System.Diagnostics.TraceSource/4.0.0": {
-      "sha512": "6WVCczFZKXwpWpzd/iJkYnsmWTSFFiU24Xx/YdHXBcu+nFI/ehTgeqdJQFbtRPzbrO3KtRNjvkhtj4t5/WwWsA==",
+      "sha512": "bGUeY5wiCHYSWbYZS3QjbaQ1hNoJ1RQBQMB3E0Cgh6AH//4rXfXIOHKIW46HDOsTEDoNfvFNDXphL5W5B/XMwQ==",
       "type": "package",
       "path": "system.diagnostics.tracesource/4.0.0",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -13024,10 +13025,11 @@
       ]
     },
     "System.Runtime.Loader/4.0.0": {
-      "sha512": "4UN78GOVU/mbDFcXkEWtetJT/sJ0yic2gGk1HSlSpWI0TDf421xnrZTDZnwNBapk1GQeYN7U1lTj/aQB1by6ow==",
+      "sha512": "/ol/Y9N+MghH5YPeeFuad34s2mclOPJJ4fs2hnFHr04QfGpUSBlcbpp/P3fggCNrZXwVKQEKgHu7SnA43Y8ang==",
       "type": "package",
       "path": "system.runtime.loader/4.0.0",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/net462/_._",
@@ -14934,10 +14936,11 @@
       ]
     },
     "System.Xml.XPath.XmlDocument/4.0.1": {
-      "sha512": "Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
+      "sha512": "gQQaCNO5FYxD37SNQvE+yZUNfCt/Y+FgCnead3hu37RsUiwy2cxqRDWPv+Ee+6DlOeV47xaSYYZ6GQW4EhoEXQ==",
       "type": "package",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "files": [
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -15136,23 +15139,23 @@
     ]
   },
   "packageFolders": {
-    "E:\\Users\\robin\\.nuget\\packages\\": {},
+    "C:\\Users\\robin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\LocationTests\\LocationTests.csproj",
+      "projectUniqueName": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\src\\API\\LocationTests\\LocationTests.csproj",
       "projectName": "LocationTests",
-      "projectPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\LocationTests\\LocationTests.csproj",
-      "packagesPath": "E:\\Users\\robin\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\LocationTests\\obj\\",
+      "projectPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\src\\API\\LocationTests\\LocationTests.csproj",
+      "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\src\\API\\LocationTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "E:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -15165,11 +15168,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj": {
-              "projectPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj"
+            "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\src\\API\\BusinessLayer\\BusinessLayer.csproj"
             },
-            "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
-              "projectPath": "E:\\Users\\robin\\Desktop\\Cloud Applications\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj"
+            "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj": {
+              "projectPath": "C:\\Users\\robin\\Desktop\\CA1819-Pilgrim\\src\\API\\DataLinkLayer\\DataLinkLayer.csproj"
             }
           }
         }

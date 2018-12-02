@@ -219,7 +219,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try{
-                    URL url = new URL("https://cloud.requestcatcher.com");
+                    URL url = new URL("https://api20181128095534.azurewebsites.net/api/profiles");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");

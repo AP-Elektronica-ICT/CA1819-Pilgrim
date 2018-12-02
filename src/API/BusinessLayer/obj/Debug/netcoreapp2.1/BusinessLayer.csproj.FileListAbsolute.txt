@@ -12,3 +12,17 @@ E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\o
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.dll
 E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.deps.json
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.runtimeconfig.json
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.runtimeconfig.dev.json
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfoInputs.cache
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfo.cs
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.dll
+C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.pdb

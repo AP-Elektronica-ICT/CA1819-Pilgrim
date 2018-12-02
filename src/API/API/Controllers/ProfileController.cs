@@ -35,6 +35,15 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        public IActionResult Profile([FromBody] Profile newProfile)
+        {
+            Profile profile = profileService.AddProfile(newProfile);
+            if (profile == null)
+                return NotFound();
+            return Ok(profile);
+        }
+
+
         [HttpDelete("{id}")]
         //Geen idee of er post/delete nodig is? Nieuwe accounts worden aangemaakt via
         //FireBase en acc's verwijderen doen wij enkel

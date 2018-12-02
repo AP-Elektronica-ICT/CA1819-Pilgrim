@@ -14,7 +14,31 @@ namespace LocationTests
         public LocationTests()
         {
             _context = new Context(new DbContextOptionsBuilder<Context>().UseInMemoryDatabase().Options);
-
+            Profile profile1 = new Profile()
+            {
+                NickName = "Robin",
+                base64 = "",
+                Age = 20,
+                Country = "Belgium",
+                fireBaseID = 1,
+                FirstName = "Robin",
+                LastName = "Laevaert",
+                DateCreated = new DateTime()
+            };
+            Profile profile2 = new Profile()
+            {
+                NickName = "Issam",
+                base64 = "",
+                Age = 24,
+                Country = "Belgium",
+                fireBaseID = 1,
+                FirstName = "Issam",
+                LastName = "Moussaid",
+                DateCreated = new DateTime()
+            };
+            _context.Profiles.Add(profile1);
+            _context.Profiles.Add(profile2);
+            _context.SaveChanges();
         }
 
 
