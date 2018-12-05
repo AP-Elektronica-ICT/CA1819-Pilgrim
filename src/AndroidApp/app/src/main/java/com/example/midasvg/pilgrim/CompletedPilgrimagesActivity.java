@@ -27,7 +27,7 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
 
 
         //Pilgrimages ophalen vd server
-        String pilgrimageURL = "http://10.0.2.2:52521/api/pilgrimages";
+        String pilgrimageURL = "http://10.0.2.2:44384/api/pilgrimages";
 
         requestQueue = Volley.newRequestQueue(this);
 
