@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="vleesHuis" size="1.000000 0.750000" />
+    <ImageTarget name="RedStarLine" size="1.000000 0.750000" />
+    <ImageTarget name="museum" size="1.000000 0.750000" />
     <ImageTarget name="Mas" size="1.000000 0.750000" />
     <ImageTarget name="Brabo2" size="1.000000 0.750000" />
     <ImageTarget name="Antigoon" size="1.000000 0.750000" />
