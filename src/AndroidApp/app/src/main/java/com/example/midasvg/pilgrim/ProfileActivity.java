@@ -39,8 +39,6 @@ public class ProfileActivity extends AppCompatActivity {
         nToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
         final TextView accInfo = (TextView) findViewById(R.id.txtAcc);
         accInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,8 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     @Override
@@ -87,6 +83,4 @@ public class ProfileActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }

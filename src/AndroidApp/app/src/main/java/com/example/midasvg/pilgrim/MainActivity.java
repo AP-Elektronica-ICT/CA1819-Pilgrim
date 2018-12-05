@@ -73,12 +73,26 @@ public class MainActivity extends AppCompatActivity {
     private void UserMenuSelector(MenuItem item){
         switch (item.getItemId()){
             case R.id.nav_collections:
+                Intent intentCollection = new Intent(MainActivity.this, CollectionActivity.class);
+                startActivity(intentCollection);
                 break;
             case R.id.nav_contact:
+                Intent intentContact = new Intent(MainActivity.this, ContactActivity.class);
+                startActivity(intentContact);
                 break;
             case R.id.nav_game:
+                Intent intentGame = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intentGame);
                 break;
-
+            case R.id.nav_leaderboard:
+                Intent intentLeaderboard = new Intent(MainActivity.this, LeaderboardActivity.class);
+                break;
+            case R.id.nav_squad:
+                break;
+            case  R.id.nav_profile:
+                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intentProfile);
+                break;
         }
     }
 }

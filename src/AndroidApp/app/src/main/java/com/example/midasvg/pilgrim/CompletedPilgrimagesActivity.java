@@ -42,7 +42,6 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
 
                         try {
                             JSONObject pilgrimage = response.getJSONObject(1);
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
