@@ -25,6 +25,16 @@ namespace API.Controllers
             return Ok(profileService.GetProfiles());
         }
 
+        [HttpPost]
+        public IActionResult Profile([FromBody] Profile newProfile)
+        {
+            Profile profile = profileService.AddProfile(newProfile);
+            if (profile == null)
+                return NotFound();
+            return Ok(newProfile);
+        }
+
+
         [HttpGet("{id}")]
         public IActionResult GetProfile(int id)
         {
@@ -34,15 +44,7 @@ namespace API.Controllers
             return Ok(profile);
         }
 
-        [HttpPost]
-        public IActionResult Profile([FromBody] Profile newProfile)
-        {
-            Profile profile = profileService.AddProfile(newProfile);
-            if (profile == null)
-                return NotFound();
-            return Ok(profile);
-        }
-
+     
 
         [HttpDelete("{id}")]
         //Geen idee of er post/delete nodig is? Nieuwe accounts worden aangemaakt via

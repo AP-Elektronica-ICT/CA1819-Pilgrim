@@ -56,15 +56,11 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ProfileID");
-
-                    b.Property<DateTime>("StartTime");
+                    b.Property<long>("StartTime");
 
                     b.Property<int>("Time");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ProfileID");
 
                     b.ToTable("Pilgrimages");
                 });
@@ -75,11 +71,9 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Age");
+                    b.Property<long?>("DateCreated");
 
-                    b.Property<string>("Country");
-
-                    b.Property<DateTime>("DateCreated");
+                    b.Property<long>("DateOfBirth");
 
                     b.Property<string>("FirstName");
 
@@ -91,7 +85,7 @@ namespace API.Migrations
 
                     b.Property<string>("base64");
 
-                    b.Property<int>("fireBaseID");
+                    b.Property<string>("fireBaseID");
 
                     b.HasKey("ID");
 
@@ -103,13 +97,6 @@ namespace API.Migrations
                     b.HasOne("DataLinkLayer.Models.Pilgrimage")
                         .WithMany("Locations")
                         .HasForeignKey("PilgrimageID");
-                });
-
-            modelBuilder.Entity("DataLinkLayer.Models.Pilgrimage", b =>
-                {
-                    b.HasOne("DataLinkLayer.Models.Profile")
-                        .WithMany("CompletedPilgrimages")
-                        .HasForeignKey("ProfileID");
                 });
 #pragma warning restore 612, 618
         }

@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -49,6 +50,7 @@ public class NewProfileActivity extends AppCompatActivity {
     int yearOfBirth;
     int monthOfBirth;
     int dayOfBirth;
+    public int msg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,35 +170,7 @@ public class NewProfileActivity extends AppCompatActivity {
 
         Log.d("profileCall", "Nickname: " + nickName.getText() + ", FirstName: " + firstName.getText() + ", LastName: " + lastName.getText() + ", DateOfBirth: " + date.getText() + ", UID: " + UID);
         sendPost();
-        /*RequestQueue MyRequestQueue = Volley.newRequestQueue(this);
-        String url = "https://cloud.requestcatcher.com/";
-        StringRequest MyStringReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                //test
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
-            }
-        }){protected Map<String, String> getParams(){
-            Map<String,String> myData = new HashMap<String, String>();
-            myData.put("FirstName", firstName.getText().toString());
-            myData.put("LastName", lastName.getText().toString());
-            myData.put("NickName", nickName.getText().toString());
-            myData.put("Age", "18");
-            myData.put("Country", "Belgium");
-            myData.put("fireBaseID", UID);
-
-            Log.d("myData", "getParams: " + myData);
-            return myData;
-
-
-        }
-        };
-        MyRequestQueue.add(MyStringReq);
-        */
     }
 
     public void sendPost(){
@@ -204,7 +178,7 @@ public class NewProfileActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try{
-                    URL url = new URL("https://cloud.requestcatcher.com");
+                    URL url = new URL("https://api20181128095534.azurewebsites.net/api/profiles");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
@@ -219,7 +193,6 @@ public class NewProfileActivity extends AppCompatActivity {
                     jsonObject.put("LastName", lastName.getText().toString());
                     jsonObject.put("NickName", nickName.getText().toString());
                     jsonObject.put("DateOfBirth", epoch);
-                    jsonObject.put("Country", "Belgium");
                     jsonObject.put("Base64", base64Image);
                     jsonObject.put("fireBaseID", UID);
                     // Need to delete \ from string in backend !!!
@@ -233,8 +206,19 @@ public class NewProfileActivity extends AppCompatActivity {
                     os.close();
                     Log.i("STATUS", String.valueOf(conn.getResponseCode()));
                     Log.i("MSG" , conn.getResponseMessage());
-
+                    msg = conn.getResponseCode();
                     conn.disconnect();
+                    Log.i("PostTag", "MSG: " + msg);
+
+                    if(msg  == 200){
+                        Intent intent = new Intent(NewProfileActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(NewProfileActivity.this, "Something failed. Try again",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
                 }
                 catch (Exception e){
                     e.printStackTrace();

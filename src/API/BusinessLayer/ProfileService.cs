@@ -33,7 +33,7 @@ namespace BusinessLayer
             return null;
         }
 
-        public Profile GetProfileFireBaseID(int id)
+        public Profile GetProfileFireBaseID(string id)
         {
             Profile profile = context.Profiles.FirstOrDefault(m => m.fireBaseID == id);
             if (profile != null)
@@ -86,7 +86,8 @@ namespace BusinessLayer
                 }
                 return null;
             }
-            return null;
+            
+            return newProfile;
         }
 
         public bool UpdateProfile(Profile updatedProfile)
@@ -135,7 +136,7 @@ namespace BusinessLayer
 
         }
 
-        public bool changeNickName(string input, int firebaseID)
+        public bool changeNickName(string input, string firebaseID)
         {
             Profile profile = context.Profiles.FirstOrDefault(p => p.fireBaseID == firebaseID);
             if (profile != null)
@@ -182,7 +183,7 @@ namespace BusinessLayer
             return false;
         }
 
-        public bool fireBaseUserIDAlreadyUsed(int input)
+        public bool fireBaseUserIDAlreadyUsed(string input)
         {
             var profiles = context.Profiles;
             foreach (Profile prof in profiles)

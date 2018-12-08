@@ -10,7 +10,7 @@ namespace DataLinkLayer.Models
     {
         public int ID { get; set; }
 
-        public int fireBaseID { get; set; }
+        public string fireBaseID { get; set; }
 
         public string FirstName { get; set; }
 
