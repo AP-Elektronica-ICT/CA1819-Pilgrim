@@ -57,6 +57,8 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CompletedPilgrimagesActivity" />
         <activity android:name=".NewProfileActivity"></activity>
+        <activity android:name=".ContactActivity" />
+        <activity android:name=".LeaderboardActivity"></activity>
     </application>
 
 </manifest>

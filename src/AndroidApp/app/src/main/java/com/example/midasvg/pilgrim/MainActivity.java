@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,12 +74,30 @@ public class MainActivity extends AppCompatActivity {
     private void UserMenuSelector(MenuItem item){
         switch (item.getItemId()){
             case R.id.nav_collections:
+                Toast.makeText(MainActivity.this, "Collection.", Toast.LENGTH_SHORT).show();
+                Intent intentCollection = new Intent(MainActivity.this, CollectionActivity.class);
+                startActivity(intentCollection);
                 break;
             case R.id.nav_contact:
+                Toast.makeText(MainActivity.this, "Contact.", Toast.LENGTH_SHORT).show();
+                Intent intentContact = new Intent(MainActivity.this, ContactActivity.class);
+                startActivity(intentContact);
                 break;
             case R.id.nav_game:
+                Intent intentGame = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intentGame);
                 break;
-
+            case R.id.nav_leaderboard:
+                Toast.makeText(MainActivity.this, "Leaderboard.", Toast.LENGTH_SHORT).show();
+                Intent intentLeaderboard = new Intent(MainActivity.this, LeaderboardActivity.class);
+                break;
+            case R.id.nav_squad:
+                break;
+            case  R.id.nav_profile:
+                Toast.makeText(MainActivity.this, "Profile.", Toast.LENGTH_SHORT).show();
+                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intentProfile);
+                break;
         }
     }
 }

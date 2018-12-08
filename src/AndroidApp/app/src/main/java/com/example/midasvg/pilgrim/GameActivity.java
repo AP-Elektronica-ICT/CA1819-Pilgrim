@@ -462,38 +462,5 @@ public class GameActivity extends AppCompatActivity {
         // prgBar.setMax((int)totalTestDist);
         if (counter > 1)
             prgBar.setProgress((int) afstand);
-
-
     }
-
-
-    //Test:huidige tijd weergeven
-    /*
-    private void startClock(){
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    while (!isInterrupted()) {
-                        Thread.sleep(1000);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Calendar c = Calendar.getInstance();
-
-                                int hours = c.get(Calendar.HOUR_OF_DAY);
-                                int minutes = c.get(Calendar.MINUTE);
-                                int seconds = c.get(Calendar.SECOND);
-
-                                String curTime = String.format("%02d  %02d  %02d", hours, minutes, seconds);
-                                txtTime.setText(curTime);
-                            }
-                        });
-                    }
-                } catch (InterruptedException e) {
-                }
-            }
-        };
-        t.start();
-    }*/
 }

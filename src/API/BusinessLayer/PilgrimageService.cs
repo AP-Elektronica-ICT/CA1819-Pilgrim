@@ -30,22 +30,27 @@ namespace BusinessLayer
 
         public Pilgrimage AddPilgrimage(Pilgrimage newPilgrimage)
         {
+
             ICollection<Location> locations = new List<Location>();
             foreach (Location location in newPilgrimage.Locations)
             {
                 Location temp = context.Locations.FirstOrDefault(r => r.ID == location.ID);
                 locations.Add(temp);
             }
-            
+
             Pilgrimage pilgrimtemp = new Pilgrimage
             {
                 StartTime = newPilgrimage.StartTime,
                 Time = newPilgrimage.Time,
                 Locations = locations
             };
+
             context.Pilgrimages.Add(pilgrimtemp);
             context.SaveChanges();
             return (pilgrimtemp);
+
+
+
         }
 
         public bool DeletePilgrimage(int id)
@@ -74,7 +79,7 @@ namespace BusinessLayer
                     if (this.isEmpty(item.ToString()))
                         return false;
                 }
-                
+
             }
 
             var pilgrimage = context.Pilgrimages.Find(updatedPilgrimage.ID);

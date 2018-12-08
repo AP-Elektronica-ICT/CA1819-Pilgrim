@@ -139,7 +139,6 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 */
 
-
         //API aanspreken
         String locationURL = "http://localhost:44384/locations";
 
