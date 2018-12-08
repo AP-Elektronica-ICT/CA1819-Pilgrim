@@ -1,7 +1,11 @@
 package com.example.midasvg.pilgrim;
 
+import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -10,6 +14,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +35,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Calendar;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -38,6 +44,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private TextView firstName;
     private TextView lastName;
     private TextView date;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
     private Button saveBtn;
 
 
@@ -64,6 +71,34 @@ public class EditProfileActivity extends AppCompatActivity {
         firstName = (TextView) findViewById(R.id.txb_FirstName);
         lastName = (TextView) findViewById(R.id.txb_LastName);
         date = (TextView) findViewById(R.id.txb_DoB);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        EditProfileActivity.this,
+                        android.R.style.Theme_Holo,
+                        mDateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month ++ ;
+                Log.d("Date", "onDateSet: " + day + "/" + month + "/" + year);
+                String _date = day + "/" + month + "/" + year;
+                date.setText(_date);
+
+            }
+        };
         profilePicture = (ImageView) findViewById(R.id.profile_picture);
         saveBtn = (Button) findViewById(R.id.btn_saveProfile);
 

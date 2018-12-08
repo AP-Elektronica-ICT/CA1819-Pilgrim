@@ -18,16 +18,16 @@ namespace DataLinkLayer.Models
 
         public string NickName { get; set; }
 
-        public int Age { get; set; }
+        public long DateOfBirth { get; set; }
 
-        public string Country { get; set; }
+        //public string Country { get; set; }
 
 
         public string base64 { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        public long? DateCreated { get; set; }
 
-        public Pilgrimage[] CompletedPilgrimages { get; set; }
+        //public Pilgrimage[] CompletedPilgrimages { get; set; }
 
         [JsonIgnore]
         public byte[] ProfilePicture { get; set; }

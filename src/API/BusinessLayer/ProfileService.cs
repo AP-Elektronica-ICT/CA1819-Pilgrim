@@ -53,10 +53,9 @@ namespace BusinessLayer
             properties.Add(newProfile.FirstName);
             properties.Add(newProfile.LastName);
             properties.Add(newProfile.NickName);
-            properties.Add(newProfile.Age);
+            properties.Add(newProfile.DateOfBirth);
             properties.Add(newProfile.fireBaseID);
-            properties.Add(newProfile.Country);
-            properties.Add(newProfile.CompletedPilgrimages);
+            
 
             foreach (var item in properties)
             {
@@ -77,8 +76,10 @@ namespace BusinessLayer
             {
                 if (!UserNameAlreadyTaken(newProfile.NickName))
                 {
-                    newProfile.ProfilePicture = Convert.FromBase64String(newProfile.base64);
+
+                    newProfile.ProfilePicture = Convert.FromBase64String(newProfile.base64.Replace(@"\", String.Empty));
                     newProfile.base64 = "";
+                    newProfile.DateCreated = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
                     context.Profiles.Add(newProfile);
                     context.SaveChanges();
                     return newProfile;
@@ -94,10 +95,10 @@ namespace BusinessLayer
             properties.Add(updatedProfile.FirstName);
             properties.Add(updatedProfile.LastName);
             properties.Add(updatedProfile.NickName);
-            properties.Add(updatedProfile.Age);
-            properties.Add(updatedProfile.Country);
+            properties.Add(updatedProfile.DateOfBirth);
+            //properties.Add(updatedProfile.Country);
             properties.Add(updatedProfile.ProfilePicture);
-            properties.Add(updatedProfile.CompletedPilgrimages);
+           
 
 
             foreach (var item in properties)
@@ -123,10 +124,10 @@ namespace BusinessLayer
                     profile.FirstName = updatedProfile.FirstName;
                     profile.LastName = updatedProfile.LastName;
                     profile.NickName = updatedProfile.NickName;
-                    profile.Age = updatedProfile.Age;
-                    profile.Country = updatedProfile.Country;
+                    profile.DateOfBirth = updatedProfile.DateOfBirth;
+                    //profile.Country = updatedProfile.Country;
                     profile.ProfilePicture = updatedProfile.ProfilePicture;
-                    profile.CompletedPilgrimages = updatedProfile.CompletedPilgrimages;
+                   
                     return true;
                 }
                 return false;

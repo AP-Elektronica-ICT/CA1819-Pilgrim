@@ -55,7 +55,8 @@
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".ResetPassActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".CompletedPilgrimagesActivity"></activity>
+        <activity android:name=".CompletedPilgrimagesActivity" />
+        <activity android:name=".NewProfileActivity"></activity>
     </application>
 
 </manifest>
