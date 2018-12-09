@@ -1,11 +1,10 @@
 ﻿using BusinessLayer;
+using DataLinkLayer.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using DataLinkLayer.Models;
 
 namespace API.Controllers
 {
@@ -36,15 +35,15 @@ namespace API.Controllers
 
 
         [HttpGet("{id}")]
-        public IActionResult GetProfile(int id)
+        public IActionResult GetProfile(string id)
         {
-            Profile profile = profileService.GetProfile(id);
+            Profile profile = profileService.GetProfileFireBaseID(id);
             if (profile == null)
                 return NotFound();
             return Ok(profile);
         }
 
-     
+
 
         [HttpDelete("{id}")]
         //Geen idee of er post/delete nodig is? Nieuwe accounts worden aangemaakt via

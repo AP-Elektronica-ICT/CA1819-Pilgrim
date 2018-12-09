@@ -51,7 +51,8 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateLocation([FromBody] Location updatedLocation) {
+        public IActionResult UpdateLocation([FromBody] Location updatedLocation)
+        {
             if (this.locationService.UpdateLocation(updatedLocation) == false)
                 return NotFound();
             return Ok(updatedLocation);

@@ -1,12 +1,10 @@
-﻿using System;
+﻿using DataLinkLayer;
+using DataLinkLayer.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using DataLinkLayer;
-using DataLinkLayer.Models;
-using Newtonsoft.Json;
 
 namespace BusinessLayer
 {
@@ -43,7 +41,8 @@ namespace BusinessLayer
                 context.SaveChanges();
                 return (newLocation);
             }
-            else {
+            else
+            {
                 return null;
             }
         }
@@ -79,9 +78,9 @@ namespace BusinessLayer
                     System.Diagnostics.Debug.WriteLine("Item: " + item);
                     if (this.isEmpty(item.ToString()))
                         return false;
-                    
+
                 }
-              
+
 
             }
 
@@ -111,7 +110,8 @@ namespace BusinessLayer
         }
 
 
-        public bool isEmpty(string input) {
+        public bool isEmpty(string input)
+        {
             if (input == "")
                 return true;
             return false;

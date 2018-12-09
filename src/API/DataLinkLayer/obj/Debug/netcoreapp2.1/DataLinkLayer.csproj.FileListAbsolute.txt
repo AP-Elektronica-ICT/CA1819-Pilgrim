@@ -1,24 +1,12 @@
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.deps.json
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csprojAssemblyReference.cache
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CoreCompileInputs.cache
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfoInputs.cache
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CopyComplete
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.deps.json
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csprojAssemblyReference.cache
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CoreCompileInputs.cache
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfoInputs.cache
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CopyComplete
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.deps.json
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csprojAssemblyReference.cache
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CoreCompileInputs.cache
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfoInputs.cache
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.AssemblyInfo.cs
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.csproj.CopyComplete
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.dll
+E:\Users\robin\Desktop\New folder\API\DataLinkLayer\obj\Debug\netcoreapp2.1\DataLinkLayer.pdb

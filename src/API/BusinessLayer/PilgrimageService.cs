@@ -10,6 +10,7 @@ namespace BusinessLayer
 {
     public class PilgrimageService
     {
+
         private readonly Context context;
 
         public PilgrimageService(Context context)

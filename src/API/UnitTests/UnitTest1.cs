@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using Xunit;
 
-namespace LocationTests
+namespace UnitTests
 {
     public class LocationTests
     {

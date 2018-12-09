@@ -55,7 +55,7 @@ namespace BusinessLayer
             properties.Add(newProfile.NickName);
             properties.Add(newProfile.DateOfBirth);
             properties.Add(newProfile.fireBaseID);
-            
+
 
             foreach (var item in properties)
             {
@@ -86,7 +86,7 @@ namespace BusinessLayer
                 }
                 return null;
             }
-            
+
             return newProfile;
         }
 
@@ -99,7 +99,7 @@ namespace BusinessLayer
             properties.Add(updatedProfile.DateOfBirth);
             //properties.Add(updatedProfile.Country);
             properties.Add(updatedProfile.ProfilePicture);
-           
+
 
 
             foreach (var item in properties)
@@ -127,8 +127,9 @@ namespace BusinessLayer
                     profile.NickName = updatedProfile.NickName;
                     profile.DateOfBirth = updatedProfile.DateOfBirth;
                     //profile.Country = updatedProfile.Country;
-                    profile.ProfilePicture = updatedProfile.ProfilePicture;
-                   
+                    profile.ProfilePicture = Convert.FromBase64String(updatedProfile.base64.Replace(@"\", String.Empty));
+                    profile.base64 = "";
+                    context.SaveChanges();
                     return true;
                 }
                 return false;
@@ -141,7 +142,7 @@ namespace BusinessLayer
             Profile profile = context.Profiles.FirstOrDefault(p => p.fireBaseID == firebaseID);
             if (profile != null)
             {
-                if(!isEmpty(input)  && !UserNameAlreadyTaken(input))
+                if (!isEmpty(input) && !UserNameAlreadyTaken(input))
                 {
                     profile.NickName = input;
                     context.SaveChanges();
