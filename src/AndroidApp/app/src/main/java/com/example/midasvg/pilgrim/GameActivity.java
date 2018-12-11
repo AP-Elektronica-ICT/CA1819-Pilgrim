@@ -91,7 +91,10 @@ public class GameActivity extends AppCompatActivity {
     String hint1;
     String hint2;
     int hintCount = 0;
+    public int totalHintCounter = 0;
     //end hints
+
+    public int timerCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +126,7 @@ public class GameActivity extends AppCompatActivity {
 
                 // textView.append("\n"+location.getLatitude() + "" + location.getLongitude());
                 //Log.d("locA", "locA: "+prevLocation.getLatitude());
-                Log.d("test", "onLocationChanged: " + location.getLatitude() + "" + location.getLongitude());
+                //Log.d("test", "onLocationChanged: " + location.getLatitude() + "" + location.getLongitude());
             }
 
             @Override
@@ -163,12 +166,15 @@ public class GameActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+
                         int s = count % 60;
                         int min = count / 60;
                         int hour = min % 60;
                         min = min / 60;
                         txtTime.setText(min + "h" + hour + "m" + s + "s");
                         count++;
+                        timerCount = count;
+                       // Log.d("timercount", "timercount: "+timerCount);
                     }
                 });
             }
@@ -188,13 +194,9 @@ public class GameActivity extends AppCompatActivity {
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* getTravelledDist();
-                Intent intent = new Intent(GameActivity.this, EndActivity.class);
-                intent.putExtra("Time", txtTime.getText());
-                intent.putExtra("distance", dist);
-                startActivity(intent);*/
-
+                getTravelledDist();
                 hintCount++;
+                totalHintCounter++;
                 AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
                 builder.setCancelable(false);
                 builder.setTitle("hint");
@@ -248,33 +250,40 @@ public class GameActivity extends AppCompatActivity {
         });
 
         //Als alle plaatsen bezocht zijn schakelt de app over naar het eindscherm, tijd wordt meegegeven
-        if (placesVisited == 2) {
-            Intent intent = new Intent(GameActivity.this, EndActivity.class);
-            intent.putExtra("Time", txtTime.getText());
-            startActivity(intent);
-        }
+
+
 
         answerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (answerTxt.getText().toString().equals(answer)) {
-                    Log.d("text", "onClick: werkt ");
+                    //Log.d("text", "onClick: werkt ");
                     if (index < 1)
                         index++;
 
                     hintCount = 0;
+                    placesVisited++;
                     requestQueue.add(arrayRequest);
                     prgBar.setProgress(0);
-                    placesVisited++;
-                    Log.d("places visited", "places visited: " + placesVisited);
+
+                    if (placesVisited == 2) {
+                        Intent intent = new Intent(GameActivity.this, EndActivity.class);
+                        intent.putExtra("Time", txtTime.getText());
+                        intent.putExtra("timerCount", timerCount);
+                        intent.putExtra("totalHintCount", totalHintCounter);
+                        intent.putExtra("distance", dist);
+                        startActivity(intent);
+                    }
+
+                   // Log.d("places visited", "places visited: " + placesVisited);
                 } else
                     Log.d("text", "onClick: werkt niet ");
             }
         });
 
         //API aanspreken
-        // String locationURL = "http://localhost:44384/locations";
-        String locationURL = "https://api20181128095534.azurewebsites.net/api/locations";
+        String locationURL = "http://10.0.2.2:53000/api/locations";
+        //String locationURL = "https://api20181128095534.azurewebsites.net/api/locations";
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -286,13 +295,13 @@ public class GameActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONArray response) {
                         //Locaties ophalen
-                        Log.d("Response", response.toString());
+                       // Log.d("Response", response.toString());
 
 
                         try {
 
                             //  for (int i = 0; i < response.length(); i++) {
-                            Log.d("index", "index: " + index);
+                           // Log.d("index", "index: " + index);
                             JSONObject location = response.getJSONObject(index);
                             String name = location.getString("naam");
                             String description = location.getString("description");
@@ -302,7 +311,7 @@ public class GameActivity extends AppCompatActivity {
                             hint1 = location.getString("hint1");
                             hint2 = location.getString("hint2");
                             answer = location.getString("answer");
-                            Log.d("onresponse", "onResponse: " + name);
+                           // Log.d("onresponse", "onResponse: " + name);
 
                             //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
                             testLocation.setLatitude(Lat);

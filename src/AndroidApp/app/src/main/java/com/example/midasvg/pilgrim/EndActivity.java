@@ -24,7 +24,11 @@ public class EndActivity extends AppCompatActivity {
 
     TextView gameTime;
     TextView txtDistance;
+    TextView txtPoints;
     float distance;
+    int count;
+    int hints;
+    int penalty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +39,26 @@ public class EndActivity extends AppCompatActivity {
         String timeSpent = getIntent().getStringExtra("Time");
 
         distance = getIntent().getFloatExtra("distance", 0);
+        count = getIntent().getIntExtra("timerCount",0);
+        hints = getIntent().getIntExtra("totalHintCount", 0);
+
+        penalty = 30 * hints;
+
         gameTime = (TextView) findViewById(R.id.txtSpent);
         gameTime.setText(timeSpent);
 
         txtDistance = (TextView)findViewById(R.id.txtDistance);
         txtDistance.setText(""+new DecimalFormat("##.##").format(distance/1000) + "Km");
+
+        txtPoints = (TextView) findViewById(R.id.txtPoints);
+        txtPoints.setText(""+count);
+
+        int s = (count+penalty) % 60;
+        int min = (count+penalty) / 60;
+        int hour = min % 60;
+        min = min / 60;
+        txtPoints.setText(min + "h" + hour + "m" + s + "s");
+
 
         final Button backToMain = (Button) findViewById(R.id.bttnMain);
         backToMain.setOnClickListener(new View.OnClickListener() {
