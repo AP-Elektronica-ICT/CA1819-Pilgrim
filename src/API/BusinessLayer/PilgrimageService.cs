@@ -10,6 +10,7 @@ namespace BusinessLayer
 {
     public class PilgrimageService
     {
+
         private readonly Context context;
 
         public PilgrimageService(Context context)
@@ -76,7 +77,7 @@ namespace BusinessLayer
                 if (item is string)
                 {
                     System.Diagnostics.Debug.WriteLine("Item: " + item);
-                    if (this.isEmpty(item.ToString()))
+                    if (this.IsEmpty(item.ToString()))
                         return false;
                 }
 
@@ -93,7 +94,7 @@ namespace BusinessLayer
             }
         }
 
-        public bool isEmpty(string input)
+        public bool IsEmpty(string input)
         {
             if (input == "")
                 return true;

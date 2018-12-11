@@ -1,5 +1,4 @@
 ﻿using DataLinkLayer.Models;
-using System;
 using System.Linq;
 
 namespace DataLinkLayer
@@ -25,7 +24,6 @@ namespace DataLinkLayer
                 };
                 context.Locations.Add(testLocation);
             }
-
             context.SaveChanges();
         }
     }

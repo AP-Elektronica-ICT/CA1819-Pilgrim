@@ -34,7 +34,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public IActionResult newLocation([FromBody] Location newLocation)
+        public IActionResult NewLocation([FromBody] Location newLocation)
         {
             Location addedLocation = locationService.AddLocation(newLocation);
             if (addedLocation == null)
@@ -43,7 +43,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult deleteLocation(int id)
+        public IActionResult DeleteLocation(int id)
         {
             if (locationService.DeleteLocation(id) == false)
                 return NotFound();
@@ -51,7 +51,8 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateLocation([FromBody] Location updatedLocation) {
+        public IActionResult UpdateLocation([FromBody] Location updatedLocation)
+        {
             if (this.locationService.UpdateLocation(updatedLocation) == false)
                 return NotFound();
             return Ok(updatedLocation);

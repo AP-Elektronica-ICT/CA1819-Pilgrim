@@ -1,28 +1,14 @@
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.deps.json
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.runtimeconfig.json
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.runtimeconfig.dev.json
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.dll
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csprojAssemblyReference.cache
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CoreCompileInputs.cache
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfoInputs.cache
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfo.cs
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.dll
-E:\Users\robin\Desktop\Cloud Applications\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.pdb
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.deps.json
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.runtimeconfig.json
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.runtimeconfig.dev.json
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.dll
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csprojAssemblyReference.cache
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CoreCompileInputs.cache
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfoInputs.cache
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfo.cs
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.dll
-C:\Users\robin\Desktop\CA1819-Pilgrim\src\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.pdb
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.dll
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csprojAssemblyReference.cache
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CoreCompileInputs.cache
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfoInputs.cache
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfo.cs
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.deps.json
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.dll
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\bin\Debug\netcoreapp2.1\DataLinkLayer.pdb
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\bin\Debug\netcoreapp2.1\Newtonsoft.Json.xml
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.dll
+E:\Users\robin\Desktop\New folder\API\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.pdb

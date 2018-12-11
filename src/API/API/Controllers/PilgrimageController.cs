@@ -1,14 +1,14 @@
-﻿using System;
+﻿using BusinessLayer;
+using DataLinkLayer.Models;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BusinessLayer;
-using DataLinkLayer.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+
     [Route("api/pilgrimages")]
     [ApiController]
     public class PilgrimageController : Controller

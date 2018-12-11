@@ -446,6 +446,7 @@ public class GameActivity extends AppCompatActivity {
 
         currLocation.setLatitude(arrayLat.get(0));
         currLocation.setLongitude(arrayLng.get(0));
+
         totalTestDist = currLocation.distanceTo(testLocation);
 
         for (int i = 1; i < arrayLat.size(); i++) {

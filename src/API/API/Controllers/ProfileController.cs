@@ -1,11 +1,10 @@
 ﻿using BusinessLayer;
+using DataLinkLayer.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using DataLinkLayer.Models;
 
 namespace API.Controllers
 {
@@ -25,23 +24,25 @@ namespace API.Controllers
             return Ok(profileService.GetProfiles());
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetProfile(int id)
-        {
-            Profile profile = profileService.GetProfile(id);
-            if (profile == null)
-                return NotFound();
-            return Ok(profile);
-        }
-
         [HttpPost]
         public IActionResult Profile([FromBody] Profile newProfile)
         {
             Profile profile = profileService.AddProfile(newProfile);
             if (profile == null)
                 return NotFound();
+            return Ok(newProfile);
+        }
+
+
+        [HttpGet("{id}")]
+        public IActionResult GetProfile(string id)
+        {
+            Profile profile = profileService.GetProfileFireBaseID(id);
+            if (profile == null)
+                return NotFound();
             return Ok(profile);
         }
+
 
 
         [HttpDelete("{id}")]

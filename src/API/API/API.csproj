@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <UserSecretsId>cbcc7a37-17bc-4b3b-84c0-86c07dc6fa2a</UserSecretsId>
+    <UserSecretsId>73b14c73-bc23-4c30-9df9-3ed848159bf5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,11 +11,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
+    <ProjectReference Include="..\DataLinkLayer\DataLinkLayer.csproj" />
   </ItemGroup>
 
 </Project>
