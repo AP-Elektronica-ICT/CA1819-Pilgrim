@@ -24,7 +24,7 @@ class CustomAdapter extends ArrayAdapter<String> {
         String pilgrimID = getItem(position);
 
         TextView txtID = (TextView) customView.findViewById(R.id.pilgrimageID);
-        TextView txtStart = (TextView) customView.findViewById(R.id.txtStartTime);
+        TextView txtStart = (TextView) customView.findViewById(R.id.txtStarted);
         TextView txtTimeSpent = (TextView) customView.findViewById(R.id.txtTimeSpent);
 
         txtID.setText(pilgrimID);

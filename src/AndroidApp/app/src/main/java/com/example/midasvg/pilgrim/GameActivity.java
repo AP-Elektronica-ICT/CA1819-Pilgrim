@@ -71,9 +71,9 @@ public class GameActivity extends AppCompatActivity {
 
     ///distance to location
     ProgressBar prgBar;
-    Location testLocation = new Location("C");
-    public double totalTestDist;
-    float testDist = 0;
+    Location destinationLocation = new Location("C");
+    public double totalDistance;
+    float distToLoc = 0;
     int counter = 0;
     public int index = 0;
     public boolean found = false;
@@ -111,8 +111,8 @@ public class GameActivity extends AppCompatActivity {
         answerBtn = (Button) findViewById(R.id.answerBtn);
         answerTxt = (EditText) findViewById(R.id.answerTxt);
 
-        // testLocation.setLatitude(51.212977); //hard coded om buiten te testen
-        // testLocation.setLongitude(4.420918); //hard coded om buiten te testen
+        // destinationLocation.setLatitude(51.212977); //hard coded om buiten te testen
+        // destinationLocation.setLongitude(4.420918); //hard coded om buiten te testen
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -282,8 +282,8 @@ public class GameActivity extends AppCompatActivity {
         });
 
         //API aanspreken
-        String locationURL = "http://10.0.2.2:53000/api/locations";
-        //String locationURL = "https://api20181128095534.azurewebsites.net/api/locations";
+        //String locationURL = "http://10.0.2.2:53000/api/locations";
+        String locationURL = "https://api20181128095534.azurewebsites.net/api/locations";
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -314,8 +314,8 @@ public class GameActivity extends AppCompatActivity {
                            // Log.d("onresponse", "onResponse: " + name);
 
                             //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
-                            testLocation.setLatitude(Lat);
-                            testLocation.setLongitude(Long);
+                            destinationLocation.setLatitude(Lat);
+                            destinationLocation.setLongitude(Long);
 
                             txtHint.setText(crypticClue);
 
@@ -447,7 +447,7 @@ public class GameActivity extends AppCompatActivity {
         currLocation.setLatitude(arrayLat.get(0));
         currLocation.setLongitude(arrayLng.get(0));
 
-        totalTestDist = currLocation.distanceTo(testLocation);
+        totalDistance = currLocation.distanceTo(destinationLocation);
 
         for (int i = 1; i < arrayLat.size(); i++) {
 
@@ -455,20 +455,20 @@ public class GameActivity extends AppCompatActivity {
             currLocation.setLongitude(arrayLng.get(i));
 
 
-            testDist = testLocation.distanceTo(currLocation);
+            distToLoc = destinationLocation.distanceTo(currLocation);
             counter++;
 
         }
 
         // textView.setText("you have travelled: "+dist +"m");
-        tempAfstand = totalTestDist - testDist;
-        afstand = (tempAfstand / totalTestDist) * 100;
-        // Log.d("testdist", "testdist: "+testDist);
+        tempAfstand = totalDistance - distToLoc;
+        afstand = (tempAfstand / totalDistance) * 100;
+        // Log.d("distToLoc", "distToLoc: "+distToLoc);
         // Log.d("tempafstand", "tempafstand: "+tempAfstand);
         // Log.d("afstand", "afstand: "+afstand);
 
 
-        // prgBar.setMax((int)totalTestDist);
+        // prgBar.setMax((int)totalDistance);
         if (counter > 1)
             prgBar.setProgress((int) afstand);
     }

@@ -64,9 +64,9 @@
             android:id="@+id/textView20"
             android:layout_width="203dp"
             android:layout_height="45dp"
-            android:text="You receive"
+            android:text="Your total time is"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtPoints"
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:text="You travelled"
             android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtDistance"
