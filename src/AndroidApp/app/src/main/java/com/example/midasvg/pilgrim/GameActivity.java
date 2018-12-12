@@ -266,7 +266,7 @@ public class GameActivity extends AppCompatActivity {
                     requestQueue.add(arrayRequest);
                     prgBar.setProgress(0);
 
-                    if (placesVisited == 2) {
+                    if (placesVisited == 3) {
                         Intent intent = new Intent(GameActivity.this, EndActivity.class);
                         intent.putExtra("Time", txtTime.getText());
                         intent.putExtra("timerCount", timerCount);
@@ -283,7 +283,7 @@ public class GameActivity extends AppCompatActivity {
 
         //API aanspreken
         //String locationURL = "http://10.0.2.2:53000/api/locations";
-        String locationURL = "https://api20181128095534.azurewebsites.net/api/locations";
+        String locationURL = "http://pilgrim.azurewebsites.net/api/locations";
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -318,7 +318,6 @@ public class GameActivity extends AppCompatActivity {
                             destinationLocation.setLongitude(Long);
 
                             txtHint.setText(crypticClue);
-
 
                             // }
 
@@ -379,37 +378,6 @@ public class GameActivity extends AppCompatActivity {
         }, 2000);
     }
 
-    //afstand tussen twee coördinaten berekenen
-    private void checkDistance() {
-        distance = Math.sqrt((Math.pow(nextPlace[0] - currentPlace[0], 2) + (Math.pow(nextPlace[1] - currentPlace[1], 2))));
-
-        if (distance >= nextPlace[0] + 10 && distance >= nextPlace[1] + 10) {
-            //notificatie dat gebruiker te ver is
-
-            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
-                    .setDefaults(NotificationCompat.DEFAULT_ALL)
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setContentTitle("Warning!")
-                    .setContentText("You are heading in the wrong direction. Review the previous hint, or ask for a another one if you can't find the solution.")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-            notificationManagerCompat.notify(1, notBuilder.build());
-
-        } else if (distance <= nextPlace[0] - 10 && distance <= nextPlace[1] - 10) {
-            //notificatie dat gebruiker dichterbij komt
-
-            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
-                    .setDefaults(NotificationCompat.DEFAULT_ALL)
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setContentTitle("Good job!")
-                    .setContentText("You are getting closer to the next target. Keep following this route!")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-            notificationManagerCompat.notify(2, notBuilder.build());
-        }
-    }
 
     public void getTravelledDist() {
 
@@ -472,4 +440,38 @@ public class GameActivity extends AppCompatActivity {
         if (counter > 1)
             prgBar.setProgress((int) afstand);
     }
+
+
+        /*
+    //afstand tussen twee coördinaten berekenen
+    private void checkDistance() {
+        distance = Math.sqrt((Math.pow(nextPlace[0] - currentPlace[0], 2) + (Math.pow(nextPlace[1] - currentPlace[1], 2))));
+
+        if (distance >= nextPlace[0] + 10 && distance >= nextPlace[1] + 10) {
+            //notificatie dat gebruiker te ver is
+
+            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
+                    .setDefaults(NotificationCompat.DEFAULT_ALL)
+                    .setSmallIcon(R.mipmap.ic_launcher_round)
+                    .setContentTitle("Warning!")
+                    .setContentText("You are heading in the wrong direction. Review the previous hint, or ask for a another one if you can't find the solution.")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+            notificationManagerCompat.notify(1, notBuilder.build());
+
+        } else if (distance <= nextPlace[0] - 10 && distance <= nextPlace[1] - 10) {
+            //notificatie dat gebruiker dichterbij komt
+
+            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
+                    .setDefaults(NotificationCompat.DEFAULT_ALL)
+                    .setSmallIcon(R.mipmap.ic_launcher_round)
+                    .setContentTitle("Good job!")
+                    .setContentText("You are getting closer to the next target. Keep following this route!")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
+            notificationManagerCompat.notify(2, notBuilder.build());
+        }
+    }*/
 }

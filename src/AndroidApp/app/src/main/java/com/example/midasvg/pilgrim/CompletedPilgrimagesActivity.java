@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CompletedPilgrimagesActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
 
     public int index = 1;
     RequestQueue requestQueue;
+    JSONObject json_data;
     JsonArrayRequest arrayRequest;
 
     @Override
@@ -51,9 +53,20 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
                         Log.d("Response", response.toString());
                         try {
                             Log.d("index", "index: " + index);
-                            JSONObject pilgrimage = response.getJSONObject(index);
+
+                            ArrayList<String> items = new ArrayList<String>();
+
+                            for(int i=0; i <response.length(); i++){
+                                    json_data = response.getJSONObject(i);
+                                    int id = json_data.getInt("id");
+                                    int startTime = json_data.getInt("startTime");
+                                    int time = json_data.getInt("time");
+                                    items.add(Integer.toString(id));
+                                    Log.d(Integer.toString(id),"Output");
+                            }
 
 
+                            /*
                             id = pilgrimage.getInt("id");
                             startTime = pilgrimage.getInt("startTime");
                             time = pilgrimage.getInt("time");
@@ -71,6 +84,7 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
                             Log.d("onresponse", "Response: " + id);
                             Log.d("starttime", "starttime: " + startTime);
                             Log.d("timespent", "timespent: " + time);
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

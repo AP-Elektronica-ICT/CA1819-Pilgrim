@@ -2,6 +2,7 @@ package com.example.midasvg.pilgrim;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
@@ -12,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -85,7 +87,7 @@ public class EditProfileActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("My Profile");
 
 
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         UID = user.getUid();
 
 
@@ -154,19 +156,7 @@ public class EditProfileActivity extends AppCompatActivity {
         deleteAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user.delete()
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d("Auth: ", "User account deleted.");
-                                    Toast.makeText(EditProfileActivity.this, "Account Deleted.",
-                                            Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(EditProfileActivity.this, LoginActivity.class);
-                                    startActivity(intent);
-                                }
-                            }
-                        });
+                DeleteUser();
             }
         });
 
@@ -407,6 +397,42 @@ public class EditProfileActivity extends AppCompatActivity {
 
     public void GetProfile(){
 
+    }
+
+    public void DeleteUser(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(EditProfileActivity.this);
+        builder.setCancelable(true);
+        builder.setTitle("Are you sure?");
+        builder.setMessage("Account deletion can not be undone!");
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                user.delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d("Auth: ", "User account deleted.");
+                                    Toast.makeText(EditProfileActivity.this, "Account Deleted.",
+                                            Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(EditProfileActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        });
+            }
+        });
+        builder.show();
     }
 
 }
