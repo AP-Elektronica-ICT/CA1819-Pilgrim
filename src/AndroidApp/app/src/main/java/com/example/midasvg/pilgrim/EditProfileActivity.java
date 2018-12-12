@@ -11,6 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +29,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.JsonIOException;
@@ -81,7 +85,7 @@ public class EditProfileActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("My Profile");
 
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         UID = user.getUid();
 
 
@@ -145,6 +149,26 @@ public class EditProfileActivity extends AppCompatActivity {
                 }
         );
         requestQueue.add(JsonRequest);
+
+        final Button deleteAcc = (Button) findViewById(R.id.deleteAccount);
+        deleteAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user.delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d("Auth: ", "User account deleted.");
+                                    Toast.makeText(EditProfileActivity.this, "Account Deleted.",
+                                            Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(EditProfileActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        });
+            }
+        });
 
 
         nickName   = (TextView)findViewById(R.id.txb_NickName);

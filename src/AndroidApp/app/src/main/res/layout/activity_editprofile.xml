@@ -106,6 +106,20 @@
                 android:layout_centerInParent="true"
                 android:onClick="Save"
                 android:text="Edit Profile" />
+
+            <Button
+                android:id="@+id/deleteAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="9dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="@color/red"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="Delete Account"
+                android:textColor="@color/white" />
+
+
         </RelativeLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
