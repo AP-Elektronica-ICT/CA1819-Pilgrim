@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         profilePic = (ImageView) findViewById(R.id.profilePic);
 
-        String URL = "http://pilgrim.azurewebsites.net/api/profiles/" + UID;
+        String URL = "http://pilgrimapp.azurewebsites.net/api/profiles/" + UID;
 
         requestQueue = Volley.newRequestQueue(this);
 

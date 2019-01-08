@@ -92,7 +92,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
 
-        String URL = "http://pilgrim.azurewebsites.net/api/profiles/" + UID;
+        String URL = "http://pilgrimapp.azurewebsites.net/api/profiles/" + UID;
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -353,7 +353,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try{
-                    String _url = "http://pilgrim.azurewebsites.net/api/profiles/";
+                    String _url = "http://pilgrimapp.azurewebsites.net/api/profiles/";
                     URL url = new URL(_url);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("PUT");

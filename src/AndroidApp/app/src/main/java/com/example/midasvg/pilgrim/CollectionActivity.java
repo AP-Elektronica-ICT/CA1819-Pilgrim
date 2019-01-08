@@ -47,7 +47,7 @@ public class CollectionActivity extends AppCompatActivity {
         txtNaam = (TextView) findViewById(R.id.txtNaam);
         txtDescription = (TextView) findViewById(R.id.txtDesc);
 
-        final String locationUrl = "http://pilgrim.azurewebsites.net/api/locations";
+        final String locationUrl = "http://pilgrimapp.azurewebsites.net/api/locations";
         requestQueue = Volley.newRequestQueue(this);
 
         arrayRequest = new JsonArrayRequest(
