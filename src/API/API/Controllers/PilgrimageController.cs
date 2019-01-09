@@ -23,7 +23,7 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult GetPilgrimages()
         {
-            return Ok(pilgrimageService.GetPilgrimages());
+            return Ok(pilgrimageService.GetLeaderboard(1,1,1));
         }
 
         [HttpGet("{id}")]

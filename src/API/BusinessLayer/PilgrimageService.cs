@@ -30,12 +30,12 @@ namespace BusinessLayer
             return context.Pilgrimages.Find(id);
         }
 
-        public Leaderboard GetPilgrimages(long start, long end, int? page )
+        public Leaderboard GetLeaderboard(long start, long end, int? page )
         {
             IQueryable<Pilgrimage> pilgrimages = context.Pilgrimages;
             var length = 5;
-            pilgrimages = pilgrimages.Where(d => d.StartTime >= start && d.StartTime <= end);
-            pilgrimages.OrderBy(d => d.Time);
+            //pilgrimages = pilgrimages.Where(d => d.StartTime >= start && d.StartTime <= end);
+            pilgrimages = pilgrimages.OrderBy(d => d.Time);
             pilgrimages.Include(d => d.Locations);
             var Pages = Math.Ceiling((double)pilgrimages.Count() / length);
             if (page.HasValue)
@@ -45,7 +45,7 @@ namespace BusinessLayer
             Leaderboard leaderboard = new Leaderboard()
             {
                 pilgrimages = pilgrimagesList,
-                pages = Pages
+                pages = 5
             };
             return leaderboard;
         }
@@ -62,9 +62,11 @@ namespace BusinessLayer
 
             Pilgrimage pilgrimtemp = new Pilgrimage
             {
+                FireBaseID = newPilgrimage.FireBaseID,
                 StartTime = newPilgrimage.StartTime,
                 Time = newPilgrimage.Time,
-                Locations = locations
+                Locations = locations,
+                username = newPilgrimage.username,
             };
 
             context.Pilgrimages.Add(pilgrimtemp);
