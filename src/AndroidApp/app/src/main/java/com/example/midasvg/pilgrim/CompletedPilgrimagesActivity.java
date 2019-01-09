@@ -40,7 +40,7 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_completed_pilgrimages);
 
 
-        String pilgrimageURL = "http://pilgrim.azurewebsites.net/api/pilgrimages";
+        String pilgrimageURL = "http://pilgrimapp.azurewebsites.net/api/pilgrimages";
         requestQueue = Volley.newRequestQueue(this);
 
         arrayRequest = new JsonArrayRequest(
