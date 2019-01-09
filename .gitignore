@@ -260,10 +260,14 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-src/API/DataLinkLayer/obj/
-
-src/API/API/obj/Debug/netcoreapp2\.1/
+src/API/API/bin/
 
 src/API/API/obj/
 
+src/API/BusinessLayer/bin/
+
 src/API/BusinessLayer/obj/
+
+src/API/DataLinkLayer/bin/
+
+src/API/DataLinkLayer/obj/

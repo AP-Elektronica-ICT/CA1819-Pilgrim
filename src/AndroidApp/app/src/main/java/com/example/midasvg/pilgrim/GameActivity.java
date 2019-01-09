@@ -283,7 +283,7 @@ public class GameActivity extends AppCompatActivity {
 
         //API aanspreken
         //String locationURL = "http://10.0.2.2:53000/api/locations";
-        String locationURL = "http://pilgrim.azurewebsites.net/api/locations";
+        String locationURL = "http://pilgrimapp.azurewebsites.net/api/locations";
 
         requestQueue = Volley.newRequestQueue(this);
 
