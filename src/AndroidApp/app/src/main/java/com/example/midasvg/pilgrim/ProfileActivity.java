@@ -108,7 +108,7 @@ public class ProfileActivity extends AppCompatActivity {
         accInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                Intent intent = new Intent(ProfileActivity.this, LeaderboardActivity.class);
                 startActivity(intent);
             }
         });

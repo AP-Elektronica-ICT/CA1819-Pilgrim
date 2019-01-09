@@ -1,5 +1,6 @@
 ﻿using DataLinkLayer;
 using DataLinkLayer.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,6 +28,26 @@ namespace BusinessLayer
         public Pilgrimage GetPilgrimage(int id)
         {
             return context.Pilgrimages.Find(id);
+        }
+
+        public Leaderboard GetPilgrimages(long start, long end, int? page )
+        {
+            IQueryable<Pilgrimage> pilgrimages = context.Pilgrimages;
+            var length = 5;
+            pilgrimages = pilgrimages.Where(d => d.StartTime >= start && d.StartTime <= end);
+            pilgrimages.OrderBy(d => d.Time);
+            pilgrimages.Include(d => d.Locations);
+            var Pages = Math.Ceiling((double)pilgrimages.Count() / length);
+            if (page.HasValue)
+                pilgrimages.Skip(page.Value * length);
+            pilgrimages = pilgrimages.Take(length);
+            var pilgrimagesList = pilgrimages.ToList();
+            Leaderboard leaderboard = new Leaderboard()
+            {
+                pilgrimages = pilgrimagesList,
+                pages = Pages
+            };
+            return leaderboard;
         }
 
         public Pilgrimage AddPilgrimage(Pilgrimage newPilgrimage)

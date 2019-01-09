@@ -7,12 +7,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
 
     private DrawerLayout nDrawerLayout;
     private NavigationView navigationView;
@@ -66,12 +67,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if (nToggle.onOptionsItemSelected(item)){
+
             return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void UserMenuSelector(MenuItem item){
+        Log.d("SuchTest", "UserMenuSelector: TESTETETETTETEE");
         switch (item.getItemId()){
             case R.id.nav_collections:
                 Toast.makeText(MainActivity.this, "Collection.", Toast.LENGTH_SHORT).show();
