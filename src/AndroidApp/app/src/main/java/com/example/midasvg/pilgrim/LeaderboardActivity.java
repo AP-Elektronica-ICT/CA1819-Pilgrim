@@ -41,6 +41,7 @@ public class LeaderboardActivity extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
 
+        Log.d("GETTER", "onCreate: ");
         JsonRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 URL,
@@ -55,7 +56,7 @@ public class LeaderboardActivity extends AppCompatActivity {
                             JSONObject Leaderboard = response;
                             JSONArray pilgrimages = Leaderboard.getJSONArray("pilgrimages");
                             Log.d("GETTER", "onResponse: " + pilgrimages.length());
-                            for (int i = 0; i <= pilgrimages.length(); i++) {
+                            for (int i = 0; i < pilgrimages.length(); i++) {
                                 Log.d("GETTER", "onResponse: TEST");
                                 final JSONObject temp = pilgrimages.getJSONObject(i);
                                Pilgrimage pilgrimagetemp = new Pilgrimage(){{
@@ -64,19 +65,32 @@ public class LeaderboardActivity extends AppCompatActivity {
                                    username = temp.getString("username");
                                    startTime = temp.getInt("startTime");
                                    Time = temp.getInt("time");
+                                   /*Log.d("GETTER", String.valueOf(temp.getInt("id")));
+                                   Log.d("GETTER", String.valueOf(temp.getString("fireBaseID")));
+                                   Log.d("GETTER", String.valueOf(temp.getString("username")));
+                                   Log.d("GETTER", String.valueOf(temp.getInt("startTime")));
+                                   Log.d("GETTER", String.valueOf(temp.getInt("time")));*/
                                 }};
                                pilgrimagesList.add(pilgrimagetemp);
 
                             }
-                            Log.d("GETTER", "onResponse: GTEST");
+                            Pilgrimage[] pilgrimagesarray = new Pilgrimage[pilgrimagesList.size()];
+
+                            pilgrimagesarray = pilgrimagesList.toArray(pilgrimagesarray);
+                            //String[] pilgrimages = {"Eerste", "Tweede", "Derde", "Vierde"};
+                            ListAdapter Adapter = new LeaderboardAdapter(getBaseContext(),pilgrimagesarray);
+                            ListView leaderboardList = (ListView) findViewById(R.id.LeaderBoardListView);
+                            leaderboardList.setAdapter(Adapter);
+
+                            /*Log.d("GETTER", "onResponse: GTEST");
                             Log.d("GETTER", "onResponse: " + pilgrimagesList.get(0).id);
-                            /*for (int i = 0; i < pilgrimagesList.size(); i++) {
+                            for (int i = 0; i < pilgrimagesList.size(); i++) {
                                 Log.d("GETTER", "onResponse: " + pilgrimagesList.get(i).Time + " " + pilgrimagesList.get(i).username);
-                            }*/
+                            }
                             JSONObject pilgrim = pilgrimages.getJSONObject(0);
                             String name = pilgrim.getString("username");
                             int time = pilgrim.getInt("time");
-                            Log.d("GETTER", "resp" + name + " " + time);
+                            Log.d("GETTER", "resp" + name + " " + time);*/
 
 
 
@@ -118,9 +132,6 @@ public class LeaderboardActivity extends AppCompatActivity {
             Time = 3;
             username = "Robin2";
         }};
-        String[] pilgrimages = {"Eerste", "Tweede", "Derde", "Vierde"};
-        ListAdapter Adapter = new LeaderboardAdapter(this,pilgrimages);
-        ListView leaderboardList = (ListView) findViewById(R.id.LeaderBoardListView);
-        leaderboardList.setAdapter(Adapter);
+
     }
 }
