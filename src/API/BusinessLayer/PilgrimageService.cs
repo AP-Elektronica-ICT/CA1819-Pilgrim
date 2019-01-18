@@ -79,11 +79,11 @@ namespace BusinessLayer
 
         public bool DeletePilgrimage(int id)
         {
-            var profile = context.Profiles.Find(id);
-            if (profile == null)
+            var pilgrimage = context.Pilgrimages.Find(id);
+            if (pilgrimage == null)
                 return false;
 
-            context.Profiles.Remove(profile);
+            context.Pilgrimages.Remove(pilgrimage);
             context.SaveChanges();
             return true;
         }
