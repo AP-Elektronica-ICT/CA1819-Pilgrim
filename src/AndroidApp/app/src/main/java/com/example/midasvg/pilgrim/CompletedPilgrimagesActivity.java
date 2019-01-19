@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -13,7 +14,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,69 +26,56 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CompletedPilgrimagesActivity extends AppCompatActivity {
 
-    int id;
-    int startTime;
-    int time;
-
-    public int index = 1;
     RequestQueue requestQueue;
-    JSONObject json_data;
-    JsonArrayRequest arrayRequest;
+    JsonObjectRequest JsonRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_completed_pilgrimages);
+        getSupportActionBar().setTitle("My Pilgrimages");
+
+        String URL = "http://pilgrimapp.azurewebsites.net/api/pilgrimages";
+        final List<Pilgrimage> pilgrimagesList = new ArrayList<Pilgrimage>();
 
 
-        String pilgrimageURL = "http://pilgrimapp.azurewebsites.net/api/pilgrimages";
         requestQueue = Volley.newRequestQueue(this);
-
-        arrayRequest = new JsonArrayRequest(
+        Log.d("Request", "onCreate: ");
+        JsonRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                pilgrimageURL,
+                URL,
                 null,
-                new Response.Listener<JSONArray>() {
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
+                    public void onResponse(JSONObject response) {
                         Log.d("Response", response.toString());
                         try {
-                            Log.d("index", "index: " + index);
 
-                            ArrayList<String> items = new ArrayList<String>();
+                            JSONObject completedPilgrimages = response;
+                            JSONArray pilgrimages = completedPilgrimages.getJSONArray("pilgrimages");
+                            Log.d("PilgrimagesLength", "onResponse: " + pilgrimages.length());
+                            for (int i = 0; i < pilgrimages.length(); i++) {
+                                final JSONObject temp = pilgrimages.getJSONObject(i);
+                                Pilgrimage pilgrimagetemp = new Pilgrimage(){{
+                                    id = temp.getInt("id");
+                                    //FireBaseID = temp.getString("fireBaseID");
+                                    //username = temp.getString("username");
+                                    startTime = temp.getInt("startTime");
+                                    Time = temp.getInt("time");
+                                }};
+                                pilgrimagesList.add(pilgrimagetemp);
 
-                            for(int i=0; i <response.length(); i++){
-                                    json_data = response.getJSONObject(i);
-                                    int id = json_data.getInt("id");
-                                    int startTime = json_data.getInt("startTime");
-                                    int time = json_data.getInt("time");
-                                    items.add(Integer.toString(id));
-                                    Log.d(Integer.toString(id),"Output");
                             }
+                            Pilgrimage[] pilgrimagesarray = new Pilgrimage[pilgrimagesList.size()];
 
-
-                            /*
-                            id = pilgrimage.getInt("id");
-                            startTime = pilgrimage.getInt("startTime");
-                            time = pilgrimage.getInt("time");
-
-                            /*
-                            TextView txtID = (TextView) findViewById(R.id.txtID);
-                            TextView txtStart = (TextView) findViewById(R.id.txtStartTime);
-                            TextView txtTime = (TextView) findViewById(R.id.txtTime);
-
-                            txtID.setText(Integer.toString(id));
-                            txtStart.setText(Integer.toString(startTime));
-                            txtTime.setText(Integer.toString(time ));
-                            */
-
-                            Log.d("onresponse", "Response: " + id);
-                            Log.d("starttime", "starttime: " + startTime);
-                            Log.d("timespent", "timespent: " + time);
-
+                            pilgrimagesarray = pilgrimagesList.toArray(pilgrimagesarray);
+                            ListAdapter Adapter = new PilgrimageAdapter(getBaseContext(),pilgrimagesarray);
+                            ListView pilgrimageList = (ListView) findViewById(R.id.pilgrimList);
+                            pilgrimageList.setAdapter(Adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -98,19 +89,8 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
                     }
                 }
         );
-        requestQueue.add(arrayRequest);
+        requestQueue.add(JsonRequest);
 
-
-        //Convert unixtime naar leesbare tijd
-        Date startDate = new Date(startTime*1000L);
-        SimpleDateFormat dateFormat =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
-        String formattedDate = dateFormat.format(startDate);
-
-
-        /*
-        txtID.setText(Integer.toString(id));
-        txtStart.setText(Integer.toString(formattedDate));
-        txtTime.setText(Integer.toString(time ));*/
 
     }
 }
