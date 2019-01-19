@@ -19,11 +19,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtName"
+                android:id="@+id/locationName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="LocationName"
                 android:layout_margin="3sp"
+                android:text="LocationName"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="30sp" />

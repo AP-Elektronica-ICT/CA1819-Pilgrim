@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -12,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
@@ -21,54 +24,54 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CollectionActivity extends AppCompatActivity {
 
-    public int index = 1;
     RequestQueue requestQueue;
-    JsonArrayRequest arrayRequest;
-
-    int id;
-    String name;
-    String desc;
-
-    TextView txtID;
-    TextView txtNaam;
-    TextView txtDescription;
-
+    JsonObjectRequest JsonRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
-
         getSupportActionBar().setTitle("Collection");
 
-        txtID = (TextView) findViewById(R.id.txtID);
-        txtNaam = (TextView) findViewById(R.id.txtNaam);
-        txtDescription = (TextView) findViewById(R.id.txtDesc);
+        String locationUrl = "http://pilgrimapp.azurewebsites.net/api/locations";
+        final List<Location> locationList = new ArrayList<Location>();
 
-        final String locationUrl = "http://pilgrimapp.azurewebsites.net/api/locations";
         requestQueue = Volley.newRequestQueue(this);
-
-        arrayRequest = new JsonArrayRequest(
+        JsonRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 locationUrl,
                 null,
-                new Response.Listener<JSONArray>() {
+
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
+                    public void onResponse(JSONObject response) {
+                        Log.d("Response", response.toString());
                         try {
 
-                            JSONObject location = response.getJSONObject(index);
+                            JSONObject locationsList = response;
+                            JSONArray locations = locationsList.getJSONArray("pilgrimages");
+                            Log.d("LocationLength", "onResponse: " + locations.length());
+                            for (int i = 0; i < locations.length(); i++) {
+                                final JSONObject temp = locations.getJSONObject(i);
+                                Location tempLocation = new Location(){{
+                                    id = temp.getInt("id");
+                                    naam = temp.getString("naam");
+                                    img = temp.getString("base64");
+                                }};
+                                locationList.add(tempLocation);
 
-                            id = location.getInt("id");
-                            name = location.getString("naam");
-                            desc = location.getString("description");
+                            }
+                            Location[] locationsarray = new Location[locationList.size()];
 
-                            txtID.setText(Integer.toString(id));
-                            txtNaam.setText(name);
-                            txtDescription.setText(desc);
-
+                            locationsarray = locationList.toArray(locationsarray);
+                            ListAdapter Adapter = new CollectionAdapter(getBaseContext(),locationsarray);
+                            ListView locList = (ListView) findViewById(R.id.pilgrimList);
+                            locList.setAdapter(Adapter);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -81,10 +84,8 @@ public class CollectionActivity extends AppCompatActivity {
                         Log.e("REST response", error.toString());
                     }
                 }
-
         );
-        requestQueue.add(arrayRequest);
-
+        requestQueue.add(JsonRequest);
 
     }
 }
