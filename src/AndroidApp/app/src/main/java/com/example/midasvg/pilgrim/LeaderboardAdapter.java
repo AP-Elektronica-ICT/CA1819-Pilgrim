@@ -57,7 +57,6 @@ class LeaderboardAdapter extends ArrayAdapter<Pilgrimage>{
         //time.setText(String.valueOf(pilgrimage.Time));
 
 
-
         int seconds = pilgrimage.Time%60;
         int temp = pilgrimage.Time - (pilgrimage.Time%60);
         int minutestotal = temp/60;
