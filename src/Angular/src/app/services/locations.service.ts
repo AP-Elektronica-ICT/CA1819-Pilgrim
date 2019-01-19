@@ -13,7 +13,7 @@ export class LocationsService {
     })
   };
 
-  private baseURL = 'https://localhost:44384/api/'
+  private baseURL = 'http://pilgrimapp.azurewebsites.net/api/'
 
   getLocations():Observable<ILocation[]>{
     return this.http.get<ILocation[]>(this.baseURL + `locations`, this.httpOptions);
@@ -44,6 +44,7 @@ export interface ILocation {
   hint1: string;
   hint2: string;
   answer: string;
+  base64: string;
 }
 
 export interface INewLocation {
@@ -55,4 +56,5 @@ export interface INewLocation {
   hint1: string;
   hint2: string;
   answer: string;
+  base64: string;
 }

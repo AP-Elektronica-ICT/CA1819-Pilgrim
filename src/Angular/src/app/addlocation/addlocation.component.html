@@ -9,7 +9,18 @@
         <i class="fa fa-times" (click)="closeAddLocation()" id="closebutton"></i>
       </div>
     </div>
+    
+    <div class="row justify-content-center" style="margin-top:1em; margin-bottom:1em;">
+      
+        <img class="img-fluid" [src]="LocationImage" id="gameCover" style="max-width:500px;">
+      
+    </div>
     <form>
+      <div class="row">
+        <div class="col-md-12">
+            <input id="browse" type="file" class="form-control" (change)="onFileChanged($event)" style="padding-bottom:45px;">
+        </div>
+      </div>
         <div class="row">
           <div class="col-md-12">
             <div class="md-form">
