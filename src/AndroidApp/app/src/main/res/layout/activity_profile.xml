@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="238dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="30dp"
             app:srcCompat="@drawable/blank_profile_picture" />
@@ -52,13 +52,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="25dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="15dp"
             android:ems="10"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:text="Acount info      >"
+            android:text="Leaderboard     >"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="30sp" />
@@ -94,20 +94,6 @@
             android:textAlignment="center"
             android:textSize="30sp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btn_EditProfile"
-                android:layout_width="357dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/rounded_corner"
-                android:backgroundTint="@color/charcoal"
-                android:text="Edit Profile"
-                android:textColor="@color/white"/>
-        </RelativeLayout>
     </LinearLayout>
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.DrawerLayout>

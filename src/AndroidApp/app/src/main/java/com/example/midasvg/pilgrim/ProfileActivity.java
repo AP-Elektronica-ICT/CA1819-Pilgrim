@@ -103,6 +103,13 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, ViewProfile.class);
+                startActivity(intent);
+            }
+        });
 
         final TextView accInfo = (TextView) findViewById(R.id.txtAcc);
         accInfo.setOnClickListener(new View.OnClickListener() {

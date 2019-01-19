@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -15,5 +16,9 @@ namespace DataLinkLayer.Models
         public string Hint1 { get; set; }
         public string Hint2 { get; set; }
         public string Answer { get; set; }
+        public string base64 { get; set; }
+        [JsonIgnore]
+        public byte[] Image { get; set; }
+
     }
 }

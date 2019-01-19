@@ -24,7 +24,16 @@ namespace BusinessLayer
 
         public Location GetLocation(int id)
         {
-            return context.Locations.Find(id); // this can be null if wrong id is given
+            var Location =  context.Locations.Find(id); // this can be null if wrong id is given
+            if (Location == null)
+            {
+                return null;
+            }
+            else
+            {
+                Location.base64 = Convert.ToBase64String(Location.Image);
+                return Location;
+            }
         }
 
         public Location AddLocation(Location newLocation)
@@ -37,6 +46,8 @@ namespace BusinessLayer
             var exists = context.Locations.Any(m => m.Naam.ToLower().Equals(newLocation.Naam.ToLower()) || m.Long.Equals(newLocation.Long) || m.Lat.Equals(newLocation.Lat) || m.Hint1.ToLower().Equals(newLocation.Hint1.ToLower()) || m.Hint2.ToLower().Equals(newLocation.Hint2.ToLower()) || m.CrypticClue.ToLower().Equals(newLocation.CrypticClue.ToLower()) || m.Description.ToLower().Equals(newLocation.Description.ToLower()) || m.Answer.ToLower().Equals(newLocation.Answer.ToLower()));
             if (!exists)
             {
+                newLocation.Image = Convert.FromBase64String(newLocation.base64);
+                newLocation.base64 = "";
                 context.Locations.Add(newLocation);
                 context.SaveChanges();
                 return (newLocation);

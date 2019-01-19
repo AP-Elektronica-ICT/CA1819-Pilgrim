@@ -18,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ViewProfile"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,9 +57,9 @@
         <activity android:name=".ResetPassActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CompletedPilgrimagesActivity" />
-        <activity android:name=".NewProfileActivity"></activity>
+        <activity android:name=".NewProfileActivity" />
         <activity android:name=".ContactActivity" />
-        <activity android:name=".LeaderboardActivity"></activity>
+        <activity android:name=".LeaderboardActivity" />
     </application>
 
 </manifest>

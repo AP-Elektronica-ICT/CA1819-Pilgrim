@@ -27,7 +27,14 @@ namespace BusinessLayer
 
         public Pilgrimage GetPilgrimage(int id)
         {
-            return context.Pilgrimages.Find(id);
+            var pilgrimage = context.Pilgrimages.Include(d => d.Locations).FirstOrDefault(p =>p.ID == id);
+            foreach (Location loc in pilgrimage.Locations)
+            {
+                loc.base64 = Convert.ToBase64String(loc.Image);
+            }
+            return pilgrimage;
+            
+
         }
 
         public Leaderboard GetLeaderboard(long start, long end, int? page )

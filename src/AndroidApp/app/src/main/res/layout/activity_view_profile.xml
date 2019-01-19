@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginbackground"
-    tools:context=".EditProfileActivity"
-    android:screenOrientation="portrait">
+    android:screenOrientation="portrait"
+    tools:context=".EditProfileActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/profile_picture"
+            android:id="@+id/profile_pictureView"
             android:layout_width="match_parent"
             android:layout_height="274dp"
             android:layout_marginLeft="10dp"
@@ -32,8 +32,8 @@
 
             app:srcCompat="@drawable/blank_profile_picture" />
 
-        <EditText
-            android:id="@+id/txb_NickName"
+        <TextView
+            android:id="@+id/NickNameView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -41,45 +41,52 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/rounded_corner"
             android:ems="10"
+            android:gravity="center_vertical"
             android:hint="Nickname"
             android:inputType="textPersonName"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp" />
+            android:paddingEnd="10dp"
+            android:textSize="18sp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/txb_FirstName"
+            <TextView
+                android:id="@+id/FirstNameView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_corner"
                 android:ems="10"
+                android:gravity="center_vertical"
                 android:hint="Firstname"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
-                android:paddingEnd="10dp" />
+                android:paddingEnd="10dp"
+                android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/txb_LastName"
+            <TextView
+                android:id="@+id/LastNameView"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/rounded_corner"
                 android:ems="10"
+                android:gravity="center_vertical"
                 android:hint="Lastname"
                 android:inputType="textPersonName"
                 android:paddingStart="10dp"
-                android:paddingEnd="10dp" />
+                android:paddingEnd="10dp"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/txb_DoB"
+            android:id="@+id/DoBView"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
@@ -92,12 +99,13 @@
             android:inputType="none"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -108,8 +116,8 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_saveEdit"
-                    android:layout_width="314dp"
+                    android:id="@+id/btn_EditProfile"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
 
                     android:layout_centerHorizontal="true"
@@ -117,16 +125,8 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/rounded_corner"
                     android:backgroundTint="@color/charcoal"
-                    android:text="Save"
+                    android:text="Edit Profile"
                     android:textColor="@color/white" />
-
-                <ImageView
-                    android:id="@+id/image_Delete"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/rounded_corner"
-                    android:backgroundTint="@color/red"
-                    app:srcCompat="@android:drawable/ic_menu_delete" />
 
             </LinearLayout>
 

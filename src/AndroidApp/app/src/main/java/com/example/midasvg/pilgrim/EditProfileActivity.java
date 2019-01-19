@@ -69,7 +69,7 @@ public class EditProfileActivity extends AppCompatActivity {
     public int YearOfBirth;
     public int ID;
 
-
+    private ImageView imageDelete;
 
     private ImageView profilePicture;
     public static final int PICK_IMAGE = 100;
@@ -152,13 +152,8 @@ public class EditProfileActivity extends AppCompatActivity {
         );
         requestQueue.add(JsonRequest);
 
-        final Button deleteAcc = (Button) findViewById(R.id.deleteAccount);
-        deleteAcc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DeleteUser();
-            }
-        });
+
+
 
 
         nickName   = (TextView)findViewById(R.id.txb_NickName);
@@ -194,8 +189,14 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         };
         profilePicture = (ImageView) findViewById(R.id.profile_picture);
-        saveBtn = (Button) findViewById(R.id.btn_saveProfile);
-
+        saveBtn = (Button) findViewById(R.id.btn_saveEdit);
+        imageDelete = (ImageView) findViewById(R.id.image_Delete);
+        imageDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeleteUser();
+            }
+        });
 
 
 
