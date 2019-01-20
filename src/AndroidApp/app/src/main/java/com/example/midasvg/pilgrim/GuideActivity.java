@@ -23,7 +23,7 @@ public class GuideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+        setContentView(R.layout.activity_guide);
         getSupportActionBar().setTitle("Guide");
 
         //De button wordt ge-enabled op de Action Bar
