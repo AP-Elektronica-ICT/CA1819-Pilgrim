@@ -18,11 +18,11 @@
             android:layout_width="match_parent" android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/guide"
+                android:id="@+id/about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="start"
-                android:text="@string/game_rules_eng"
+                android:text="@string/about_eng"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
