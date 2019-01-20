@@ -29,5 +29,45 @@
     <string name="create_account">Create Account</string>
     <string name="datum">Date of birth</string>
 
+    <string name="game_rules_eng">
+        \n
+        Welcome to Pilgrim.\n\n
+        Before you start, please make sure you have also downloaded and installed the Pilgrim AR application.\n
+        \n
+        You are stuck in the city of Antwerp.\n\n
+        When you start the game you will be given a cryptic question about a location.\n\n
+        It is up to you to figure out where this location is and to try to find it.\n\n
+        When you arrive at the location try to find
+        the specific building, statue etc. \n\n
+        When you think you have found it, you need to push on the camera button to check wheter you are correct.\n
+        If you are correct,
+        the answer will be augmented.\n\n
+        Fill in the answer and you will be given the next location. \n\n
+        To help you we have provided a distancebar to let you know if you are getting closer to your target.\n
+        We have also provided you with a clue system.\n\n
+        Click on help to get a clue, but beware!\n
+        You only have 2 clues per location and each time you use a clue, you will get a
+        penalty of 30 sec.\n\n
+        Goodluck!!
+        \n\n
+
+    </string>
+
+    <string name="about_eng">
+        \n\n
+        This Application was made for the course "Cloud Applications" of the Artesis Plantijn Hogeschool in Antwerp.\n\n
+        The developers are Robin Laevaert, Midas Van Gucht and Issam Moussaïd, 3rd year students Electronics-ICT.\n\n
+        We would like to thank the lecturers Tom Peeters and Sven Mariën for their help and guidance.\n\n
+
+        Feel free to contact us if you have any questions.\n\n\n
+        robin.laevart@student.ap.be\n
+        midas.van.gucht@student.ap.be\n
+        issam.moussaid@student.ap.be\n
+
+
+
+
+    </string>
+
 
 </resources>

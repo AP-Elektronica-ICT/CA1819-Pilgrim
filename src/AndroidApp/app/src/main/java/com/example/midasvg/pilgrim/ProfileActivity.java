@@ -3,6 +3,8 @@ package com.example.midasvg.pilgrim;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,7 +42,9 @@ import java.util.Calendar;
 public class ProfileActivity extends AppCompatActivity {
 
     private DrawerLayout nDrawerLayout;
+    private NavigationView navigationView;
     private ActionBarDrawerToggle nToggle;
+    private FirebaseAuth mAuth;
     String UID;
     RequestQueue requestQueue;
     JsonObjectRequest JsonRequest;
@@ -51,10 +56,20 @@ public class ProfileActivity extends AppCompatActivity {
 
         //De button wordt ge-enabled op de Action Bar
         nDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        navigationView = (NavigationView) findViewById(R.id.navView);
         nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
         nDrawerLayout.addDrawerListener(nToggle);
         nToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                UserMenuSelector(item);
+                return false;
+            }
+        });
+
+        mAuth = FirebaseAuth.getInstance();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         UID = user.getUid();
@@ -138,21 +153,50 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        final Button editProfile = (Button) findViewById(R.id.btn_EditProfile);
-        editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if (nToggle.onOptionsItemSelected(item)){
+
             return true;
+
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void UserMenuSelector(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.nav_collections:
+                Intent intentCollection = new Intent(ProfileActivity.this, CollectionActivity.class);
+                startActivity(intentCollection);
+                break;
+            case R.id.nav_game:
+                Intent intentGame = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intentGame);
+                break;
+            case R.id.nav_leaderboard:
+                Intent intentLeaderboard = new Intent(ProfileActivity.this, LeaderboardActivity.class);
+                startActivity(intentLeaderboard);
+                break;
+            case  R.id.nav_profile:
+                Intent intentProfile = new Intent(ProfileActivity.this, ProfileActivity.class);
+                startActivity(intentProfile);
+                break;
+            case R.id.nav_guide:
+                Intent intentGuide = new Intent(ProfileActivity.this, GuideActivity.class);
+                startActivity(intentGuide);
+                break;
+            case R.id.nav_about:
+                Intent intentAbout = new Intent(ProfileActivity.this, AboutActivity.class);
+                startActivity(intentAbout);
+                break;
+            case R.id.nav_logout:
+                mAuth.signOut();
+                Toast.makeText(ProfileActivity.this, "Logging out...", Toast.LENGTH_SHORT).show();
+                Intent logOut = new Intent(ProfileActivity.this, LoginActivity.class);
+                startActivity(logOut);
+                break;
+        }
     }
 }
