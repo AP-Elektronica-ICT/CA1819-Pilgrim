@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(intentGame);
                 break;
             case R.id.nav_leaderboard:
-                Toast.makeText(MainActivity.this, "Leaderboard.", Toast.LENGTH_SHORT).show();
                 Intent intentLeaderboard = new Intent(MainActivity.this, LeaderboardActivity.class);
+                startActivity(intentLeaderboard);
                 break;
             case R.id.nav_squad:
                 break;
