@@ -80,7 +80,7 @@ public class GuideActivity extends AppCompatActivity {
                 startActivity(intentGuide);
                 break;
             case R.id.nav_about:
-                Intent intentAbout = new Intent(GuideActivity.this, MainActivity.class);
+                Intent intentAbout = new Intent(GuideActivity.this, AboutActivity.class);
                 startActivity(intentAbout);
                 break;
             case R.id.nav_logout:

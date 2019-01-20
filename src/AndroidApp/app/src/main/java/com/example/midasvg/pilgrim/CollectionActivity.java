@@ -154,7 +154,7 @@ public class CollectionActivity extends AppCompatActivity {
                 startActivity(intentGuide);
                 break;
             case R.id.nav_about:
-                Intent intentAbout = new Intent(CollectionActivity.this, MainActivity.class);
+                Intent intentAbout = new Intent(CollectionActivity.this, AboutActivity.class);
                 startActivity(intentAbout);
                 break;
             case R.id.nav_logout:

@@ -60,6 +60,7 @@
         <activity android:name=".NewProfileActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".LeaderboardActivity" />
+        <activity android:name=".AboutActivity" />
     </application>
 
 </manifest>
