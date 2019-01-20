@@ -16,17 +16,21 @@
         android:icon="@drawable/ic_baseline_person_outline_24px"/>
 
     <item
-        android:id="@+id/nav_squad"
-        android:title="Squad"
-        android:icon="@drawable/ic_baseline_people_outline_24px"/>
-
-    <item
         android:id="@+id/nav_leaderboard"
         android:title="Leaderboard"
         android:icon="@drawable/ic_baseline_poll_24px"/>
 
     <item
-        android:id="@+id/nav_contact"
-        android:title="Contact"
-        android:icon="@drawable/ic_baseline_mail_outline_24px"/>
+        android:id="@+id/nav_guide"
+        android:title="Guide"
+        android:icon="@drawable/baseline_import_contacts_black_24dp"/>
+    <item
+        android:id="@+id/nav_about"
+        android:title="About"
+        android:icon="@drawable/baseline_info_white_24dp"/>
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Log Out"
+        android:icon="@drawable/baseline_exit_to_app_white_24dp"/>
+
 </menu>
