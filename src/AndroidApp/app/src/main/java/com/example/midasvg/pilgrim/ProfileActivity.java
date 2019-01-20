@@ -142,14 +142,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        final Button editProfile = (Button) findViewById(R.id.btn_EditProfile);
-        editProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
