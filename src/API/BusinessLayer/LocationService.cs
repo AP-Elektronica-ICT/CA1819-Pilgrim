@@ -19,7 +19,21 @@ namespace BusinessLayer
 
         public List<Location> GetLocations()
         {
-            return context.Locations.ToList();
+            var locations =  context.Locations.ToList();
+
+            foreach (Location item in locations)
+            {
+                if (item.Image != null )
+                {
+                    item.base64 = Convert.ToBase64String(item.Image);
+                }
+                else
+                {
+                    item.base64 = "";
+                }
+
+            }
+            return locations;
         }
 
         public Location GetLocation(int id)
@@ -31,7 +45,15 @@ namespace BusinessLayer
             }
             else
             {
-                Location.base64 = Convert.ToBase64String(Location.Image);
+                if(Location.Image != null)
+                {
+                    Location.base64 = Convert.ToBase64String(Location.Image);
+                }
+                else
+                {
+                    Location.base64 = "";
+                }
+                
                 return Location;
             }
         }
@@ -46,8 +68,16 @@ namespace BusinessLayer
             var exists = context.Locations.Any(m => m.Naam.ToLower().Equals(newLocation.Naam.ToLower()) || m.Long.Equals(newLocation.Long) || m.Lat.Equals(newLocation.Lat) || m.Hint1.ToLower().Equals(newLocation.Hint1.ToLower()) || m.Hint2.ToLower().Equals(newLocation.Hint2.ToLower()) || m.CrypticClue.ToLower().Equals(newLocation.CrypticClue.ToLower()) || m.Description.ToLower().Equals(newLocation.Description.ToLower()) || m.Answer.ToLower().Equals(newLocation.Answer.ToLower()));
             if (!exists)
             {
-                newLocation.Image = Convert.FromBase64String(newLocation.base64);
-                newLocation.base64 = "";
+                if(newLocation.base64 != null || newLocation.base64 != "")
+                {
+                    newLocation.Image = Convert.FromBase64String(newLocation.base64);
+                    newLocation.base64 = "";
+                }
+                else
+                {
+                    newLocation.Image = null;
+                    newLocation.base64 = "";
+                }
                 context.Locations.Add(newLocation);
                 context.SaveChanges();
                 return (newLocation);
@@ -86,7 +116,7 @@ namespace BusinessLayer
 
                 if (item is string)
                 {
-                    System.Diagnostics.Debug.WriteLine("Item: " + item);
+                    //System.Diagnostics.Debug.WriteLine("Item: " + item);
                     if (this.isEmpty(item.ToString()))
                         return false;
 
