@@ -1,12 +1,15 @@
 package com.example.midasvg.pilgrim;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListAdapter;
@@ -43,7 +46,7 @@ public class CollectionActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     RequestQueue requestQueue;
-    JsonObjectRequest JsonRequest;
+    JsonArrayRequest arrayRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,26 +75,29 @@ public class CollectionActivity extends AppCompatActivity {
         final List<Location> locationList = new ArrayList<Location>();
 
         requestQueue = Volley.newRequestQueue(this);
-        JsonRequest = new JsonObjectRequest(
+        arrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 locationUrl,
                 null,
 
-                new Response.Listener<JSONObject>() {
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(JSONArray response) {
                         Log.d("Response", response.toString());
                         try {
 
-                            JSONObject locationsList = response;
-                            JSONArray locations = locationsList.getJSONArray("pilgrimages");
-                            Log.d("LocationLength", "onResponse: " + locations.length());
-                            for (int i = 0; i < locations.length(); i++) {
-                                final JSONObject temp = locations.getJSONObject(i);
+                            Log.d("LocationLength", "onResponse: " + response.length());
+                            for (int i = 0; i < response.length(); i++) {
+                                final JSONObject temp = response.getJSONObject(i);
                                 Location tempLocation = new Location(){{
-                                    id = temp.getInt("id");
                                     naam = temp.getString("naam");
-                                    img = temp.getString("base64");
+
+                                    String test = temp.getString("base64");
+                                    byte[] decodedString = Base64.decode(test, Base64.DEFAULT);
+                                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+                                    img = decodedByte;
+
                                 }};
                                 locationList.add(tempLocation);
 
@@ -100,7 +106,7 @@ public class CollectionActivity extends AppCompatActivity {
 
                             locationsarray = locationList.toArray(locationsarray);
                             ListAdapter Adapter = new CollectionAdapter(getBaseContext(),locationsarray);
-                            ListView locList = (ListView) findViewById(R.id.pilgrimList);
+                            ListView locList = (ListView) findViewById(R.id.collectionView);
                             locList.setAdapter(Adapter);
 
                         } catch (JSONException e) {
@@ -115,7 +121,7 @@ public class CollectionActivity extends AppCompatActivity {
                     }
                 }
         );
-        requestQueue.add(JsonRequest);
+        requestQueue.add(arrayRequest);
 
     }
 

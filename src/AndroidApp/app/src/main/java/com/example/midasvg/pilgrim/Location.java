@@ -1,9 +1,12 @@
 package com.example.midasvg.pilgrim;
 
+import android.graphics.Bitmap;
+
 public class Location {
     int id;
-    String img;
+    Bitmap img;
     String naam;
     String beschrijving;
+    String base64;
 
 }

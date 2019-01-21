@@ -28,10 +28,10 @@ class PilgrimageAdapter extends ArrayAdapter<Pilgrimage> {
         TextView txtTimeSpent = (TextView) customView.findViewById(R.id.txtTimeSpent);
 
 
-        txtID.setText(String.valueOf(pilgrimage.id));
+        txtID.setText("Pilgrimage " +String.valueOf(pilgrimage.id));
 
         //tijd nog formatteren
-        txtStart.setText(String.valueOf(pilgrimage.startTime));
+        txtStart.setText("Started on: " +String.valueOf(pilgrimage.startTime));
 
         int seconds = pilgrimage.Time%60;
         int temp = pilgrimage.Time - (pilgrimage.Time%60);
@@ -41,7 +41,7 @@ class PilgrimageAdapter extends ArrayAdapter<Pilgrimage> {
         int hours = temp2/60;
 
         String timeString = String.valueOf(hours) + ":" + String.valueOf(minutes) + ":" + String.valueOf(seconds);
-        txtTimeSpent.setText(timeString);
+        txtTimeSpent.setText("Duration: " + timeString);
 
         return customView;
     }

@@ -1,9 +1,12 @@
 package com.example.midasvg.pilgrim;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +30,9 @@ class CollectionAdapter extends ArrayAdapter<Location> {
 
         TextView locationName = (TextView) customView.findViewById(R.id.locationName);
         ImageView locationImage = (ImageView) customView.findViewById(R.id.locationImage);
+
+        locationName.setText(location.naam);
+        locationImage.setImageBitmap(location.img);
 
         return customView;
     }
