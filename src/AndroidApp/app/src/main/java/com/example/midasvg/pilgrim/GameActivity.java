@@ -201,14 +201,14 @@ public class GameActivity extends AppCompatActivity {
                 builder.setCancelable(false);
                 builder.setTitle("hint");
                 if (hintCount <= 1)
-                    builder.setMessage(hint1 + " \n \n \n (you have 1 more hint remaining for this location, use it wiseley!)");
+                    builder.setMessage(hint1 + " \n \n \n (You have 1 more hint remaining for this location, use it wisely!)");
                 else if (hintCount == 2) {
                     builder.setMessage(hint2);
                 } else
-                    builder.setMessage("oeps, you are out of hints");
+                    builder.setMessage("Oops, you are out of hints");
 
 
-                builder.setNegativeButton("Got it!!", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Got it!!!", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
@@ -258,6 +258,22 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (answerTxt.getText().toString().equals(answer)) {
                     //Log.d("text", "onClick: werkt ");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                    builder.setCancelable(true);
+                    builder.setTitle("Congratulations!");
+                    builder.setMessage("The answer was correct!");
+
+                    builder.setNegativeButton("Continue", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
+                    answerTxt.setText("");
+
+
                     if (index < 1)
                         index++;
 
@@ -276,8 +292,23 @@ public class GameActivity extends AppCompatActivity {
                     }
 
                    // Log.d("places visited", "places visited: " + placesVisited);
-                } else
+                } else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
+                    builder.setCancelable(true);
+                    builder.setTitle("Bummer!");
+                    builder.setMessage("You filled in the wrong answer!");
+
+                    builder.setNegativeButton("Try Again", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
                     Log.d("text", "onClick: werkt niet ");
+                }
+
+
             }
         });
 
@@ -440,38 +471,4 @@ public class GameActivity extends AppCompatActivity {
         if (counter > 1)
             prgBar.setProgress((int) afstand);
     }
-
-
-        /*
-    //afstand tussen twee coördinaten berekenen
-    private void checkDistance() {
-        distance = Math.sqrt((Math.pow(nextPlace[0] - currentPlace[0], 2) + (Math.pow(nextPlace[1] - currentPlace[1], 2))));
-
-        if (distance >= nextPlace[0] + 10 && distance >= nextPlace[1] + 10) {
-            //notificatie dat gebruiker te ver is
-
-            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
-                    .setDefaults(NotificationCompat.DEFAULT_ALL)
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setContentTitle("Warning!")
-                    .setContentText("You are heading in the wrong direction. Review the previous hint, or ask for a another one if you can't find the solution.")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-            notificationManagerCompat.notify(1, notBuilder.build());
-
-        } else if (distance <= nextPlace[0] - 10 && distance <= nextPlace[1] - 10) {
-            //notificatie dat gebruiker dichterbij komt
-
-            NotificationCompat.Builder notBuilder = new NotificationCompat.Builder(this, "notify")
-                    .setDefaults(NotificationCompat.DEFAULT_ALL)
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
-                    .setContentTitle("Good job!")
-                    .setContentText("You are getting closer to the next target. Keep following this route!")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-            NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(this);
-            notificationManagerCompat.notify(2, notBuilder.build());
-        }
-    }*/
 }

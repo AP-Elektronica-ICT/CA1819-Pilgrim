@@ -24,7 +24,7 @@ public class EndActivity extends AppCompatActivity {
 
     TextView gameTime;
     TextView txtDistance;
-    TextView txtPoints;
+    //TextView txtPoints;
     float distance;
     int count;
     int hints;
@@ -50,6 +50,7 @@ public class EndActivity extends AppCompatActivity {
         txtDistance = (TextView)findViewById(R.id.txtDistance);
         txtDistance.setText(""+new DecimalFormat("##.##").format(distance/1000) + "Km");
 
+        /*
         txtPoints = (TextView) findViewById(R.id.txtPoints);
         txtPoints.setText(""+count);
 
@@ -57,7 +58,7 @@ public class EndActivity extends AppCompatActivity {
         int min = (count+penalty) / 60;
         int hour = min % 60;
         min = min / 60;
-        txtPoints.setText(min + "h" + hour + "m" + s + "s");
+        txtPoints.setText(min + "h" + hour + "m" + s + "s");*/
 
 
         final Button backToMain = (Button) findViewById(R.id.bttnMain);
