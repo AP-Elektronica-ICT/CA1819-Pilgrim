@@ -30,8 +30,6 @@
     <string name="datum">Date of birth</string>
 
     <string name="game_rules_eng">
-        \n
-        Welcome to Pilgrim.\n\n
         Before you start, please make sure you have also downloaded and installed the Pilgrim AR application.\n
         \n
         You are stuck in the city of Antwerp.\n\n
@@ -39,7 +37,7 @@
         It is up to you to figure out where this location is and to try to find it.\n\n
         When you arrive at the location try to find
         the specific building, statue etc. \n\n
-        When you think you have found it, you need to push on the camera button to check wheter you are correct.\n
+        When you think you have found it, you need to push on the camera button to check whether you are correct.\n
         If you are correct,
         the answer will be augmented.\n\n
         Fill in the answer and you will be given the next location. \n\n
@@ -48,7 +46,7 @@
         Click on help to get a clue, but beware!\n
         You only have 2 clues per location and each time you use a clue, you will get a
         penalty of 30 sec.\n\n
-        Goodluck!!
+        Good luck!!
         \n\n
 
     </string>
@@ -70,6 +68,10 @@
 
         v1.0
 
+    </string>
+
+    <string name="welcome">
+        \n\nWelcome to
     </string>
 
 

@@ -5,6 +5,8 @@ import android.app.VoiceInteractor;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -16,6 +18,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -103,7 +106,12 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        getSupportActionBar().setTitle("Pilgrimage");
+
+        //getSupportActionBar().setTitle("Pilgrimage");
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Pilgrimage </font>"));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#464646")));
+
         startTime = System.currentTimeMillis() / 1000L;
         txtTime = (TextView) findViewById(R.id.txtTime);
         txtPlaces = (TextView) findViewById(R.id.txtPlaces);
