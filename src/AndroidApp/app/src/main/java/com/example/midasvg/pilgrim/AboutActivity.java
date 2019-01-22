@@ -36,6 +36,7 @@ public class AboutActivity extends AppCompatActivity {
         nDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView = (NavigationView) findViewById(R.id.navView);
         nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
+
         nDrawerLayout.addDrawerListener(nToggle);
         nToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

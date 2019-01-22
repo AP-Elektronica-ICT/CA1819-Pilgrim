@@ -5,6 +5,9 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
+
+        <!-- #2 Dit toevoegen om hamburgerbutton van kleur te veranderen -->
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
     
     
@@ -15,6 +18,11 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:gravity">center</item>
 
+    </style>
+
+    <!-- #1 Dit toevoegen om hamburgerbutton van kleur te veranderen -->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/white</item>
     </style>
 
 
