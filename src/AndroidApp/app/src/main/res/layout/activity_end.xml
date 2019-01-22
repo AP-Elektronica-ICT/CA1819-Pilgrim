@@ -81,11 +81,11 @@
             android:id="@+id/bttnLeaderboard"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/charcoal"
             android:text="check the leaderboard"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="50dp"/>
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/txtOr"

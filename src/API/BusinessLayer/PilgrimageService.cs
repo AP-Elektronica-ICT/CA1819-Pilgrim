@@ -73,7 +73,7 @@ namespace BusinessLayer
                 StartTime = newPilgrimage.StartTime,
                 Time = newPilgrimage.Time,
                 Locations = locations,
-                username = newPilgrimage.username,
+                username = context.Profiles.FirstOrDefault(r => r.fireBaseID == newPilgrimage.FireBaseID).NickName
             };
 
             context.Pilgrimages.Add(pilgrimtemp);

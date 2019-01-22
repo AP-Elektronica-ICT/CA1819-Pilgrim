@@ -18,6 +18,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
@@ -30,11 +31,13 @@ public class EndActivity extends AppCompatActivity {
 
     TextView gameTime;
     TextView txtDistance;
+
     //TextView txtPoints;
     float distance;
     int count;
     int hints;
     int penalty;
+    int totalsecs;
     long startTime;
     public int msg;
     String UID;
@@ -63,10 +66,29 @@ public class EndActivity extends AppCompatActivity {
         penalty = 30 * hints;
 
         gameTime = (TextView) findViewById(R.id.txtSpent);
-        gameTime.setText(timeSpent);
+        totalsecs = count + penalty;
+        int seconds = totalsecs%60;
+        int temp = totalsecs - (totalsecs%60);
+        int minutestotal = temp/60;
+        int minutes = minutestotal%60;
+        int temp2 = minutestotal - (minutestotal%60);
+        int hours = temp2/60;
+
+        String timeString;
+        if(hours == 0 && minutes ==0){
+            timeString = String.valueOf(seconds) + " seconds";
+        }else if(hours == 0){
+            timeString = String.valueOf(minutes) + " minutes " + String.valueOf(seconds) + "seconds";
+        }else{
+            timeString = String.format("%02d", hours) + ":" + String.format("%02d", minutes) + ":" + String.format("%02d", seconds);
+        }
+
+
+        gameTime.setText(timeString);
+
 
         txtDistance = (TextView) findViewById(R.id.txtDistance);
-        txtDistance.setText("" + new DecimalFormat("##.##").format(distance / 1000) + "Km");
+        txtDistance.setText("" + new DecimalFormat("##.##").format(distance / 1000) + " Km");
 
         /*
         txtPoints = (TextView) findViewById(R.id.txtPoints);
@@ -78,6 +100,14 @@ public class EndActivity extends AppCompatActivity {
         min = min / 60;
         txtPoints.setText(min + "h" + hour + "m" + s + "s");*/
 
+        final  Button Leaderboard = (Button) findViewById(R.id.bttnLeaderboard) ;
+        Leaderboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EndActivity.this, LeaderboardActivity.class);
+                startActivity(intent);
+            }
+        });
 
         final Button backToMain = (Button) findViewById(R.id.bttnMain);
         backToMain.setOnClickListener(new View.OnClickListener() {
@@ -110,8 +140,9 @@ public class EndActivity extends AppCompatActivity {
                     jsonObject.put("FireBaseID", UID);
                     jsonObject.put("username", "temp");
                     jsonObject.put("StartTime", startTime);
-                    jsonObject.put("Time", count);
-                    jsonObject.put("Locations", locations);
+                    jsonObject.put("Time", totalsecs);
+                    JSONArray jarr = new JSONArray();
+                    jsonObject.put("Locations", jarr);
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
                     os.writeBytes(jsonObject.toString());
                     Log.d("Post", jsonObject.toString());

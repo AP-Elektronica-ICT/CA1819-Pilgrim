@@ -64,7 +64,13 @@ class LeaderboardAdapter extends ArrayAdapter<Pilgrimage>{
         int temp2 = minutestotal - (minutestotal%60);
         int hours = temp2/60;
 
-        String timeString = String.valueOf(hours) + ":" + String.valueOf(minutes) + ":" + String.valueOf(seconds);
+        String timeString;
+        if(hours == 0 && minutes ==0){
+            timeString = String.valueOf(seconds) + " seconds";
+        }else{
+            timeString = String.format("%02d", hours) + ":" + String.format("%02d", minutes) + ":" + String.format("%02d", seconds);
+        }
+
 
         time.setText(timeString);
 
