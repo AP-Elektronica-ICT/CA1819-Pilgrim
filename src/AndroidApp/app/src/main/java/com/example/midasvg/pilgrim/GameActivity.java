@@ -196,7 +196,6 @@ public class GameActivity extends AppCompatActivity {
         helpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getTravelledDist();
                 hintCount++;
                 totalHintCounter++;
                 AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
@@ -286,6 +285,7 @@ public class GameActivity extends AppCompatActivity {
                     prgBar.setProgress(0);
 
                     if (placesVisited == 3) {
+                        getTravelledDist();
                         Intent intent = new Intent(GameActivity.this, EndActivity.class);
                         intent.putExtra("Time", txtTime.getText());
                         intent.putExtra("StartTime", startTime);
@@ -350,7 +350,7 @@ public class GameActivity extends AppCompatActivity {
                             answer = location.getString("answer");
                             IntLocation = new com.example.midasvg.pilgrim.Location(){
 
-                            }
+                            };
                            // Log.d("onresponse", "onResponse: " + name);
 
                             //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
@@ -442,7 +442,7 @@ public class GameActivity extends AppCompatActivity {
             // prevDistance = tempDistance;
             //  dist = dist + tempDistance;
             // Log.d("distance", "tempdistance: "+tempDistance);
-            // Log.d("distance", "distance: "+dist);
+             Log.d("distance", "distance: "+dist);
             //Log.d("test", "onLocationChanged: " + distances);
 
             // txtDistance.setText(""+dist +"m");
