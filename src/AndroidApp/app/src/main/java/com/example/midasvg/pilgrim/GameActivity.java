@@ -178,10 +178,21 @@ public class GameActivity extends AppCompatActivity {
                     public void run() {
 
                         int s = count % 60;
-                        int min = count / 60;
-                        int hour = min % 60;
-                        min = min / 60;
-                        txtTime.setText(min + "h" + hour + "m" + s + "s");
+                        int mintemp = (count - count%60) / 60;
+                        int min = mintemp%60;
+                        int hour = (mintemp - min) / 60;
+                        String timeString;
+
+                        if(hour == 0 && min == 0){
+                            timeString = s + " seconds";
+                        }else if(hour == 0){
+                            timeString = String.format("%02d", min) + "m" + String.format("%02d", s) + "s";
+                        }
+                        else{
+                            timeString = String.format("%02d", hour) + ":" + String.format("%02d", min) + ":" + String.format("%02d", s) ;
+                        }
+
+                        txtTime.setText(timeString);
                         count++;
                         timerCount = count;
                        // Log.d("timercount", "timercount: "+timerCount);
@@ -265,7 +276,7 @@ public class GameActivity extends AppCompatActivity {
         answerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (answerTxt.getText().toString().equals(answer)) {
+                if (answerTxt.getText().toString().toLowerCase().equals(answer.toLowerCase())) {
                     //Log.d("text", "onClick: werkt ");
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
