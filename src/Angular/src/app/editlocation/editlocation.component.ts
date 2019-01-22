@@ -62,7 +62,7 @@ export class EditlocationComponent implements OnInit {
       answer: this.locationAnswer,
       hint1: this.locationHint1,
       hint2: this.locationHint2,
-      base64: this.base64String
+      base64: this.base64textString
     }
     this.locService.updateLocation(location1).subscribe(data => {
       this.location.naam = this.locationName;
