@@ -145,6 +145,8 @@ namespace BusinessLayer
                 location.Answer = updatedlocation.Answer;
                 location.Hint1 = updatedlocation.Hint1;
                 location.Hint2 = updatedlocation.Hint2;
+                location.Image = Convert.FromBase64String(updatedlocation.base64);
+                location.base64 = "";
                 context.SaveChanges();
                 return true;
             }

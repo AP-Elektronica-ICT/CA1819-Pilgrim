@@ -51,7 +51,7 @@ export class EditlocationComponent implements OnInit {
 
 
   editLocation() {
-    console.log(this.locationLatitude);
+    console.log(this.base64String);
     var location1: ILocation = {
       id: this.location.id,
       naam: this.locationName,

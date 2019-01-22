@@ -31,6 +31,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -48,6 +49,7 @@ public class GameActivity extends AppCompatActivity {
     private double[] currentPlace = {1, 2};
     private double[] nextPlace = {3, 4};
     private double distance;
+    private long startTime;
     int count = 00;
     int placesVisited = 0;
     TextView txtTime;
@@ -65,7 +67,7 @@ public class GameActivity extends AppCompatActivity {
     Location currLocation = new Location("B");
     TextView txtPlaces;
     TextView txtHint;
-
+    com.example.midasvg.pilgrim.Location IntLocation;
 
     //end coordinaten
 
@@ -102,7 +104,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         getSupportActionBar().setTitle("Pilgrimage");
-
+        startTime = System.currentTimeMillis() / 1000L;
         txtTime = (TextView) findViewById(R.id.txtTime);
         txtPlaces = (TextView) findViewById(R.id.txtPlaces);
         txtHint = (TextView) findViewById(R.id.txtHint);
@@ -110,7 +112,7 @@ public class GameActivity extends AppCompatActivity {
         prgBar.setScaleY(3f);
         answerBtn = (Button) findViewById(R.id.answerBtn);
         answerTxt = (EditText) findViewById(R.id.answerTxt);
-
+        txtPlaces.setText(placesVisited + "/3");
         // destinationLocation.setLatitude(51.212977); //hard coded om buiten te testen
         // destinationLocation.setLongitude(4.420918); //hard coded om buiten te testen
 
@@ -258,17 +260,19 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (answerTxt.getText().toString().equals(answer)) {
                     //Log.d("text", "onClick: werkt ");
-                    if (index < 1)
+                    if (index < 2)
                         index++;
 
                     hintCount = 0;
                     placesVisited++;
+                    txtPlaces.setText(placesVisited + "/3");
                     requestQueue.add(arrayRequest);
                     prgBar.setProgress(0);
 
                     if (placesVisited == 3) {
                         Intent intent = new Intent(GameActivity.this, EndActivity.class);
                         intent.putExtra("Time", txtTime.getText());
+                        intent.putExtra("StartTime", startTime);
                         intent.putExtra("timerCount", timerCount);
                         intent.putExtra("totalHintCount", totalHintCounter);
                         intent.putExtra("distance", dist);
@@ -299,10 +303,12 @@ public class GameActivity extends AppCompatActivity {
 
 
                         try {
+                            Log.d("post", response.toString());
 
                             //  for (int i = 0; i < response.length(); i++) {
                            // Log.d("index", "index: " + index);
                             JSONObject location = response.getJSONObject(index);
+
                             String name = location.getString("naam");
                             String description = location.getString("description");
                             double Lat = location.getDouble("lat");
@@ -311,6 +317,9 @@ public class GameActivity extends AppCompatActivity {
                             hint1 = location.getString("hint1");
                             hint2 = location.getString("hint2");
                             answer = location.getString("answer");
+                            IntLocation = new com.example.midasvg.pilgrim.Location(){
+
+                            }
                            // Log.d("onresponse", "onResponse: " + name);
 
                             //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.

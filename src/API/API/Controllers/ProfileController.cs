@@ -48,6 +48,17 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         //Geen idee of er post/delete nodig is? Nieuwe accounts worden aangemaakt via
         //FireBase en acc's verwijderen doen wij enkel
+        public IActionResult DeleteProfile(string id)
+        {
+            bool deleted = profileService.deleteProfile(id);
+            if (deleted)
+                return NoContent();
+
+            return NotFound();
+        
+        }
+
+
 
         [HttpPut]
         public IActionResult UpdateProfile([FromBody] Profile updatedProfile)

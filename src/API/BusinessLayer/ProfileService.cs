@@ -159,6 +159,19 @@ namespace BusinessLayer
             }
         }
 
+        public bool deleteProfile(string input)
+        {
+            Profile profile = context.Profiles.FirstOrDefault(m => m.fireBaseID == input);
+            if (profile != null)
+            {
+                context.Profiles.Remove(profile);
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+
+        }
+
         public bool isEmpty(string input)
         {
             if (input == "")

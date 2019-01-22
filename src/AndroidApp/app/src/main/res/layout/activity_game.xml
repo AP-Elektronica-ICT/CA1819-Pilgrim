@@ -184,7 +184,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/near_the_water_this_red_bricked_building_resides_two_different_docks_it_divides_find_the_first_letter_of_its_name_outside_before_you_get_caught_up_by_the_tide"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.142"
