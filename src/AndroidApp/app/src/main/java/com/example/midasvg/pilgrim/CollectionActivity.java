@@ -98,14 +98,13 @@ public class CollectionActivity extends AppCompatActivity {
                         try {
 
                             jArray = response;
-
                             Log.d("LocationLength", "onResponse: " + response.length());
                             for (int i = 0; i < response.length(); i++) {
                                 final JSONObject temp = response.getJSONObject(i);
                                 Location tempLocation = new Location(){{
                                     naam = temp.getString("naam");
-
                                     String test = temp.getString("base64");
+
                                     byte[] decodedString = Base64.decode(test, Base64.DEFAULT);
                                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 

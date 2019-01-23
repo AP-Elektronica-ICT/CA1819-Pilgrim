@@ -27,18 +27,12 @@ class PilgrimageAdapter extends ArrayAdapter<Pilgrimage> {
 
         Pilgrimage pilgrimage = getItem(position);
 
-        //TextView txtID = (TextView) customView.findViewById(R.id.pilgrimageID);
         TextView txtStart = (TextView) customView.findViewById(R.id.txtStarted);
         TextView txtTimeSpent = (TextView) customView.findViewById(R.id.txtTimeSpent);
 
         long dv = Long.valueOf(pilgrimage.startTime)*1000;// its need to be in milisecond
         Date df = new java.util.Date(dv);
         String vv = new SimpleDateFormat("dd/MM/yyyy").format(df);
-
-
-        //txtID.setText("Pilgrimage " +String.valueOf(pilgrimage.id));
-
-        //tijd nog formatteren
         txtStart.setText(String.valueOf(vv));
 
         int seconds = pilgrimage.Time%60;

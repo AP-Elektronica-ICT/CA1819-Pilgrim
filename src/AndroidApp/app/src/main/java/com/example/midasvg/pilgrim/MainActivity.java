@@ -88,14 +88,12 @@ public class MainActivity extends AppCompatActivity  {
     private void UserMenuSelector(MenuItem item){
         switch (item.getItemId()){
             case R.id.nav_collections:
-                Toast.makeText(MainActivity.this, "Collection.", Toast.LENGTH_SHORT).show();
                 Intent intentCollection = new Intent(MainActivity.this, CollectionActivity.class);
                 startActivity(intentCollection);
                 break;
 
             case R.id.nav_game:
                 Intent intentGame = new Intent(MainActivity.this, MainActivity.class);
-                Toast.makeText(MainActivity.this, "Already selected.", Toast.LENGTH_SHORT).show();
                 startActivity(intentGame);
                 break;
             case R.id.nav_leaderboard:
@@ -103,12 +101,10 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(intentLeaderboard);
                 break;
             case  R.id.nav_profile:
-                Toast.makeText(MainActivity.this, "Profile.", Toast.LENGTH_SHORT).show();
                 Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(intentProfile);
                 break;
             case R.id.nav_guide:
-                Toast.makeText(MainActivity.this, "Guide.", Toast.LENGTH_SHORT).show();
                 Intent intentGuide = new Intent(MainActivity.this, GuideActivity.class);
                 startActivity(intentGuide);
                 break;

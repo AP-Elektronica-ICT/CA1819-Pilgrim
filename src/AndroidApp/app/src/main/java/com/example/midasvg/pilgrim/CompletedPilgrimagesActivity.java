@@ -42,7 +42,6 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
         String URL = "http://pilgrimapp.azurewebsites.net/api/pilgrimages";
         final List<Pilgrimage> pilgrimagesList = new ArrayList<Pilgrimage>();
 
-
         requestQueue = Volley.newRequestQueue(this);
         Log.d("Request", "onCreate: ");
         JsonRequest = new JsonObjectRequest(
@@ -57,13 +56,10 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
 
                             JSONObject completedPilgrimages = response;
                             JSONArray pilgrimages = completedPilgrimages.getJSONArray("pilgrimages");
-                            Log.d("PilgrimagesLength", "onResponse: " + pilgrimages.length());
                             for (int i = 0; i < pilgrimages.length(); i++) {
                                 final JSONObject temp = pilgrimages.getJSONObject(i);
                                 Pilgrimage pilgrimagetemp = new Pilgrimage(){{
                                     id = temp.getInt("id");
-                                    //FireBaseID = temp.getString("fireBaseID");
-                                    //username = temp.getString("username");
                                     startTime = temp.getInt("startTime");
                                     Time = temp.getInt("time");
                                 }};
