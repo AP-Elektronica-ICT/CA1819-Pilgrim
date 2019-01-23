@@ -24,7 +24,16 @@ namespace BusinessLayer
             var collectionLocations = context.CollectionLocation.Where(r => r.CollectionID == collection.ID);
             foreach (CollectionLocation i in collectionLocations)
             {
-                collection.Locations.Add(context.Locations.Find(i.LocationID));
+                var temp = context.Locations.Find(i.LocationID);
+                if (temp.Image != null)
+                {
+                    temp.base64 = Convert.ToBase64String(temp.Image);
+                }
+                else
+                {
+                    temp.base64 = "";
+                }
+                collection.Locations.Add(temp);
             }
 
             return collection;

@@ -31,6 +31,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
 
@@ -51,16 +52,19 @@ public class CollectionActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    private String UID;
     JSONArray jArray;
 
     RequestQueue requestQueue;
-    JsonArrayRequest arrayRequest;
+    JsonObjectRequest jsonRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        UID = user.getUid();
         //getSupportActionBar().setTitle("Collection");
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Collection </font>"));
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#464646")));
@@ -82,25 +86,26 @@ public class CollectionActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        String locationUrl = "http://pilgrimapp.azurewebsites.net/api/locations";
+        String locationUrl = "http://pilgrimapp.azurewebsites.net/api/profiles/"+UID + "/collection";
         final List<Location> locationList = new ArrayList<Location>();
 
         requestQueue = Volley.newRequestQueue(this);
-        arrayRequest = new JsonArrayRequest(
+        jsonRequest = new JsonObjectRequest(
                 Request.Method.GET,
                 locationUrl,
                 null,
 
-                new Response.Listener<JSONArray>() {
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d("Response", response.toString());
+                    public void onResponse(JSONObject response) {
+
                         try {
 
-                            jArray = response;
-                            Log.d("LocationLength", "onResponse: " + response.length());
-                            for (int i = 0; i < response.length(); i++) {
-                                final JSONObject temp = response.getJSONObject(i);
+                            JSONObject jsonObject = response;
+                            jArray = response.getJSONArray("locations");
+
+                            for (int i = 0; i < jArray.length(); i++) {
+                                final JSONObject temp = jArray.getJSONObject(i);
                                 Location tempLocation = new Location(){{
                                     naam = temp.getString("naam");
                                     String test = temp.getString("base64");
@@ -149,11 +154,11 @@ public class CollectionActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("REST response", error.toString());
+
                     }
                 }
         );
-        requestQueue.add(arrayRequest);
+        requestQueue.add(jsonRequest);
 
     }
 

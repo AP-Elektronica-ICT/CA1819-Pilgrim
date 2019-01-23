@@ -40,7 +40,7 @@ namespace BusinessLayer
         public Leaderboard GetLeaderboard(long start, long end, int? page )
         {
             IQueryable<Pilgrimage> pilgrimages = context.Pilgrimages;
-            var length = 5;
+            var length = 35;
             //pilgrimages = pilgrimages.Where(d => d.StartTime >= start && d.StartTime <= end);
             pilgrimages = pilgrimages.OrderBy(d => d.Time);
             pilgrimages.Include(d => d.Locations);

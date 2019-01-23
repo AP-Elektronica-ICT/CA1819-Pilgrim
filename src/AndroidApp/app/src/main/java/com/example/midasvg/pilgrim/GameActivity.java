@@ -34,6 +34,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -42,6 +44,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -89,6 +93,8 @@ public class GameActivity extends AppCompatActivity {
     Button answerBtn;
     EditText answerTxt;
     String answer;
+    int locationID;
+    String UID;
 
     //end distance to location
 
@@ -108,6 +114,9 @@ public class GameActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Pilgrimage </font>"));
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#464646")));
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        UID = user.getUid();
 
         startTime = System.currentTimeMillis() / 1000L;
         txtTime = (TextView) findViewById(R.id.txtTime);
@@ -273,11 +282,13 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (answerTxt.getText().toString().toLowerCase().equals(answer.toLowerCase())) {
                     //Log.d("text", "onClick: werkt ");
-
+                    sendPost();
                     AlertDialog.Builder builder = new AlertDialog.Builder(GameActivity.this);
                     builder.setCancelable(true);
                     builder.setTitle("Congratulations!");
                     builder.setMessage("The answer was correct!");
+
+
 
                     builder.setNegativeButton("Continue", new DialogInterface.OnClickListener() {
                         @Override
@@ -349,6 +360,7 @@ public class GameActivity extends AppCompatActivity {
                            // Log.d("index", "index: " + index);
                             JSONObject location = response.getJSONObject(index);
 
+                            locationID = location.getInt("id");
                             String name = location.getString("naam");
                             String description = location.getString("description");
                             double Lat = location.getDouble("lat");
@@ -487,5 +499,44 @@ public class GameActivity extends AppCompatActivity {
         // prgBar.setMax((int)totalDistance);
         if (counter > 1)
             prgBar.setProgress((int) afstand);
+    }
+
+    public void sendPost() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    URL url = new URL("http://pilgrimapp.azurewebsites.net/api/profiles/" + UID + "/collection");
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+                    conn.setRequestProperty("Accept", "application/json");
+                    conn.setDoOutput(true);
+                    conn.setDoInput(true);
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("id", locationID);
+                    DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+                    os.writeBytes(jsonObject.toString());
+                    int msg;
+
+                    os.flush();
+                    os.close();
+                    msg = conn.getResponseCode();
+                    conn.disconnect();
+                    Log.d("Post", String.valueOf(msg));
+                    if (msg == 200) {
+                        Toast.makeText(getBaseContext(), "Succes. ",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getBaseContext(), "Something failed. Try again",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
     }
 }
