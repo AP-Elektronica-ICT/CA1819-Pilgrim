@@ -4,57 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/charcoal"
     tools:context=".CollectableActivity">
 
     <LinearLayout
-        android:layout_width="395dp"
-        android:layout_height="587dp"
+        android:layout_width="380dp"
+        android:layout_height="692dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Antwerp"
-            android:textSize="18sp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txtTitle"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Location Title"
-            android:textColor="@color/black"
-            android:textSize="36sp" />
-
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Location Address"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/locImage"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:layout_height="202dp"
+            app:srcCompat="@drawable/blank_profile_picture" />
 
         <TextView
             android:id="@+id/textView23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="Info"
-            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtBeschrijving"
             android:layout_width="match_parent"
             android:layout_height="232dp"
+            android:layout_marginTop="10dp"
             android:text=" Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/bttnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/white"
+            android:text="Back"
+            android:textColor="@color/charcoal" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

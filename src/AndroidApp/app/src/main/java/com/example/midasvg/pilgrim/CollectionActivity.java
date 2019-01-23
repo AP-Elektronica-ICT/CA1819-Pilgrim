@@ -126,43 +126,18 @@ public class CollectionActivity extends AppCompatActivity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-                                    Intent collecIntent = new Intent(CollectionActivity.this, CollectableActivity.class);
-
                                     int getID = 0;
-                                    String getNaam = "";
-                                    String getImg = "";
-                                    String getDesc = "";
-
-
                                     try{
                                         final JSONObject temp = jArray.getJSONObject(position);
                                         getID = temp.getInt("id");
-                                        getNaam = temp.getString("naam");
-                                        getImg = temp.getString("base64");
-                                        getDesc = temp.getString("description");
-
-
-
-
-
 
 
                                     }catch (JSONException e) {
                                         e.printStackTrace();
                                     }
 
-
-                                    byte[] decodedString = Base64.decode(getImg, Base64.DEFAULT);
-                                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-
+                                    Intent collecIntent = new Intent(CollectionActivity.this, CollectableActivity.class);
                                     collecIntent.putExtra("id2", getID);
-                                    collecIntent.putExtra("name", getNaam);
-                                    Log.d("tag", getImg);
-                                    collecIntent.putExtra("data", decodedByte);
-                                    collecIntent.putExtra("desc", getDesc);
-
-                                    //Toast.makeText(CollectionActivity.this, "selected" + String.valueOf(getID), Toast.LENGTH_SHORT).show();
                                     startActivity(collecIntent);
                                 }
                             });
