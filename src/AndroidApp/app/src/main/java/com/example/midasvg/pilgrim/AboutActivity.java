@@ -32,7 +32,6 @@ public class AboutActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>About </font>"));
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#464646")));
 
-        //De button wordt ge-enabled op de Action Bar
         nDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         navigationView = (NavigationView) findViewById(R.id.navView);
         nToggle = new ActionBarDrawerToggle(this, nDrawerLayout, R.string.open, R.string.close);
@@ -49,7 +48,6 @@ public class AboutActivity extends AppCompatActivity {
         });
 
         mAuth = FirebaseAuth.getInstance();
-
 
     }
 

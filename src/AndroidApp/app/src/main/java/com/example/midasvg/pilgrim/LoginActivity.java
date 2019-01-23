@@ -71,7 +71,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextView mEmailField;
     private TextView mPasswordField;
 
-
     private SignInButton googleSignIn;
     private LoginButton facebookLogin;
 

@@ -15,6 +15,8 @@ import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +39,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +50,8 @@ public class CollectionActivity extends AppCompatActivity {
     private ActionBarDrawerToggle nToggle;
 
     private FirebaseAuth mAuth;
+
+    JSONArray jArray;
 
     RequestQueue requestQueue;
     JsonArrayRequest arrayRequest;
@@ -92,13 +97,14 @@ public class CollectionActivity extends AppCompatActivity {
                         Log.d("Response", response.toString());
                         try {
 
+                            jArray = response;
                             Log.d("LocationLength", "onResponse: " + response.length());
                             for (int i = 0; i < response.length(); i++) {
                                 final JSONObject temp = response.getJSONObject(i);
                                 Location tempLocation = new Location(){{
                                     naam = temp.getString("naam");
-
                                     String test = temp.getString("base64");
+
                                     byte[] decodedString = Base64.decode(test, Base64.DEFAULT);
                                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
@@ -114,6 +120,26 @@ public class CollectionActivity extends AppCompatActivity {
                             ListAdapter Adapter = new CollectionAdapter(getBaseContext(),locationsarray);
                             ListView locList = (ListView) findViewById(R.id.collectionView);
                             locList.setAdapter(Adapter);
+
+                            locList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                    int getID = 0;
+                                    try{
+                                        final JSONObject temp = jArray.getJSONObject(position);
+                                        getID = temp.getInt("id");
+
+
+                                    }catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    Intent collecIntent = new Intent(CollectionActivity.this, CollectableActivity.class);
+                                    collecIntent.putExtra("id2", getID);
+                                    startActivity(collecIntent);
+                                }
+                            });
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -9,6 +9,10 @@ package com.example.midasvg.pilgrim;
         import android.widget.ArrayAdapter;
         import android.widget.TextView;
 
+        import java.text.SimpleDateFormat;
+        import java.util.Date;
+        import java.util.Locale;
+
 class PilgrimageAdapter extends ArrayAdapter<Pilgrimage> {
 
     public PilgrimageAdapter(@NonNull Context context, Pilgrimage[] pilgrimages) {
@@ -23,15 +27,13 @@ class PilgrimageAdapter extends ArrayAdapter<Pilgrimage> {
 
         Pilgrimage pilgrimage = getItem(position);
 
-        TextView txtID = (TextView) customView.findViewById(R.id.pilgrimageID);
         TextView txtStart = (TextView) customView.findViewById(R.id.txtStarted);
         TextView txtTimeSpent = (TextView) customView.findViewById(R.id.txtTimeSpent);
 
-
-        txtID.setText("Pilgrimage " +String.valueOf(pilgrimage.id));
-
-        //tijd nog formatteren
-        txtStart.setText("Started on: " +String.valueOf(pilgrimage.startTime));
+        long dv = Long.valueOf(pilgrimage.startTime)*1000;// its need to be in milisecond
+        Date df = new java.util.Date(dv);
+        String vv = new SimpleDateFormat("dd/MM/yyyy").format(df);
+        txtStart.setText(String.valueOf(vv));
 
         int seconds = pilgrimage.Time%60;
         int temp = pilgrimage.Time - (pilgrimage.Time%60);
@@ -40,8 +42,13 @@ class PilgrimageAdapter extends ArrayAdapter<Pilgrimage> {
         int temp2 = minutestotal - (minutestotal%60);
         int hours = temp2/60;
 
-        String timeString = String.valueOf(hours) + ":" + String.valueOf(minutes) + ":" + String.valueOf(seconds);
-        txtTimeSpent.setText("Duration: " + timeString);
+        String timeString;
+        if(hours == 0 && minutes ==0){
+            timeString = String.valueOf(seconds) + " seconds";
+        }else{
+            timeString = String.format("%02d", hours) + ":" + String.format("%02d", minutes) + ":" + String.format("%02d", seconds);
+        }
+        txtTimeSpent.setText(timeString);
 
         return customView;
     }
