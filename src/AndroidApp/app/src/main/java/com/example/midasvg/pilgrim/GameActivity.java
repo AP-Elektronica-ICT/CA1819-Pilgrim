@@ -106,9 +106,6 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
-        //getSupportActionBar().setTitle("Pilgrimage");
-
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Pilgrimage </font>"));
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#464646")));
 
@@ -195,7 +192,6 @@ public class GameActivity extends AppCompatActivity {
                         txtTime.setText(timeString);
                         count++;
                         timerCount = count;
-                       // Log.d("timercount", "timercount: "+timerCount);
                     }
                 });
             }
@@ -240,7 +236,6 @@ public class GameActivity extends AppCompatActivity {
         });
 
         //Alert message wanneer de gebruiker in game zit en op 'Quit' drukt.
-        //Timer wordt ook gestopt
         final Button quitGame = (Button) findViewById(R.id.bttnQuit);
         quitGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -335,8 +330,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        //API aanspreken
-        //String locationURL = "http://10.0.2.2:53000/api/locations";
         String locationURL = "http://pilgrimapp.azurewebsites.net/api/locations";
 
         requestQueue = Volley.newRequestQueue(this);
@@ -348,9 +341,6 @@ public class GameActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        //Locaties ophalen
-                       // Log.d("Response", response.toString());
-
 
                         try {
                             Log.d("post", response.toString());
@@ -370,7 +360,6 @@ public class GameActivity extends AppCompatActivity {
                             IntLocation = new com.example.midasvg.pilgrim.Location(){
 
                             };
-                           // Log.d("onresponse", "onResponse: " + name);
 
                             //nota: lat & long werkt in de emulator, maar om de progressbar buiten te testen heb ik de lat & long bovenaan in onCreate hard coded gezet.
                             destinationLocation.setLatitude(Lat);

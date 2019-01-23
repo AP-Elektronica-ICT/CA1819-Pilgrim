@@ -66,7 +66,6 @@ public class GuideActivity extends AppCompatActivity {
                 Intent intentCollection = new Intent(GuideActivity.this, CollectionActivity.class);
                 startActivity(intentCollection);
                 break;
-
             case R.id.nav_game:
                 Intent intentGame = new Intent(GuideActivity.this, MainActivity.class);
                 startActivity(intentGame);
