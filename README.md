@@ -40,6 +40,23 @@ When All of your information is entered you can press the Add Location button to
 
 ### 2. Vuforia
 
+To use Vuforia you have to follow a couple of steps.
+
+1. Download Unity. 
+2. surf to https://developer.vuforia.com/target-manager, Login or create an account.
+3. Click on "get developement key"
+4. Click on " add database"
+5. Upload images in database.
+6. In Unity paste the key in "Vuforia Configuration"
+7. In Vuforia portal click on " download database" this will automatically open and import it in Unity. 
+8. Add an AR camera in unity. 
+9. Add an imageobject in the camera + select which image.
+10. Add Quad to image. 
+11. Make a Material + drag the image you want to augment from your computer onto the material. 
+12. Drag the Material onto the Quad.
+13. Your phone will now be able to augment the second image after you build the application.
+
+14. We found a Tutorial on making images augmentable that will make all the above steps more comprehensible: https://www.youtube.com/watch?v=MtiUx_szKbI
 
 ## Edit locations
 
