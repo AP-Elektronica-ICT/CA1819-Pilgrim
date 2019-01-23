@@ -6,7 +6,7 @@ public class Location {
     int id;
     Bitmap img;
     String naam;
-    String beschrijving;
+    String description;
     String base64;
 
 }

@@ -15,6 +15,8 @@ import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +39,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +50,8 @@ public class CollectionActivity extends AppCompatActivity {
     private ActionBarDrawerToggle nToggle;
 
     private FirebaseAuth mAuth;
+
+    JSONArray jArray;
 
     RequestQueue requestQueue;
     JsonArrayRequest arrayRequest;
@@ -92,6 +97,8 @@ public class CollectionActivity extends AppCompatActivity {
                         Log.d("Response", response.toString());
                         try {
 
+                            jArray = response;
+
                             Log.d("LocationLength", "onResponse: " + response.length());
                             for (int i = 0; i < response.length(); i++) {
                                 final JSONObject temp = response.getJSONObject(i);
@@ -114,6 +121,51 @@ public class CollectionActivity extends AppCompatActivity {
                             ListAdapter Adapter = new CollectionAdapter(getBaseContext(),locationsarray);
                             ListView locList = (ListView) findViewById(R.id.collectionView);
                             locList.setAdapter(Adapter);
+
+                            locList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                                    Intent collecIntent = new Intent(CollectionActivity.this, CollectableActivity.class);
+
+                                    int getID = 0;
+                                    String getNaam = "";
+                                    String getImg = "";
+                                    String getDesc = "";
+
+
+                                    try{
+                                        final JSONObject temp = jArray.getJSONObject(position);
+                                        getID = temp.getInt("id");
+                                        getNaam = temp.getString("naam");
+                                        getImg = temp.getString("base64");
+                                        getDesc = temp.getString("description");
+
+
+
+
+
+
+
+                                    }catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+                                    byte[] decodedString = Base64.decode(getImg, Base64.DEFAULT);
+                                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+                                    collecIntent.putExtra("id2", getID);
+                                    collecIntent.putExtra("name", getNaam);
+                                    Log.d("tag", getImg);
+                                    collecIntent.putExtra("data", decodedByte);
+                                    collecIntent.putExtra("desc", getDesc);
+
+                                    //Toast.makeText(CollectionActivity.this, "selected" + String.valueOf(getID), Toast.LENGTH_SHORT).show();
+                                    startActivity(collecIntent);
+                                }
+                            });
 
                         } catch (JSONException e) {
                             e.printStackTrace();
