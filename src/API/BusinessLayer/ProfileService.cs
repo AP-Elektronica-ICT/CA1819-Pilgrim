@@ -81,6 +81,12 @@ namespace BusinessLayer
                     newProfile.base64 = "";
                     newProfile.DateCreated = (int)(DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalSeconds;
                     context.Profiles.Add(newProfile);
+
+                    Collection temp = new Collection
+                    {
+                       FireBaseID = newProfile.fireBaseID,
+                    };
+                    context.Collections.Add(temp);
                     context.SaveChanges();
                     return newProfile;
                 }

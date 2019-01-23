@@ -35,6 +35,7 @@ namespace API
             services.AddScoped<LocationService>();
             services.AddScoped<PilgrimageService>();
             services.AddScoped<ProfileService>();
+            services.AddScoped<CollectionService>();
             services.AddMvc();
             services.AddCors();
         }

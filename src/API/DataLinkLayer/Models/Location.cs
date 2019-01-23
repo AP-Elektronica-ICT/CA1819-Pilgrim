@@ -20,5 +20,8 @@ namespace DataLinkLayer.Models
         [JsonIgnore]
         public byte[] Image { get; set; }
 
+        [JsonIgnore]
+        public ICollection<CollectionLocation> collectionLocations { get; set; }
+
     }
 }

@@ -12,10 +12,12 @@ namespace API.Controllers
     public class ProfileController : Controller
     {
         private readonly ProfileService profileService;
+        private readonly CollectionService collectionservice;
 
-        public ProfileController(ProfileService profileService)
+        public ProfileController(ProfileService profileService, CollectionService collectionService)
         {
             this.profileService = profileService;
+            this.collectionservice = collectionService;
         }
 
         [HttpGet]
@@ -66,6 +68,24 @@ namespace API.Controllers
             if (this.profileService.UpdateProfile(updatedProfile) == false)
                 return NotFound();
             return Ok(updatedProfile);
+        }
+
+        
+        [HttpGet("{id}/collection")]
+        public IActionResult getCollection(string id)
+        {
+            var collection = this.collectionservice.GetCollection(id);
+            if (collection == null)
+                return NotFound();
+            return Ok(collection);
+        }
+
+        [HttpPost("{id}/collection")]
+        public IActionResult AddLocationToCollection(string id, [FromBody]Location location)
+        {
+            if (this.collectionservice.AddLocationToCollection(id, location))
+                return Ok();
+            return BadRequest();
         }
 
     }
