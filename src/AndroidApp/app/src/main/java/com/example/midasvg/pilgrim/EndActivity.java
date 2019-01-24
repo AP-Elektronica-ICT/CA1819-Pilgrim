@@ -1,8 +1,11 @@
 package com.example.midasvg.pilgrim;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +54,10 @@ public class EndActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end);
+
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>Finished </font>"));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#464646")));
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         UID = user.getUid();
