@@ -73,7 +73,7 @@ public class LeaderboardActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-        String URL = "http://pilgrimapp.azurewebsites.net/api/pilgrimages";
+        String URL = "hhttp://capilgrim.azurewebsites.net/api/pilgrimages";
         final List<Pilgrimage> pilgrimagesList = new ArrayList<Pilgrimage>();
 
         requestQueue = Volley.newRequestQueue(this);

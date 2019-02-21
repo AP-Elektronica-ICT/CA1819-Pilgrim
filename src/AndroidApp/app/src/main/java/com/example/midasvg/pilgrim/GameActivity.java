@@ -341,7 +341,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        String locationURL = "http://pilgrimapp.azurewebsites.net/api/locations";
+        String locationURL = "http://capilgrim.azurewebsites.net/api/locations";
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -507,7 +507,7 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 try {
 
-                    URL url = new URL("http://pilgrimapp.azurewebsites.net/api/profiles/" + UID + "/collection");
+                    URL url = new URL("http://capilgrim.azurewebsites.net/api/profiles/" + UID + "/collection");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");

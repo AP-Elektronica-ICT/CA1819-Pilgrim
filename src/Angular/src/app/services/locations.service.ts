@@ -13,7 +13,7 @@ export class LocationsService {
     })
   };
 
-  private baseURL = 'http://pilgrimapp.azurewebsites.net/api/'
+  private baseURL = 'http://capilgrim.azurewebsites.net/api/'
 
   getLocations():Observable<ILocation[]>{
     return this.http.get<ILocation[]>(this.baseURL + `locations`, this.httpOptions);

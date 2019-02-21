@@ -43,7 +43,7 @@ public class CompletedPilgrimagesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>My Pilgrimages </font>"));
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#464646")));
 
-        String URL = "http://pilgrimapp.azurewebsites.net/api/pilgrimages";
+        String URL = "http://capilgrim.azurewebsites.net/api/pilgrimages";
         final List<Pilgrimage> pilgrimagesList = new ArrayList<Pilgrimage>();
 
         requestQueue = Volley.newRequestQueue(this);

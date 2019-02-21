@@ -136,7 +136,7 @@ public class EndActivity extends AppCompatActivity {
             public void run() {
                 try {
 
-                    URL url = new URL("http://pilgrimapp.azurewebsites.net/api/pilgrimages");
+                    URL url = new URL("http://capilgrim.azurewebsites.net/api/pilgrimages");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("POST");
                     conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");

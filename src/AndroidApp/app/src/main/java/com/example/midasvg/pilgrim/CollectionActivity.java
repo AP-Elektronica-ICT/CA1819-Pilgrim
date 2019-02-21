@@ -86,7 +86,7 @@ public class CollectionActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        String locationUrl = "http://pilgrimapp.azurewebsites.net/api/profiles/"+UID + "/collection";
+        String locationUrl = "http://capilgrim.azurewebsites.net/api/profiles/"+UID + "/collection";
         final List<Location> locationList = new ArrayList<Location>();
 
         requestQueue = Volley.newRequestQueue(this);

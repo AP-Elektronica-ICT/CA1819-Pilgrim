@@ -50,7 +50,7 @@ public class CollectableActivity extends AppCompatActivity {
 
         int index = getIntent().getIntExtra("id2",0);
 
-        String URL = "http://pilgrimapp.azurewebsites.net/api/locations/" + index;
+        String URL = "http://capilgrim.azurewebsites.net/api/locations/" + index;
 
         requestQueue = Volley.newRequestQueue(this);
 

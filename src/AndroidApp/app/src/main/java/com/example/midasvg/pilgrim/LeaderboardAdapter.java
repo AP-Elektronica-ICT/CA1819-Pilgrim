@@ -38,7 +38,7 @@ class LeaderboardAdapter extends ArrayAdapter<Pilgrimage>{
 
     RequestQueue requestQueue;
     JsonObjectRequest JsonRequest;
-    String URL = "http://pilgrimapp.azurewebsites.net/api/profiles";
+    String URL = "http://capilgrim.azurewebsites.net/api/profiles";
 
     @NonNull
     @Override
@@ -76,7 +76,7 @@ class LeaderboardAdapter extends ArrayAdapter<Pilgrimage>{
 
         if(position + 1  <= 3){
 
-            URL = "http://pilgrimapp.azurewebsites.net/api/profiles/" + pilgrimage.FireBaseID;
+            URL = "http://capilgrim.azurewebsites.net/api/profiles/" + pilgrimage.FireBaseID;
             requestQueue = Volley.newRequestQueue(getContext());
 
             JsonRequest = new JsonObjectRequest(

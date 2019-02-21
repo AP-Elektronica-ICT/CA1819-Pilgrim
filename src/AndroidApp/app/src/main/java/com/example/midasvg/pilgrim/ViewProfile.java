@@ -61,7 +61,7 @@ public class ViewProfile extends AppCompatActivity {
 
 
 
-        String URL = "http://pilgrimapp.azurewebsites.net/api/profiles/" + UID;
+        String URL = "http://capilgrim.azurewebsites.net/api/profiles/" + UID;
 
         requestQueue = Volley.newRequestQueue(this);
 

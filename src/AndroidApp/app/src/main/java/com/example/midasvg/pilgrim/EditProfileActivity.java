@@ -92,7 +92,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
 
 
-        String URL = "http://pilgrimapp.azurewebsites.net/api/profiles/" + UID;
+        String URL = "http://capilgrim.azurewebsites.net/api/profiles/" + UID;
 
         requestQueue = Volley.newRequestQueue(this);
 
@@ -234,31 +234,6 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 */
 
-        //API aanspreken
-        String locationURL = "http://localhost:44384/locations";
-
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-
-        JsonObjectRequest objectRequest = new JsonObjectRequest(
-                Request.Method.GET,
-                locationURL,
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        //profile picture ophalen
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("REST response", error.toString());
-                    }
-                }
-
-        );
-        requestQueue.add(objectRequest);
-
     }
 
     private void openGallery(){
@@ -354,7 +329,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try{
-                    String _url = "http://pilgrimapp.azurewebsites.net/api/profiles/";
+                    String _url = "http://capilgrim.azurewebsites.net/api/profiles/";
                     URL url = new URL(_url);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("PUT");
